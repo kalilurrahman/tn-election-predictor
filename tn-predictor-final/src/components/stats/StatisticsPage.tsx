@@ -7,11 +7,17 @@ import {
   BarChart,
   Cell,
   CartesianGrid,
+  ComposedChart,
   Legend,
   Line,
   LineChart,
   Pie,
   PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
   ResponsiveContainer,
   Scatter,
   ScatterChart,
@@ -101,8 +107,21 @@ type SeatDynamicsPayload = {
   bellwether_seats: SeatDynamicsRow[];
 };
 
+type CandidateModelSummaryRow = {
+  party: string;
+  candidates: number;
+  wins: number;
+  avg_vote_share_pct: number;
+};
+
+type CandidateModelSummary = {
+  year: number;
+  rows: CandidateModelSummaryRow[];
+};
+
 export const StatisticsPage = () => {
   const [seatDynamics, setSeatDynamics] = useState<SeatDynamicsPayload | null>(null);
+  const [candidateSummary, setCandidateSummary] = useState<CandidateModelSummary | null>(null);
   const avgTurnout =
     Math.round((HISTORICAL_RESULTS.reduce((sum, row) => sum + row.turnout, 0) / HISTORICAL_RESULTS.length) * 10) / 10;
   const avgWinnerSeats =
@@ -131,7 +150,44 @@ export const StatisticsPage = () => {
       .then((res) => res.json())
       .then((json) => setSeatDynamics(json))
       .catch(() => setSeatDynamics(null));
+    fetch('/api/elections/candidate-model-summary')
+      .then((res) => res.json())
+      .then((json) => setCandidateSummary(json))
+      .catch(() => setCandidateSummary(null));
   }, []);
+
+  const partyPower = (candidateSummary?.rows ?? [])
+    .slice(0, 8)
+    .map((row) => ({
+      ...row,
+      strike_rate: row.candidates > 0 ? Number(((row.wins / row.candidates) * 100).toFixed(2)) : 0,
+      influence: row.wins * 3 + row.avg_vote_share_pct,
+    }));
+
+  const radarData = partyPower.slice(0, 5).map((row) => ({
+    party: row.party,
+    wins: row.wins,
+    voteShare: row.avg_vote_share_pct,
+    strikeRate: row.strike_rate,
+  }));
+
+  const swingWaveData = (() => {
+    if (!seatDynamics) return [];
+    const all = [...seatDynamics.safe_seats, ...seatDynamics.swing_seats, ...seatDynamics.bellwether_seats];
+    const bins = [
+      { bucket: '< -8%', min: -999, max: -8, seats: 0 },
+      { bucket: '-8% to -3%', min: -8, max: -3, seats: 0 },
+      { bucket: '-3% to +3%', min: -3, max: 3, seats: 0 },
+      { bucket: '+3% to +8%', min: 3, max: 8, seats: 0 },
+      { bucket: '> +8%', min: 8, max: 999, seats: 0 },
+    ];
+    for (const row of all) {
+      const v = row.vote_swing_pct;
+      const hit = bins.find((b) => v >= b.min && v < b.max);
+      if (hit) hit.seats += 1;
+    }
+    return bins;
+  })();
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
@@ -268,6 +324,67 @@ export const StatisticsPage = () => {
           </div>
         </ChartPanel>
       </div>
+
+      {candidateSummary && (
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-6">
+          <ChartPanel title="Party Power Matrix (Wins + Vote Share)">
+            <div className="h-[300px] sm:h-[340px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <ComposedChart data={partyPower}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="party" interval={0} angle={-20} height={60} textAnchor="end" />
+                  <YAxis yAxisId="left" />
+                  <YAxis yAxisId="right" orientation="right" />
+                  <Tooltip />
+                  <Legend />
+                  <Bar yAxisId="left" dataKey="wins" name="Wins" fill="#0f766e" radius={[8, 8, 0, 0]} />
+                  <Line yAxisId="right" type="monotone" dataKey="avg_vote_share_pct" name="Avg Vote Share %" stroke="#7c3aed" strokeWidth={3} dot />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          </ChartPanel>
+
+          <ChartPanel title="Candidate Strength Radar (Top Parties)">
+            <div className="h-[300px] sm:h-[340px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={radarData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="party" />
+                  <PolarRadiusAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Radar name="Wins" dataKey="wins" stroke="#dc2626" fill="#dc2626" fillOpacity={0.35} />
+                  <Radar name="Strike Rate %" dataKey="strikeRate" stroke="#2563eb" fill="#2563eb" fillOpacity={0.25} />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+          </ChartPanel>
+        </div>
+      )}
+
+      {swingWaveData.length > 0 && (
+        <div className="grid grid-cols-1 mt-6">
+          <ChartPanel title="Swing Shockwave (Seat Count by Swing Band)">
+            <div className="h-[280px] sm:h-[320px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={swingWaveData}>
+                  <defs>
+                    <linearGradient id="shockwave" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ef4444" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.2} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="bucket" interval={0} angle={-8} height={40} />
+                  <YAxis />
+                  <Tooltip />
+                  <Area type="monotone" dataKey="seats" stroke="#ef4444" fill="url(#shockwave)" strokeWidth={3} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </ChartPanel>
+        </div>
+      )}
 
       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="glass-panel rounded-3xl p-5 border border-border/40 mt-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
