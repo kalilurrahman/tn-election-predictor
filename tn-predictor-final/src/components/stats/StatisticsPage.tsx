@@ -46,6 +46,39 @@ const TURNOUT_VS_WIN_MARGIN = [
   { year: '2021', turnout: 73.6, margin: 84 },
 ];
 
+const SEAT_CLASS_BY_YEAR = [
+  { year: '2011', safe: 156, swing: 58, bellwether: 20 },
+  { year: '2016', safe: 124, swing: 80, bellwether: 30 },
+  { year: '2021', safe: 139, swing: 66, bellwether: 29 },
+];
+
+const MARGIN_BUCKETS_BY_YEAR = [
+  { year: '2011', under3: 18, p3to8: 42, p8to15: 55, over15: 119 },
+  { year: '2016', under3: 31, p3to8: 58, p8to15: 61, over15: 84 },
+  { year: '2021', under3: 24, p3to8: 49, p8to15: 63, over15: 98 },
+];
+
+const CLASS_TRANSITIONS = [
+  { period: '2011 → 2016', from: 'Safe', to: 'Safe', count: 90 },
+  { period: '2011 → 2016', from: 'Safe', to: 'Swing', count: 48 },
+  { period: '2011 → 2016', from: 'Safe', to: 'Bellwether', count: 18 },
+  { period: '2011 → 2016', from: 'Swing', to: 'Safe', count: 24 },
+  { period: '2011 → 2016', from: 'Swing', to: 'Swing', count: 24 },
+  { period: '2011 → 2016', from: 'Swing', to: 'Bellwether', count: 10 },
+  { period: '2011 → 2016', from: 'Bellwether', to: 'Safe', count: 10 },
+  { period: '2011 → 2016', from: 'Bellwether', to: 'Swing', count: 8 },
+  { period: '2011 → 2016', from: 'Bellwether', to: 'Bellwether', count: 2 },
+  { period: '2016 → 2021', from: 'Safe', to: 'Safe', count: 82 },
+  { period: '2016 → 2021', from: 'Safe', to: 'Swing', count: 28 },
+  { period: '2016 → 2021', from: 'Safe', to: 'Bellwether', count: 14 },
+  { period: '2016 → 2021', from: 'Swing', to: 'Safe', count: 46 },
+  { period: '2016 → 2021', from: 'Swing', to: 'Swing', count: 21 },
+  { period: '2016 → 2021', from: 'Swing', to: 'Bellwether', count: 13 },
+  { period: '2016 → 2021', from: 'Bellwether', to: 'Safe', count: 11 },
+  { period: '2016 → 2021', from: 'Bellwether', to: 'Swing', count: 17 },
+  { period: '2016 → 2021', from: 'Bellwether', to: 'Bellwether', count: 2 },
+];
+
 const COLORS = ['#d72828', '#1e7b1e', '#0ea5e9', '#f59e0b', '#8b5cf6'];
 
 export const StatisticsPage = () => {
@@ -61,6 +94,8 @@ export const StatisticsPage = () => {
   const closestCycle = HISTORICAL_RESULTS.reduce((prev, curr) =>
     Math.abs(curr.winnerSeats - curr.runnerSeats) < Math.abs(prev.winnerSeats - prev.runnerSeats) ? curr : prev
   );
+  const transitionsOnly = CLASS_TRANSITIONS.filter((row) => row.from !== row.to);
+  const switchedSeats = transitionsOnly.reduce((sum, row) => sum + row.count, 0);
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
@@ -161,7 +196,86 @@ export const StatisticsPage = () => {
           </ResponsiveContainer>
           </div>
         </ChartPanel>
+
+        <ChartPanel title="Seat Class Trend (Safe, Swing, Bellwether)">
+          <div className="h-[260px] sm:h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={SEAT_CLASS_BY_YEAR}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="year" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="safe" stackId="a" name="Safe Seats" fill="#166534" />
+                <Bar dataKey="swing" stackId="a" name="Swing Seats" fill="#f59e0b" />
+                <Bar dataKey="bellwether" stackId="a" name="Bellwether Seats" fill="#7c3aed" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </ChartPanel>
+
+        <ChartPanel title="Winning Margin Bands by Election">
+          <div className="h-[260px] sm:h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={MARGIN_BUCKETS_BY_YEAR}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="year" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="under3" stackId="b" name="<3%" fill="#dc2626" />
+                <Bar dataKey="p3to8" stackId="b" name="3-8%" fill="#fb923c" />
+                <Bar dataKey="p8to15" stackId="b" name="8-15%" fill="#eab308" />
+                <Bar dataKey="over15" stackId="b" name=">15%" fill="#16a34a" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </ChartPanel>
       </div>
+
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="glass-panel rounded-3xl p-5 border border-border/40 mt-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h3 className="text-sm font-black uppercase tracking-widest">Seat Class Heatmap and Transition Matrix</h3>
+          <p className="text-xs text-muted-foreground">Switched class seats across two transitions: {switchedSeats}</p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+          <div className="rounded-2xl border border-border/30 p-4 bg-white/60 dark:bg-slate-900/40">
+            <div className="text-xs font-black uppercase tracking-widest mb-3 text-muted-foreground">Heatmap by Election</div>
+            <div className="grid grid-cols-4 gap-2 text-xs">
+              <div className="font-semibold">Year</div>
+              <div className="font-semibold">Safe</div>
+              <div className="font-semibold">Swing</div>
+              <div className="font-semibold">Bellwether</div>
+              {SEAT_CLASS_BY_YEAR.map((row) => (
+                <HeatmapRow key={row.year} year={row.year} safe={row.safe} swing={row.swing} bellwether={row.bellwether} />
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-border/30 p-4 bg-white/60 dark:bg-slate-900/40">
+            <div className="text-xs font-black uppercase tracking-widest mb-3 text-muted-foreground">Switch Matrix</div>
+            <div className="space-y-2">
+              {['2011 → 2016', '2016 → 2021'].map((period, idx) => (
+                <motion.div
+                  key={period}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className="rounded-xl border border-border/20 p-3 bg-gradient-to-r from-slate-50 to-white dark:from-slate-900 dark:to-slate-800"
+                >
+                  <div className="text-xs font-black mb-2">{period}</div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <ShiftChip period={period} from="Safe" to="Swing" />
+                    <ShiftChip period={period} from="Safe" to="Bellwether" />
+                    <ShiftChip period={period} from="Swing" to="Safe" />
+                    <ShiftChip period={period} from="Bellwether" to="Swing" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <InsightCard
@@ -240,3 +354,27 @@ const InsightCard = ({ title, text }: { title: string; text: string }) => (
     <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{text}</p>
   </div>
 );
+
+const getIntensity = (value: number, max = 180) => {
+  const opacity = Math.min(1, Math.max(0.12, value / max));
+  return { backgroundColor: `rgba(37, 99, 235, ${opacity})` };
+};
+
+const HeatmapRow = ({ year, safe, swing, bellwether }: { year: string; safe: number; swing: number; bellwether: number }) => (
+  <>
+    <div className="py-1 font-semibold">{year}</div>
+    <div className="py-1 px-2 rounded text-white font-bold" style={getIntensity(safe)}>{safe}</div>
+    <div className="py-1 px-2 rounded text-white font-bold" style={getIntensity(swing)}>{swing}</div>
+    <div className="py-1 px-2 rounded text-white font-bold" style={getIntensity(bellwether)}>{bellwether}</div>
+  </>
+);
+
+const ShiftChip = ({ period, from, to }: { period: string; from: string; to: string }) => {
+  const flow = CLASS_TRANSITIONS.find((x) => x.period === period && x.from === from && x.to === to);
+  return (
+    <div className="rounded-lg border border-border/30 px-2 py-1">
+      <div className="text-[10px] text-muted-foreground">{from} → {to}</div>
+      <div className="text-sm font-black">{flow?.count ?? 0} seats</div>
+    </div>
+  );
+};
