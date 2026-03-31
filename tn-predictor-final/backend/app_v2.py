@@ -165,6 +165,9 @@ def build_candidate_rows(constituencies: List[Dict]) -> List[Dict]:
                 "contact": candidate.get("contact"),
                 "website": candidate.get("website"),
                 "x_handle": candidate.get("xHandle", candidate.get("x_handle")),
+                "is_rerunner": bool(candidate.get("isRerunner", candidate.get("is_rerunner", False))),
+                "is_celebrity": bool(candidate.get("isCelebrity", candidate.get("is_celebrity", False))),
+                "validation_reports": candidate.get("validationReports", candidate.get("validation_reports", [])),
                 "source": candidate.get("source", "curated"),
                 "predicted_winner": prediction.get("predictedWinner"),
             }
@@ -371,6 +374,7 @@ async def export_candidates_csv(
         "assets", "liabilities", "criminal_cases", "literacy", "community",
         "eci_approved", "party_approved", "nomination_status", "nomination_date",
         "affidavit_url", "eci_candidate_id", "contact", "website", "x_handle", "source", "predicted_winner",
+        "is_rerunner", "is_celebrity", "validation_reports",
     ]
 
     buffer = io.StringIO()
@@ -391,6 +395,33 @@ async def export_candidates_csv(
 @app.get("/api/simulations/types")
 async def get_simulation_types():
     return {"types": insights_engine.get_simulation_types()}
+
+
+@app.get("/api/elections/history")
+async def get_election_history():
+    path = find_file("tn_assembly_history.json")
+    if not path:
+        raise HTTPException(status_code=404, detail="Election history dataset not found")
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+@app.get("/api/elections/community-split")
+async def get_constituency_community_split(ac_no: Optional[int] = None):
+    path = find_file("tn_constituency_community_split.json")
+    if not path:
+        raise HTTPException(status_code=404, detail="Community split dataset not found")
+    with open(path, encoding="utf-8") as handle:
+        payload = json.load(handle)
+    rows = payload.get("rows", [])
+    if ac_no is not None:
+        rows = [row for row in rows if int(row.get("ac_no", 0)) == ac_no]
+    return {
+        "state": payload.get("state", "Tamil Nadu"),
+        "source_note": payload.get("source_note", ""),
+        "count": len(rows),
+        "rows": rows,
+    }
 
 
 @app.post("/api/simulations/run")

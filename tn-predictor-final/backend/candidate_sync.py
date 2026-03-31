@@ -139,6 +139,9 @@ class CandidateSyncEngine:
             "contact": _pick(record, ["contact", "phone", "mobile"], ""),
             "website": _pick(record, ["website", "official_website"], ""),
             "x_handle": _pick(record, ["x_handle", "twitter", "twitter_handle"], ""),
+            "is_rerunner": _to_bool(_pick(record, ["is_rerunner", "rerunner"], False)),
+            "is_celebrity": _to_bool(_pick(record, ["is_celebrity", "celebrity"], False)),
+            "validation_reports": _pick(record, ["validation_reports", "report_links", "source_links"], []),
             "source": _pick(record, ["source", "provider"], "external"),
         }
 
@@ -180,6 +183,9 @@ class CandidateSyncEngine:
                     "contact": norm["contact"],
                     "website": norm["website"],
                     "xHandle": norm["x_handle"],
+                    "isRerunner": norm["is_rerunner"],
+                    "isCelebrity": norm["is_celebrity"],
+                    "validationReports": norm["validation_reports"] if isinstance(norm["validation_reports"], list) else [],
                     "source": norm["source"],
                 }
             )

@@ -1,0 +1,43 @@
+{
+  "state": "Tamil Nadu",
+  "source_note": "Compiled from Election Commission of India and public election summaries.",
+  "elections": [
+    {
+      "year": 2011,
+      "winner_alliance": "AIADMK Alliance",
+      "winner_seats": 203,
+      "runner_alliance": "DMK Alliance",
+      "runner_seats": 31,
+      "turnout_percent": 78.0,
+      "summary": "Strong anti-incumbency cycle and decisive transfer to AIADMK-led alliance."
+    },
+    {
+      "year": 2016,
+      "winner_alliance": "AIADMK Alliance",
+      "winner_seats": 134,
+      "runner_alliance": "DMK Alliance",
+      "runner_seats": 98,
+      "turnout_percent": 74.3,
+      "summary": "Rare incumbent retention in TN with narrowed seat margin."
+    },
+    {
+      "year": 2021,
+      "winner_alliance": "DMK Alliance",
+      "winner_seats": 159,
+      "runner_alliance": "AIADMK Alliance",
+      "runner_seats": 75,
+      "turnout_percent": 73.6,
+      "summary": "Power transition to DMK-led alliance with strong urban and welfare narrative."
+    },
+    {
+      "year": 2026,
+      "winner_alliance": "TBD",
+      "winner_seats": null,
+      "runner_alliance": "TBD",
+      "runner_seats": null,
+      "turnout_percent": null,
+      "summary": "Current cycle; projections are model estimates pending final ECI results."
+    }
+  ]
+}
+

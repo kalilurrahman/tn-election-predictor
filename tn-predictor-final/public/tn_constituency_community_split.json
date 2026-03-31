@@ -1,0 +1,21 @@
+{
+  "state": "Tamil Nadu",
+  "source_note": "Community split is an indicative modeling layer for constituency-level strategy. Validate against primary survey/census/field data before operational use.",
+  "rows": [
+    { "ac_no": 12, "ac_name": "Kolathur", "group": "BC/MBC", "vote_share_estimate": 44.0 },
+    { "ac_no": 12, "ac_name": "Kolathur", "group": "SC", "vote_share_estimate": 19.0 },
+    { "ac_no": 12, "ac_name": "Kolathur", "group": "Minorities", "vote_share_estimate": 17.0 },
+    { "ac_no": 12, "ac_name": "Kolathur", "group": "Others", "vote_share_estimate": 20.0 },
+
+    { "ac_no": 77, "ac_name": "Edappadi", "group": "BC/MBC", "vote_share_estimate": 47.0 },
+    { "ac_no": 77, "ac_name": "Edappadi", "group": "SC", "vote_share_estimate": 18.0 },
+    { "ac_no": 77, "ac_name": "Edappadi", "group": "Minorities", "vote_share_estimate": 7.0 },
+    { "ac_no": 77, "ac_name": "Edappadi", "group": "Others", "vote_share_estimate": 28.0 },
+
+    { "ac_no": 145, "ac_name": "Madurai Central", "group": "BC/MBC", "vote_share_estimate": 42.0 },
+    { "ac_no": 145, "ac_name": "Madurai Central", "group": "SC", "vote_share_estimate": 17.0 },
+    { "ac_no": 145, "ac_name": "Madurai Central", "group": "Minorities", "vote_share_estimate": 14.0 },
+    { "ac_no": 145, "ac_name": "Madurai Central", "group": "Others", "vote_share_estimate": 27.0 }
+  ]
+}
+
