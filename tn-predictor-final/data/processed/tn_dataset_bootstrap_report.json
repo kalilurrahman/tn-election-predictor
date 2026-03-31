@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-03-31T14:23:35.284596Z",
+  "report": [
+    {
+      "dataset_id": "dataful_tn_1967_2021",
+      "name": "Dataful TN Assembly Results 1967-2021",
+      "status": "manual_auth_required",
+      "url": "https://dataful.in/datasets/14452/",
+      "notes": "Primary historical candidate-level dataset from ECI compilation."
+    },
+    {
+      "dataset_id": "kaggle_tn_legislative_1971_2021",
+      "name": "Kaggle TN Legislative Dataset 1971-2021",
+      "status": "manual_auth_required",
+      "url": "https://www.kaggle.com/datasets/srinrealyf/1971-2021-tamilnadu-legislative-election-dataset",
+      "notes": "Cross-validation dataset; requires Kaggle auth/API."
+    },
+    {
+      "dataset_id": "github_myneta_candidates",
+      "name": "GitHub TN 2021 candidates.csv",
+      "status": "downloaded",
+      "rows": 3559,
+      "columns": [
+        "Candidate",
+        "Party",
+        "Criminal Cases",
+        "Education",
+        "Age",
+        "Total Assets",
+        "Liabilities",
+        "Constituency",
+        "District"
+      ],
+      "path": "C:\\Users\\HP\\OneDrive\\Documents\\Playground\\tn-predictor-final\\data\\external\\github_myneta_candidates.csv",
+      "url": "https://raw.githubusercontent.com/kracekumar/Tamil-Nadu-Assembly-Election-2021/master/candidates.csv"
+    },
+    {
+      "dataset_id": "github_myneta_votes",
+      "name": "GitHub TN 2021 candidate votes CSV",
+      "status": "downloaded",
+      "rows": 4232,
+      "columns": [
+        "O.S.N.",
+        "Candidate",
+        "Party",
+        "EVM Votes",
+        "Postal Votes",
+        "Total Votes",
+        "% of Votes",
+        "constituency",
+        "constituency_id",
+        "pk",
+        "District",
+        "Constituency Type",
+        "position",
+        "Gender"
+      ],
+      "path": "C:\\Users\\HP\\OneDrive\\Documents\\Playground\\tn-predictor-final\\data\\external\\github_myneta_votes.csv",
+      "url": "https://raw.githubusercontent.com/kracekumar/Tamil-Nadu-Assembly-Election-2021/master/tn_2021_election_candidates.csv"
+    },
+    {
+      "dataset_id": "eci_official_portal",
+      "name": "Election Commission of India",
+      "status": "manual_or_custom_parser_required",
+      "url": "https://results.eci.gov.in/",
+      "notes": "Official portal. Live scraping can be blocked; use exported files where possible."
+    }
+  ],
+  "feature_table": {
+    "status": "ok",
+    "rows": 4232,
+    "path": "C:\\Users\\HP\\OneDrive\\Documents\\Playground\\tn-predictor-final\\data\\processed\\tn_2021_candidate_feature_table.csv"
+  }
+}

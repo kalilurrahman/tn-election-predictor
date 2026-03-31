@@ -1,0 +1,12 @@
+{
+  "year": 2021,
+  "source": "myneta github datasets",
+  "rows": [
+    {
+      "party": "UNKNOWN",
+      "candidates": 4232,
+      "wins": 234,
+      "avg_vote_share_pct": 0
+    }
+  ]
+}

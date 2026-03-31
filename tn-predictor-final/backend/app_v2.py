@@ -20,6 +20,7 @@ from backend.candidate_sync import CandidateSyncEngine
 from backend.source_registry import get_candidate_sync_presets
 from backend.seat_dynamics import build_seat_dynamics
 from backend.election_results_sync import ElectionResultsSyncEngine
+from backend.dataset_bootstrap import DatasetBootstrapEngine
 
 app = FastAPI(title="TN Election Predictor 2026 API", version="2.1.0")
 
@@ -39,6 +40,7 @@ sentiment_engine = SentimentEngine()
 insights_engine = ConstituencyInsightsEngine()
 candidate_sync_engine = CandidateSyncEngine(BASE_DIR)
 results_sync_engine = ElectionResultsSyncEngine(BASE_DIR)
+dataset_bootstrap_engine = DatasetBootstrapEngine(BASE_DIR)
 bayesian = BayesianPredictor(data_path=os.path.join(PUBLIC_PATH, "constituencies.json"))
 
 cache: Dict[str, Dict] = {}
@@ -59,6 +61,11 @@ candidate_sync_status = {
     "last_result": None,
 }
 results_sync_status = {
+    "running": False,
+    "last_run": None,
+    "last_result": None,
+}
+dataset_bootstrap_status = {
     "running": False,
     "last_run": None,
     "last_result": None,
@@ -437,6 +444,15 @@ async def get_constituency_community_split(ac_no: Optional[int] = None):
     }
 
 
+@app.get("/api/elections/candidate-model-summary")
+async def get_candidate_model_summary():
+    path = find_file("tn_2021_candidate_model_summary.json")
+    if not path:
+        raise HTTPException(status_code=404, detail="Candidate model summary dataset not found")
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
 @app.get("/api/elections/seat-dynamics")
 async def get_seat_dynamics(limit: int = 40):
     payload = build_seat_dynamics(load_constituencies())
@@ -502,6 +518,33 @@ async def get_candidate_sync_presets_api():
 @app.get("/api/admin/election-results-sync/status")
 async def get_results_sync_status():
     return results_sync_status
+
+
+@app.get("/api/admin/datasets/catalog")
+async def get_dataset_catalog():
+    return dataset_bootstrap_engine.catalog()
+
+
+@app.get("/api/admin/datasets/bootstrap/status")
+async def get_dataset_bootstrap_status():
+    return dataset_bootstrap_status
+
+
+@app.post("/api/admin/datasets/bootstrap")
+async def run_dataset_bootstrap():
+    if dataset_bootstrap_status["running"]:
+        return JSONResponse(
+            {"status": "already_running", "message": "Dataset bootstrap already in progress"},
+            status_code=409,
+        )
+    dataset_bootstrap_status["running"] = True
+    try:
+        result = dataset_bootstrap_engine.bootstrap()
+        dataset_bootstrap_status["last_result"] = result
+        dataset_bootstrap_status["last_run"] = datetime.now().isoformat()
+        return result
+    finally:
+        dataset_bootstrap_status["running"] = False
 
 
 @app.post("/api/admin/election-results-sync")
