@@ -17,6 +17,7 @@ from backend.predictor import BayesianPredictor
 from backend.signal_pipeline import SentimentEngine
 from backend.insights import ConstituencyInsightsEngine
 from backend.candidate_sync import CandidateSyncEngine
+from backend.source_registry import get_candidate_sync_presets
 
 app = FastAPI(title="TN Election Predictor 2026 API", version="2.1.0")
 
@@ -468,6 +469,11 @@ async def trigger_candidate_sync(req: CandidateSyncRequest):
         return result
     finally:
         candidate_sync_status["running"] = False
+
+
+@app.get("/api/admin/candidate-sync/presets")
+async def get_candidate_sync_presets_api():
+    return get_candidate_sync_presets()
 
 
 @app.post("/api/admin/trigger-update")

@@ -126,6 +126,9 @@ export const CandidateRegistryPage = () => {
           <div className="px-5 py-4 border-b border-border/30">
             <h3 className="font-black text-sm uppercase tracking-widest">Comprehensive Candidate Dossier</h3>
             <p className="text-xs text-muted-foreground mt-1">{selectedName} {selectedAc ? `(AC #${selectedAc})` : ''}</p>
+            <p className="text-[11px] text-muted-foreground mt-1">
+              Validation mode: ECI/party/public-source tagged records. Use citation links in each card for audit trail.
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2 text-[11px]">
               <Stat label="Verified" value={`${approvedCount}/${candidates.length}`} />
               <Stat label="Incumbents" value={String(incumbentCount)} />
