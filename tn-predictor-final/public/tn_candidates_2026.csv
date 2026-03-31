@@ -1,0 +1,937 @@
+ac_no,ac_name,district,state,region,reserved_for,candidate_name,party,alliance,is_incumbent,education,profession,age,gender,assets,liabilities,criminal_cases,literacy,community,eci_approved,party_approved,nomination_status,nomination_date,affidavit_url,eci_candidate_id,contact,website,x_handle,source,predicted_winner
+1,Gummidipoondi,Tiruvallur,Tamil Nadu,NORTH,GEN,P. Karthikeyan,DMK,SPA,True,Doctorate,,,,Γé╣6.2 Cr,,1,86.00029875985135,,False,False,,,,,,,,curated,SPA
+1,Gummidipoondi,Tiruvallur,Tamil Nadu,NORTH,GEN,S. Ranganathan,AIADMK,NDA,False,Graduate,,,,Γé╣49.0 Cr,,2,87.41421590588705,,False,False,,,,,,,,curated,SPA
+1,Gummidipoondi,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣29.9 Cr,,1,91.00700212671678,,False,False,,,,,,,,curated,SPA
+1,Gummidipoondi,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.2 Cr,,0,94.00651073321994,,False,False,,,,,,,,curated,SPA
+2,Constituency #2,Tenkasi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣27.6 Cr,,2,93.81563487617707,,False,False,,,,,,,,curated,SPA
+2,Constituency #2,Tenkasi,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣25.7 Cr,,2,88.3497892010675,,False,False,,,,,,,,curated,SPA
+2,Constituency #2,Tenkasi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.2 Cr,,1,89.75591416099157,,False,False,,,,,,,,curated,SPA
+2,Constituency #2,Tenkasi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣33.4 Cr,,0,89.88684280261907,,False,False,,,,,,,,curated,SPA
+3,Constituency #3,Kanyakumari,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣16.5 Cr,,0,90.87042906263096,,False,False,,,,,,,,curated,NDA
+3,Constituency #3,Kanyakumari,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣41.7 Cr,,0,86.4259264951085,,False,False,,,,,,,,curated,NDA
+3,Constituency #3,Kanyakumari,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.0 Cr,,1,93.15567308715697,,False,False,,,,,,,,curated,NDA
+3,Constituency #3,Kanyakumari,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣17.8 Cr,,2,93.14598107602693,,False,False,,,,,,,,curated,NDA
+4,Constituency #4,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣34.7 Cr,,1,91.62248420075721,,False,False,,,,,,,,curated,NDA
+4,Constituency #4,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣26.9 Cr,,1,86.32252908156727,,False,False,,,,,,,,curated,NDA
+4,Constituency #4,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.9 Cr,,2,91.58871939769043,,False,False,,,,,,,,curated,NDA
+4,Constituency #4,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.3 Cr,,2,94.19821265272564,,False,False,,,,,,,,curated,NDA
+5,Constituency #5,Pudukkottai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣12.7 Cr,,1,89.9944874974441,,False,False,,,,,,,,curated,SPA
+5,Constituency #5,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣28.1 Cr,,0,88.83161750621406,,False,False,,,,,,,,curated,SPA
+5,Constituency #5,Pudukkottai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣33.4 Cr,,0,85.80191360381392,,False,False,,,,,,,,curated,SPA
+5,Constituency #5,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.4 Cr,,0,85.20299948809019,,False,False,,,,,,,,curated,SPA
+6,Constituency #6,Dindigul,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣5.1 Cr,,1,87.09884373771916,,False,False,,,,,,,,curated,NDA
+6,Constituency #6,Dindigul,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣43.6 Cr,,0,88.69223436064124,,False,False,,,,,,,,curated,NDA
+6,Constituency #6,Dindigul,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣14.0 Cr,,0,86.7614282931361,,False,False,,,,,,,,curated,NDA
+6,Constituency #6,Dindigul,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣45.0 Cr,,2,85.92129000219602,,False,False,,,,,,,,curated,NDA
+7,Constituency #7,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣10.3 Cr,,2,85.3793452191523,,False,False,,,,,,,,curated,NDA
+7,Constituency #7,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣22.1 Cr,,0,92.00277921740955,,False,False,,,,,,,,curated,NDA
+7,Constituency #7,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.0 Cr,,1,89.53691907597471,,False,False,,,,,,,,curated,NDA
+7,Constituency #7,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣33.1 Cr,,0,92.00749181337878,,False,False,,,,,,,,curated,NDA
+8,Constituency #8,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣38.5 Cr,,2,90.6096263403601,,False,False,,,,,,,,curated,NDA
+8,Constituency #8,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣47.8 Cr,,1,86.45976149304305,,False,False,,,,,,,,curated,NDA
+8,Constituency #8,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣37.0 Cr,,1,93.82847589638278,,False,False,,,,,,,,curated,NDA
+8,Constituency #8,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.5 Cr,,2,94.59205175593141,,False,False,,,,,,,,curated,NDA
+9,Constituency #9,Thiruvarur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣12.9 Cr,,1,93.81572918072632,,False,False,,,,,,,,curated,NDA
+9,Constituency #9,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣47.3 Cr,,2,88.83300601322546,,False,False,,,,,,,,curated,NDA
+9,Constituency #9,Thiruvarur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣20.1 Cr,,0,94.66649869345932,,False,False,,,,,,,,curated,NDA
+9,Constituency #9,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.7 Cr,,0,90.90188332823321,,False,False,,,,,,,,curated,NDA
+10,Constituency #10,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣20.6 Cr,,2,93.26925217526363,,False,False,,,,,,,,curated,NDA
+10,Constituency #10,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣18.7 Cr,,1,92.02266752382629,,False,False,,,,,,,,curated,NDA
+10,Constituency #10,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.0 Cr,,1,89.83115845101534,,False,False,,,,,,,,curated,NDA
+10,Constituency #10,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣37.9 Cr,,1,90.27675912290506,,False,False,,,,,,,,curated,NDA
+11,Constituency #11,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣27.8 Cr,,2,89.50462363662515,,False,False,,,,,,,,curated,NDA
+11,Constituency #11,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣49.4 Cr,,1,86.30566326136544,,False,False,,,,,,,,curated,NDA
+11,Constituency #11,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣3.6 Cr,,2,91.58093497031219,,False,False,,,,,,,,curated,NDA
+11,Constituency #11,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣11.0 Cr,,2,87.62941329064722,,False,False,,,,,,,,curated,NDA
+12,Kolathur,Chennai,Tamil Nadu,CHENNAI,GEN,M. K. Stalin,DMK,SPA,True,Graduate,,,,Γé╣33.6 Cr,,0,87.52884242264872,,False,False,,,,,,,,curated,SPA
+12,Kolathur,Chennai,Tamil Nadu,CHENNAI,GEN,AIADMK Nominee,AIADMK,NDA,False,Graduate,,,,Γé╣40.8 Cr,,0,92.57384680443398,,False,False,,,,,,,,curated,SPA
+12,Kolathur,Chennai,Tamil Nadu,CHENNAI,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.6 Cr,,2,89.05695218401243,,False,False,,,,,,,,curated,SPA
+12,Kolathur,Chennai,Tamil Nadu,CHENNAI,GEN,Seeman,NTK,NTK,False,12th Pass,,,,Γé╣6.5 Cr,,1,92.02493096550748,,False,False,,,,,,,,curated,SPA
+13,Constituency #13,Villupuram,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣3.2 Cr,,2,90.03179208019122,,False,False,,,,,,,,curated,NDA
+13,Constituency #13,Villupuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣29.6 Cr,,0,90.69305547370585,,False,False,,,,,,,,curated,NDA
+13,Constituency #13,Villupuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.9 Cr,,0,87.14279740976535,,False,False,,,,,,,,curated,NDA
+13,Constituency #13,Villupuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.9 Cr,,0,85.59433221580476,,False,False,,,,,,,,curated,NDA
+14,Constituency #14,Tiruvannamalai,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣44.4 Cr,,2,85.9888601594365,,False,False,,,,,,,,curated,NDA
+14,Constituency #14,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣15.4 Cr,,2,93.09523257192876,,False,False,,,,,,,,curated,NDA
+14,Constituency #14,Tiruvannamalai,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.5 Cr,,1,90.60482268067673,,False,False,,,,,,,,curated,NDA
+14,Constituency #14,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.6 Cr,,2,94.75511717338873,,False,False,,,,,,,,curated,NDA
+15,Constituency #15,Vellore,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣31.1 Cr,,0,91.97970885370728,,False,False,,,,,,,,curated,SPA
+15,Constituency #15,Vellore,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣11.6 Cr,,0,92.17550495393591,,False,False,,,,,,,,curated,SPA
+15,Constituency #15,Vellore,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.4 Cr,,2,90.25182456282147,,False,False,,,,,,,,curated,SPA
+15,Constituency #15,Vellore,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣39.0 Cr,,0,90.16933373410339,,False,False,,,,,,,,curated,SPA
+16,Constituency #16,Tirupattur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣38.3 Cr,,2,87.39648030867897,,False,False,,,,,,,,curated,SPA
+16,Constituency #16,Tirupattur,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣16.2 Cr,,1,86.78497920549923,,False,False,,,,,,,,curated,SPA
+16,Constituency #16,Tirupattur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣1.1 Cr,,2,91.04473145102601,,False,False,,,,,,,,curated,SPA
+16,Constituency #16,Tirupattur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.2 Cr,,2,86.1293140000793,,False,False,,,,,,,,curated,SPA
+17,Constituency #17,Tiruvallur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣26.2 Cr,,1,86.10121377093652,,False,False,,,,,,,,curated,NDA
+17,Constituency #17,Tiruvallur,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣44.6 Cr,,1,86.22923304402548,,False,False,,,,,,,,curated,NDA
+17,Constituency #17,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣22.3 Cr,,0,90.85090483628557,,False,False,,,,,,,,curated,NDA
+17,Constituency #17,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣38.4 Cr,,0,85.87051120228185,,False,False,,,,,,,,curated,NDA
+18,Constituency #18,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣6.1 Cr,,0,90.86481412826699,,False,False,,,,,,,,curated,SPA
+18,Constituency #18,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣42.8 Cr,,1,87.00212629345883,,False,False,,,,,,,,curated,SPA
+18,Constituency #18,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣5.4 Cr,,1,86.01231399160558,,False,False,,,,,,,,curated,SPA
+18,Constituency #18,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.2 Cr,,0,93.82618465268898,,False,False,,,,,,,,curated,SPA
+19,Constituency #19,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣26.8 Cr,,2,90.27981006708615,,False,False,,,,,,,,curated,SPA
+19,Constituency #19,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣48.2 Cr,,0,90.74558170384663,,False,False,,,,,,,,curated,SPA
+19,Constituency #19,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣33.1 Cr,,0,88.40633372353969,,False,False,,,,,,,,curated,SPA
+19,Constituency #19,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣11.4 Cr,,0,93.54362246544925,,False,False,,,,,,,,curated,SPA
+20,Constituency #20,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣10.7 Cr,,2,91.03684559144979,,False,False,,,,,,,,curated,NDA
+20,Constituency #20,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣7.8 Cr,,1,89.68939543848273,,False,False,,,,,,,,curated,NDA
+20,Constituency #20,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣47.7 Cr,,1,86.40452182636339,,False,False,,,,,,,,curated,NDA
+20,Constituency #20,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.9 Cr,,2,87.06028475967183,,False,False,,,,,,,,curated,NDA
+21,Constituency #21,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣22.6 Cr,,1,90.16924324363477,,False,False,,,,,,,,curated,SPA
+21,Constituency #21,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣2.6 Cr,,1,89.11284085229491,,False,False,,,,,,,,curated,SPA
+21,Constituency #21,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.3 Cr,,0,87.61648404127395,,False,False,,,,,,,,curated,SPA
+21,Constituency #21,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣45.6 Cr,,1,90.3758324327423,,False,False,,,,,,,,curated,SPA
+22,Constituency #22,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣36.6 Cr,,1,87.63354126594113,,False,False,,,,,,,,curated,NDA
+22,Constituency #22,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣41.4 Cr,,2,89.91416219579453,,False,False,,,,,,,,curated,NDA
+22,Constituency #22,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣3.7 Cr,,0,91.67571732779744,,False,False,,,,,,,,curated,NDA
+22,Constituency #22,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.7 Cr,,0,86.20289200666927,,False,False,,,,,,,,curated,NDA
+23,Constituency #23,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣15.5 Cr,,2,90.8979980986559,,False,False,,,,,,,,curated,SPA
+23,Constituency #23,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣36.6 Cr,,1,85.63306232316758,,False,False,,,,,,,,curated,SPA
+23,Constituency #23,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.1 Cr,,0,91.46024908661697,,False,False,,,,,,,,curated,SPA
+23,Constituency #23,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.0 Cr,,1,94.08414265390614,,False,False,,,,,,,,curated,SPA
+24,Constituency #24,Perambalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣9.7 Cr,,0,86.95548905720605,,False,False,,,,,,,,curated,SPA
+24,Constituency #24,Perambalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣2.1 Cr,,1,86.05582082895522,,False,False,,,,,,,,curated,SPA
+24,Constituency #24,Perambalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.0 Cr,,1,87.94627829270084,,False,False,,,,,,,,curated,SPA
+24,Constituency #24,Perambalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣9.6 Cr,,1,88.70265834514018,,False,False,,,,,,,,curated,SPA
+25,Constituency #25,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣31.0 Cr,,0,94.07787974188983,,False,False,,,,,,,,curated,NDA
+25,Constituency #25,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣24.9 Cr,,1,92.1782164795509,,False,False,,,,,,,,curated,NDA
+25,Constituency #25,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.2 Cr,,0,87.2208403823021,,False,False,,,,,,,,curated,NDA
+25,Constituency #25,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣44.7 Cr,,1,86.37266710508779,,False,False,,,,,,,,curated,NDA
+26,Constituency #26,Namakkal,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣16.0 Cr,,2,86.54776992902634,,False,False,,,,,,,,curated,SPA
+26,Constituency #26,Namakkal,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣21.6 Cr,,1,93.33409815878383,,False,False,,,,,,,,curated,SPA
+26,Constituency #26,Namakkal,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.5 Cr,,2,92.09785054935102,,False,False,,,,,,,,curated,SPA
+26,Constituency #26,Namakkal,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.1 Cr,,1,88.71495064103368,,False,False,,,,,,,,curated,SPA
+27,Constituency #27,Dharmapuri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣21.7 Cr,,1,93.33280906339334,,False,False,,,,,,,,curated,SPA
+27,Constituency #27,Dharmapuri,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣5.0 Cr,,1,91.04500392891329,,False,False,,,,,,,,curated,SPA
+27,Constituency #27,Dharmapuri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣3.5 Cr,,2,91.85656799299083,,False,False,,,,,,,,curated,SPA
+27,Constituency #27,Dharmapuri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.8 Cr,,1,86.39597808076446,,False,False,,,,,,,,curated,SPA
+28,Constituency #28,Erode,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣30.9 Cr,,1,89.44988061627546,,False,False,,,,,,,,curated,NDA
+28,Constituency #28,Erode,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣29.3 Cr,,2,89.8081698500986,,False,False,,,,,,,,curated,NDA
+28,Constituency #28,Erode,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.3 Cr,,0,88.63883373848121,,False,False,,,,,,,,curated,NDA
+28,Constituency #28,Erode,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.7 Cr,,1,91.23963485233772,,False,False,,,,,,,,curated,NDA
+29,Constituency #29,Salem,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣30.7 Cr,,1,89.29534992137164,,False,False,,,,,,,,curated,SPA
+29,Constituency #29,Salem,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣32.5 Cr,,0,89.48487970702841,,False,False,,,,,,,,curated,SPA
+29,Constituency #29,Salem,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.9 Cr,,2,87.52560402044729,,False,False,,,,,,,,curated,SPA
+29,Constituency #29,Salem,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.3 Cr,,2,92.64359688086726,,False,False,,,,,,,,curated,SPA
+30,Constituency #30,Kallakurichi,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣14.9 Cr,,2,88.23499072698688,,False,False,,,,,,,,curated,SPA
+30,Constituency #30,Kallakurichi,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣41.0 Cr,,0,86.7113017975807,,False,False,,,,,,,,curated,SPA
+30,Constituency #30,Kallakurichi,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.3 Cr,,0,88.82579856540734,,False,False,,,,,,,,curated,SPA
+30,Constituency #30,Kallakurichi,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.9 Cr,,1,86.26152980411416,,False,False,,,,,,,,curated,SPA
+31,Constituency #31,Chengalpattu,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣43.5 Cr,,1,89.86329700790785,,False,False,,,,,,,,curated,SPA
+31,Constituency #31,Chengalpattu,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣31.8 Cr,,1,94.36741465374806,,False,False,,,,,,,,curated,SPA
+31,Constituency #31,Chengalpattu,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.7 Cr,,1,91.55253403926784,,False,False,,,,,,,,curated,SPA
+31,Constituency #31,Chengalpattu,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣7.4 Cr,,1,93.9195546175369,,False,False,,,,,,,,curated,SPA
+32,Constituency #32,Ranipet,Tamil Nadu,NORTH,SC,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣25.2 Cr,,1,90.18042377432523,,False,False,,,,,,,,curated,SPA
+32,Constituency #32,Ranipet,Tamil Nadu,NORTH,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣23.1 Cr,,2,90.29312612927208,,False,False,,,,,,,,curated,SPA
+32,Constituency #32,Ranipet,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.8 Cr,,2,91.45433012303562,,False,False,,,,,,,,curated,SPA
+32,Constituency #32,Ranipet,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.6 Cr,,0,91.01251150490815,,False,False,,,,,,,,curated,SPA
+33,Constituency #33,Chennai,Tamil Nadu,CHENNAI,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣16.4 Cr,,1,88.12280941723859,,False,False,,,,,,,,curated,NDA
+33,Constituency #33,Chennai,Tamil Nadu,CHENNAI,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣8.8 Cr,,0,88.086470890169,,False,False,,,,,,,,curated,NDA
+33,Constituency #33,Chennai,Tamil Nadu,CHENNAI,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.9 Cr,,1,86.88092454146019,,False,False,,,,,,,,curated,NDA
+33,Constituency #33,Chennai,Tamil Nadu,CHENNAI,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.8 Cr,,0,85.18389871678518,,False,False,,,,,,,,curated,NDA
+34,Constituency #34,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣31.8 Cr,,2,91.60437094541798,,False,False,,,,,,,,curated,SPA
+34,Constituency #34,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣41.9 Cr,,0,87.09293240358839,,False,False,,,,,,,,curated,SPA
+34,Constituency #34,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.2 Cr,,0,86.03434994493679,,False,False,,,,,,,,curated,SPA
+34,Constituency #34,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣11.9 Cr,,1,94.9274190772282,,False,False,,,,,,,,curated,SPA
+35,Constituency #35,Tenkasi,Tamil Nadu,SOUTH,SC,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣8.8 Cr,,1,94.41666514100345,,False,False,,,,,,,,curated,SPA
+35,Constituency #35,Tenkasi,Tamil Nadu,SOUTH,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣41.5 Cr,,2,89.31233181073488,,False,False,,,,,,,,curated,SPA
+35,Constituency #35,Tenkasi,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣34.5 Cr,,0,91.90115586978594,,False,False,,,,,,,,curated,SPA
+35,Constituency #35,Tenkasi,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣45.0 Cr,,0,87.83677931905952,,False,False,,,,,,,,curated,SPA
+36,Constituency #36,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣16.2 Cr,,1,87.54587831171848,,False,False,,,,,,,,curated,NDA
+36,Constituency #36,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣27.8 Cr,,1,92.53894503664853,,False,False,,,,,,,,curated,NDA
+36,Constituency #36,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.7 Cr,,1,89.41163982955113,,False,False,,,,,,,,curated,NDA
+36,Constituency #36,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣11.6 Cr,,0,92.93030732304888,,False,False,,,,,,,,curated,NDA
+37,Constituency #37,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣21.8 Cr,,0,90.77854866507353,,False,False,,,,,,,,curated,SPA
+37,Constituency #37,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣43.4 Cr,,0,86.42304983127742,,False,False,,,,,,,,curated,SPA
+37,Constituency #37,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣50.6 Cr,,1,88.29170366374912,,False,False,,,,,,,,curated,SPA
+37,Constituency #37,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.5 Cr,,0,90.01919477066497,,False,False,,,,,,,,curated,SPA
+38,Constituency #38,Pudukkottai,Tamil Nadu,CENTRAL,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.8 Cr,,1,94.17950865552945,,False,False,,,,,,,,curated,NDA
+38,Constituency #38,Pudukkottai,Tamil Nadu,CENTRAL,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣25.2 Cr,,0,92.65272580772069,,False,False,,,,,,,,curated,NDA
+38,Constituency #38,Pudukkottai,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣39.3 Cr,,2,86.85316694367282,,False,False,,,,,,,,curated,NDA
+38,Constituency #38,Pudukkottai,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.6 Cr,,0,93.2531347677917,,False,False,,,,,,,,curated,NDA
+39,Constituency #39,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣34.2 Cr,,0,85.11804286576441,,False,False,,,,,,,,curated,NDA
+39,Constituency #39,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣8.3 Cr,,2,90.17575309171815,,False,False,,,,,,,,curated,NDA
+39,Constituency #39,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣41.2 Cr,,2,90.81323334073662,,False,False,,,,,,,,curated,NDA
+39,Constituency #39,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.3 Cr,,1,94.31647014772254,,False,False,,,,,,,,curated,NDA
+40,Constituency #40,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣2.4 Cr,,2,93.24949156836364,,False,False,,,,,,,,curated,SPA
+40,Constituency #40,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣50.0 Cr,,2,94.92249116222334,,False,False,,,,,,,,curated,SPA
+40,Constituency #40,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣18.0 Cr,,2,94.36445521196143,,False,False,,,,,,,,curated,SPA
+40,Constituency #40,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.4 Cr,,0,86.26348957505856,,False,False,,,,,,,,curated,SPA
+41,Constituency #41,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣31.4 Cr,,1,87.53339931306701,,False,False,,,,,,,,curated,NDA
+41,Constituency #41,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣15.3 Cr,,1,91.27332975976027,,False,False,,,,,,,,curated,NDA
+41,Constituency #41,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣45.8 Cr,,0,92.78408021058556,,False,False,,,,,,,,curated,NDA
+41,Constituency #41,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣11.7 Cr,,1,94.76168583439231,,False,False,,,,,,,,curated,NDA
+42,Constituency #42,Thiruvarur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣34.4 Cr,,0,85.5554207618801,,False,False,,,,,,,,curated,NDA
+42,Constituency #42,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣38.9 Cr,,1,88.76942867429344,,False,False,,,,,,,,curated,NDA
+42,Constituency #42,Thiruvarur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣20.1 Cr,,1,92.72890586501157,,False,False,,,,,,,,curated,NDA
+42,Constituency #42,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.2 Cr,,2,92.9650796266065,,False,False,,,,,,,,curated,NDA
+43,Constituency #43,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣1.9 Cr,,1,93.99693535528885,,False,False,,,,,,,,curated,SPA
+43,Constituency #43,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣20.3 Cr,,0,87.66761559597391,,False,False,,,,,,,,curated,SPA
+43,Constituency #43,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣1.0 Cr,,2,90.41666078502497,,False,False,,,,,,,,curated,SPA
+43,Constituency #43,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.6 Cr,,1,94.11954937376233,,False,False,,,,,,,,curated,SPA
+44,Constituency #44,Coimbatore,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣1.4 Cr,,0,85.28258457996847,,False,False,,,,,,,,curated,NDA
+44,Constituency #44,Coimbatore,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣32.3 Cr,,1,93.66579156840139,,False,False,,,,,,,,curated,NDA
+44,Constituency #44,Coimbatore,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.5 Cr,,2,87.38901733053491,,False,False,,,,,,,,curated,NDA
+44,Constituency #44,Coimbatore,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣13.0 Cr,,0,88.33701530956695,,False,False,,,,,,,,curated,NDA
+45,Constituency #45,Tirupur,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣10.2 Cr,,2,85.48766438011371,,False,False,,,,,,,,curated,NDA
+45,Constituency #45,Tirupur,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣20.7 Cr,,1,86.01595047704545,,False,False,,,,,,,,curated,NDA
+45,Constituency #45,Tirupur,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣35.7 Cr,,1,91.8453974612624,,False,False,,,,,,,,curated,NDA
+45,Constituency #45,Tirupur,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.5 Cr,,2,92.1206857912341,,False,False,,,,,,,,curated,NDA
+46,Constituency #46,Villupuram,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣45.6 Cr,,0,91.3401226555455,,False,False,,,,,,,,curated,SPA
+46,Constituency #46,Villupuram,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣41.7 Cr,,2,89.97585708700062,,False,False,,,,,,,,curated,SPA
+46,Constituency #46,Villupuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.0 Cr,,0,90.32583442690364,,False,False,,,,,,,,curated,SPA
+46,Constituency #46,Villupuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣25.0 Cr,,1,86.55026052951199,,False,False,,,,,,,,curated,SPA
+47,Constituency #47,Kancheepuram,Tamil Nadu,NORTH,SC,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣2.8 Cr,,2,88.73873063930517,,False,False,,,,,,,,curated,NDA
+47,Constituency #47,Kancheepuram,Tamil Nadu,NORTH,SC,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣9.1 Cr,,1,92.00653463194034,,False,False,,,,,,,,curated,NDA
+47,Constituency #47,Kancheepuram,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.5 Cr,,0,91.58459409345518,,False,False,,,,,,,,curated,NDA
+47,Constituency #47,Kancheepuram,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.8 Cr,,2,94.24828863753667,,False,False,,,,,,,,curated,NDA
+48,Constituency #48,Vellore,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣15.6 Cr,,0,86.3383163732356,,False,False,,,,,,,,curated,NDA
+48,Constituency #48,Vellore,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣49.2 Cr,,2,92.5681137398879,,False,False,,,,,,,,curated,NDA
+48,Constituency #48,Vellore,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.6 Cr,,2,89.0228909464753,,False,False,,,,,,,,curated,NDA
+48,Constituency #48,Vellore,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.4 Cr,,2,90.6345394425902,,False,False,,,,,,,,curated,NDA
+49,Constituency #49,Kanyakumari,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣18.0 Cr,,0,93.05558039853541,,False,False,,,,,,,,curated,SPA
+49,Constituency #49,Kanyakumari,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣3.9 Cr,,1,87.68549943103561,,False,False,,,,,,,,curated,SPA
+49,Constituency #49,Kanyakumari,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣39.6 Cr,,1,87.62387372815014,,False,False,,,,,,,,curated,SPA
+49,Constituency #49,Kanyakumari,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.6 Cr,,2,94.14491052756958,,False,False,,,,,,,,curated,SPA
+50,Constituency #50,Tiruvallur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣11.1 Cr,,0,90.74639511151598,,False,False,,,,,,,,curated,NDA
+50,Constituency #50,Tiruvallur,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣40.5 Cr,,2,89.87302933267294,,False,False,,,,,,,,curated,NDA
+50,Constituency #50,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣21.3 Cr,,1,94.22936319420059,,False,False,,,,,,,,curated,NDA
+50,Constituency #50,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.6 Cr,,1,90.51264848927119,,False,False,,,,,,,,curated,NDA
+51,Constituency #51,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣36.3 Cr,,2,89.10561569511577,,False,False,,,,,,,,curated,SPA
+51,Constituency #51,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣21.8 Cr,,2,86.14491177074432,,False,False,,,,,,,,curated,SPA
+51,Constituency #51,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.6 Cr,,0,90.88546061899214,,False,False,,,,,,,,curated,SPA
+51,Constituency #51,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣28.8 Cr,,1,89.74812927188077,,False,False,,,,,,,,curated,SPA
+52,Constituency #52,Dindigul,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣45.1 Cr,,0,94.76646065815073,,False,False,,,,,,,,curated,SPA
+52,Constituency #52,Dindigul,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣50.6 Cr,,1,90.04203579231076,,False,False,,,,,,,,curated,SPA
+52,Constituency #52,Dindigul,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.2 Cr,,0,91.7877834432992,,False,False,,,,,,,,curated,SPA
+52,Constituency #52,Dindigul,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣35.7 Cr,,2,93.82924995486297,,False,False,,,,,,,,curated,SPA
+53,Constituency #53,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣46.3 Cr,,2,89.46796582844073,,False,False,,,,,,,,curated,SPA
+53,Constituency #53,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣4.5 Cr,,1,93.77615517507797,,False,False,,,,,,,,curated,SPA
+53,Constituency #53,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣45.1 Cr,,0,87.47124552061518,,False,False,,,,,,,,curated,SPA
+53,Constituency #53,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣46.9 Cr,,0,88.3372659939397,,False,False,,,,,,,,curated,SPA
+54,Constituency #54,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣35.8 Cr,,1,85.57582957438724,,False,False,,,,,,,,curated,SPA
+54,Constituency #54,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣46.0 Cr,,0,92.49893366493698,,False,False,,,,,,,,curated,SPA
+54,Constituency #54,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣42.8 Cr,,2,86.0788613197073,,False,False,,,,,,,,curated,SPA
+54,Constituency #54,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣34.0 Cr,,2,89.2879904162343,,False,False,,,,,,,,curated,SPA
+55,Constituency #55,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣36.2 Cr,,0,86.84957337175132,,False,False,,,,,,,,curated,NDA
+55,Constituency #55,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣12.2 Cr,,2,91.21200953523953,,False,False,,,,,,,,curated,NDA
+55,Constituency #55,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.2 Cr,,1,92.91826913802569,,False,False,,,,,,,,curated,NDA
+55,Constituency #55,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣36.6 Cr,,0,92.19917789956821,,False,False,,,,,,,,curated,NDA
+56,Constituency #56,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣48.3 Cr,,2,89.25444400100282,,False,False,,,,,,,,curated,SPA
+56,Constituency #56,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣32.8 Cr,,0,91.53120529570973,,False,False,,,,,,,,curated,SPA
+56,Constituency #56,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣44.4 Cr,,2,87.88976012033172,,False,False,,,,,,,,curated,SPA
+56,Constituency #56,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣44.2 Cr,,0,93.98936760011728,,False,False,,,,,,,,curated,SPA
+57,Constituency #57,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣37.5 Cr,,1,90.77998596083171,,False,False,,,,,,,,curated,SPA
+57,Constituency #57,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣42.3 Cr,,1,86.34305049393713,,False,False,,,,,,,,curated,SPA
+57,Constituency #57,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣30.8 Cr,,0,86.81144172903574,,False,False,,,,,,,,curated,SPA
+57,Constituency #57,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣16.4 Cr,,2,93.52348499666013,,False,False,,,,,,,,curated,SPA
+58,Constituency #58,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣6.6 Cr,,2,86.63462700369801,,False,False,,,,,,,,curated,NDA
+58,Constituency #58,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣1.7 Cr,,1,89.57928071009968,,False,False,,,,,,,,curated,NDA
+58,Constituency #58,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣34.3 Cr,,1,91.096187416559,,False,False,,,,,,,,curated,NDA
+58,Constituency #58,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.3 Cr,,0,93.16126858346564,,False,False,,,,,,,,curated,NDA
+59,Constituency #59,Namakkal,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣29.1 Cr,,0,93.0355942793721,,False,False,,,,,,,,curated,SPA
+59,Constituency #59,Namakkal,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣21.1 Cr,,0,86.39918848251544,,False,False,,,,,,,,curated,SPA
+59,Constituency #59,Namakkal,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.6 Cr,,2,89.22348324170224,,False,False,,,,,,,,curated,SPA
+59,Constituency #59,Namakkal,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.6 Cr,,0,91.52852967332255,,False,False,,,,,,,,curated,SPA
+60,Constituency #60,Tiruvannamalai,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣34.5 Cr,,1,88.53349288382745,,False,False,,,,,,,,curated,SPA
+60,Constituency #60,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣22.9 Cr,,1,90.08571330932432,,False,False,,,,,,,,curated,SPA
+60,Constituency #60,Tiruvannamalai,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣50.0 Cr,,2,88.60551646562791,,False,False,,,,,,,,curated,SPA
+60,Constituency #60,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣25.9 Cr,,1,88.98595604759187,,False,False,,,,,,,,curated,SPA
+61,Constituency #61,Erode,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣24.1 Cr,,0,87.300173415717,,False,False,,,,,,,,curated,NDA
+61,Constituency #61,Erode,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣17.1 Cr,,0,87.44752665436302,,False,False,,,,,,,,curated,NDA
+61,Constituency #61,Erode,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.4 Cr,,2,91.33192215136422,,False,False,,,,,,,,curated,NDA
+61,Constituency #61,Erode,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.9 Cr,,1,85.1769784848189,,False,False,,,,,,,,curated,NDA
+62,Constituency #62,Tirupattur,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣29.8 Cr,,2,93.10820809350294,,False,False,,,,,,,,curated,SPA
+62,Constituency #62,Tirupattur,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣48.5 Cr,,1,89.44554923958424,,False,False,,,,,,,,curated,SPA
+62,Constituency #62,Tirupattur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣44.0 Cr,,1,86.07045820626342,,False,False,,,,,,,,curated,SPA
+62,Constituency #62,Tirupattur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣24.6 Cr,,2,92.74793782492083,,False,False,,,,,,,,curated,SPA
+63,Constituency #63,Kallakurichi,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣35.1 Cr,,1,93.21131720884647,,False,False,,,,,,,,curated,NDA
+63,Constituency #63,Kallakurichi,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣4.3 Cr,,2,86.1994908176327,,False,False,,,,,,,,curated,NDA
+63,Constituency #63,Kallakurichi,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.9 Cr,,2,85.24819641938451,,False,False,,,,,,,,curated,NDA
+63,Constituency #63,Kallakurichi,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣7.8 Cr,,0,93.30041153648187,,False,False,,,,,,,,curated,NDA
+64,Constituency #64,Chengalpattu,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣15.1 Cr,,1,92.40365574392521,,False,False,,,,,,,,curated,SPA
+64,Constituency #64,Chengalpattu,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣42.2 Cr,,0,94.17840970382503,,False,False,,,,,,,,curated,SPA
+64,Constituency #64,Chengalpattu,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣6.5 Cr,,2,87.90821504865413,,False,False,,,,,,,,curated,SPA
+64,Constituency #64,Chengalpattu,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.8 Cr,,0,92.66503547310596,,False,False,,,,,,,,curated,SPA
+65,Constituency #65,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣28.8 Cr,,1,89.68283947781376,,False,False,,,,,,,,curated,SPA
+65,Constituency #65,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣44.8 Cr,,0,88.09100213271329,,False,False,,,,,,,,curated,SPA
+65,Constituency #65,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣39.1 Cr,,0,93.55713374044463,,False,False,,,,,,,,curated,SPA
+65,Constituency #65,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.7 Cr,,2,85.68961670559034,,False,False,,,,,,,,curated,SPA
+66,Constituency #66,Chennai,Tamil Nadu,CHENNAI,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣13.1 Cr,,0,89.84167015404812,,False,False,,,,,,,,curated,NDA
+66,Constituency #66,Chennai,Tamil Nadu,CHENNAI,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣5.0 Cr,,0,94.00789007379355,,False,False,,,,,,,,curated,NDA
+66,Constituency #66,Chennai,Tamil Nadu,CHENNAI,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣5.0 Cr,,0,87.51251979386981,,False,False,,,,,,,,curated,NDA
+66,Constituency #66,Chennai,Tamil Nadu,CHENNAI,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.5 Cr,,0,88.82117484215904,,False,False,,,,,,,,curated,NDA
+67,Constituency #67,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣16.0 Cr,,0,93.03590239908915,,False,False,,,,,,,,curated,SPA
+67,Constituency #67,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣48.7 Cr,,1,93.04529703607258,,False,False,,,,,,,,curated,SPA
+67,Constituency #67,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣33.9 Cr,,0,88.19441997097323,,False,False,,,,,,,,curated,SPA
+67,Constituency #67,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.0 Cr,,0,87.51171413117619,,False,False,,,,,,,,curated,SPA
+68,Constituency #68,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣29.4 Cr,,2,89.63148022396952,,False,False,,,,,,,,curated,SPA
+68,Constituency #68,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣10.0 Cr,,0,86.9376925855277,,False,False,,,,,,,,curated,SPA
+68,Constituency #68,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.5 Cr,,2,91.84994098618347,,False,False,,,,,,,,curated,SPA
+68,Constituency #68,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.4 Cr,,1,85.4777401979369,,False,False,,,,,,,,curated,SPA
+69,Constituency #69,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣42.6 Cr,,1,88.44677325624131,,False,False,,,,,,,,curated,NDA
+69,Constituency #69,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣33.5 Cr,,2,92.24867924170292,,False,False,,,,,,,,curated,NDA
+69,Constituency #69,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.1 Cr,,1,93.40521708828449,,False,False,,,,,,,,curated,NDA
+69,Constituency #69,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.4 Cr,,1,93.8902870866106,,False,False,,,,,,,,curated,NDA
+70,Constituency #70,Perambalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣29.9 Cr,,2,85.1894072806934,,False,False,,,,,,,,curated,SPA
+70,Constituency #70,Perambalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣5.0 Cr,,2,85.4875264364619,,False,False,,,,,,,,curated,SPA
+70,Constituency #70,Perambalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣22.9 Cr,,2,87.42429456477161,,False,False,,,,,,,,curated,SPA
+70,Constituency #70,Perambalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.2 Cr,,2,89.91776780080124,,False,False,,,,,,,,curated,SPA
+71,Constituency #71,Pudukkottai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣5.0 Cr,,2,86.42546839654388,,False,False,,,,,,,,curated,SPA
+71,Constituency #71,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣46.9 Cr,,2,85.33455503851935,,False,False,,,,,,,,curated,SPA
+71,Constituency #71,Pudukkottai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣6.9 Cr,,0,87.9271250433155,,False,False,,,,,,,,curated,SPA
+71,Constituency #71,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.6 Cr,,0,89.93395442968072,,False,False,,,,,,,,curated,SPA
+72,Constituency #72,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣50.3 Cr,,0,92.22366248798892,,False,False,,,,,,,,curated,NDA
+72,Constituency #72,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣44.1 Cr,,0,87.69319635299277,,False,False,,,,,,,,curated,NDA
+72,Constituency #72,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.3 Cr,,0,88.7827298978018,,False,False,,,,,,,,curated,NDA
+72,Constituency #72,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.4 Cr,,0,90.91166820165478,,False,False,,,,,,,,curated,NDA
+73,Constituency #73,Dharmapuri,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣49.4 Cr,,1,92.49653670889874,,False,False,,,,,,,,curated,SPA
+73,Constituency #73,Dharmapuri,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣30.4 Cr,,2,92.72016705825268,,False,False,,,,,,,,curated,SPA
+73,Constituency #73,Dharmapuri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣29.9 Cr,,0,86.68361312186613,,False,False,,,,,,,,curated,SPA
+73,Constituency #73,Dharmapuri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣24.8 Cr,,1,94.4197916774251,,False,False,,,,,,,,curated,SPA
+74,Constituency #74,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣27.0 Cr,,2,86.19871274603935,,False,False,,,,,,,,curated,NDA
+74,Constituency #74,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣48.7 Cr,,2,85.02168090657914,,False,False,,,,,,,,curated,NDA
+74,Constituency #74,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣46.4 Cr,,2,93.75066507031364,,False,False,,,,,,,,curated,NDA
+74,Constituency #74,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣28.6 Cr,,0,85.7028504130162,,False,False,,,,,,,,curated,NDA
+75,Constituency #75,Salem,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣35.7 Cr,,2,86.33580253189925,,False,False,,,,,,,,curated,SPA
+75,Constituency #75,Salem,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣29.8 Cr,,2,86.01585306124919,,False,False,,,,,,,,curated,SPA
+75,Constituency #75,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣37.6 Cr,,0,88.62486209701443,,False,False,,,,,,,,curated,SPA
+75,Constituency #75,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣44.1 Cr,,1,93.52523246542177,,False,False,,,,,,,,curated,SPA
+76,Constituency #76,Krishnagiri,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣42.5 Cr,,1,88.366883991125,,False,False,,,,,,,,curated,NDA
+76,Constituency #76,Krishnagiri,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣3.9 Cr,,2,92.61188391169935,,False,False,,,,,,,,curated,NDA
+76,Constituency #76,Krishnagiri,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.6 Cr,,0,93.90515878495597,,False,False,,,,,,,,curated,NDA
+76,Constituency #76,Krishnagiri,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣24.9 Cr,,0,91.39163449088056,,False,False,,,,,,,,curated,NDA
+77,Edappadi,Salem,Tamil Nadu,WEST,GEN,DMK Nominee,DMK,SPA,False,12th Pass,,,,Γé╣14.5 Cr,,0,94.98533084109216,,False,False,,,,,,,,curated,NDA
+77,Edappadi,Salem,Tamil Nadu,WEST,GEN,Edappadi K. Palaniswami,AIADMK,NDA,True,12th Pass,,,,Γé╣28.6 Cr,,2,92.60371514574098,,False,False,,,,,,,,curated,NDA
+77,Edappadi,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣3.6 Cr,,1,85.29284289075235,,False,False,,,,,,,,curated,NDA
+77,Edappadi,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣36.7 Cr,,2,92.95988050099959,,False,False,,,,,,,,curated,NDA
+78,Constituency #78,Ranipet,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣25.7 Cr,,2,92.06337630570066,,False,False,,,,,,,,curated,NDA
+78,Constituency #78,Ranipet,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣18.1 Cr,,2,93.98131763122714,,False,False,,,,,,,,curated,NDA
+78,Constituency #78,Ranipet,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.6 Cr,,2,86.15111424555543,,False,False,,,,,,,,curated,NDA
+78,Constituency #78,Ranipet,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣5.8 Cr,,0,85.32961991179968,,False,False,,,,,,,,curated,NDA
+79,Constituency #79,Villupuram,Tamil Nadu,NORTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣47.9 Cr,,1,91.68497182355841,,False,False,,,,,,,,curated,NDA
+79,Constituency #79,Villupuram,Tamil Nadu,NORTH,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣14.5 Cr,,1,90.90000824492424,,False,False,,,,,,,,curated,NDA
+79,Constituency #79,Villupuram,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.0 Cr,,0,94.70791644342165,,False,False,,,,,,,,curated,NDA
+79,Constituency #79,Villupuram,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.8 Cr,,1,89.54955791158343,,False,False,,,,,,,,curated,NDA
+80,Constituency #80,Kancheepuram,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣25.6 Cr,,0,90.77997301842777,,False,False,,,,,,,,curated,NDA
+80,Constituency #80,Kancheepuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣22.6 Cr,,2,88.20926760283527,,False,False,,,,,,,,curated,NDA
+80,Constituency #80,Kancheepuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.5 Cr,,2,89.24052480481166,,False,False,,,,,,,,curated,NDA
+80,Constituency #80,Kancheepuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.6 Cr,,0,90.66097485141775,,False,False,,,,,,,,curated,NDA
+81,Constituency #81,Tenkasi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣16.1 Cr,,2,88.40766049600423,,False,False,,,,,,,,curated,NDA
+81,Constituency #81,Tenkasi,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣9.0 Cr,,0,92.57637494946175,,False,False,,,,,,,,curated,NDA
+81,Constituency #81,Tenkasi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣35.8 Cr,,1,89.20054850201633,,False,False,,,,,,,,curated,NDA
+81,Constituency #81,Tenkasi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.7 Cr,,0,92.27327357351407,,False,False,,,,,,,,curated,NDA
+82,Constituency #82,Kanyakumari,Tamil Nadu,SOUTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣34.2 Cr,,0,91.09291457378527,,False,False,,,,,,,,curated,NDA
+82,Constituency #82,Kanyakumari,Tamil Nadu,SOUTH,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣25.6 Cr,,1,91.14710415970863,,False,False,,,,,,,,curated,NDA
+82,Constituency #82,Kanyakumari,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.6 Cr,,0,93.30247647561107,,False,False,,,,,,,,curated,NDA
+82,Constituency #82,Kanyakumari,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣26.7 Cr,,2,85.04093706591277,,False,False,,,,,,,,curated,NDA
+83,Constituency #83,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.3 Cr,,2,94.1723780516536,,False,False,,,,,,,,curated,SPA
+83,Constituency #83,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣42.7 Cr,,0,88.73783207058705,,False,False,,,,,,,,curated,SPA
+83,Constituency #83,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.8 Cr,,0,88.96535531024229,,False,False,,,,,,,,curated,SPA
+83,Constituency #83,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣22.5 Cr,,0,88.97138274971233,,False,False,,,,,,,,curated,SPA
+84,Constituency #84,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣32.5 Cr,,2,90.71878429706486,,False,False,,,,,,,,curated,SPA
+84,Constituency #84,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣26.0 Cr,,2,87.99880359275338,,False,False,,,,,,,,curated,SPA
+84,Constituency #84,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.9 Cr,,0,85.74481562061116,,False,False,,,,,,,,curated,SPA
+84,Constituency #84,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣38.0 Cr,,0,94.45617705738526,,False,False,,,,,,,,curated,SPA
+85,Constituency #85,Dindigul,Tamil Nadu,SOUTH,SC,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣42.0 Cr,,2,92.02449171167099,,False,False,,,,,,,,curated,NDA
+85,Constituency #85,Dindigul,Tamil Nadu,SOUTH,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣29.9 Cr,,2,89.9661469705587,,False,False,,,,,,,,curated,NDA
+85,Constituency #85,Dindigul,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣47.8 Cr,,2,88.77070586929729,,False,False,,,,,,,,curated,NDA
+85,Constituency #85,Dindigul,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣36.9 Cr,,2,90.60655330828806,,False,False,,,,,,,,curated,NDA
+86,Constituency #86,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣3.7 Cr,,0,91.42683145611271,,False,False,,,,,,,,curated,SPA
+86,Constituency #86,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣31.1 Cr,,0,93.19442913072287,,False,False,,,,,,,,curated,SPA
+86,Constituency #86,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.9 Cr,,2,91.05718909783488,,False,False,,,,,,,,curated,SPA
+86,Constituency #86,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣39.8 Cr,,1,87.06606427736038,,False,False,,,,,,,,curated,SPA
+87,Constituency #87,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣6.4 Cr,,1,90.8695042269183,,False,False,,,,,,,,curated,SPA
+87,Constituency #87,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣29.0 Cr,,0,86.3890894283695,,False,False,,,,,,,,curated,SPA
+87,Constituency #87,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣29.2 Cr,,2,92.59554929796195,,False,False,,,,,,,,curated,SPA
+87,Constituency #87,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣22.0 Cr,,1,94.21720744809113,,False,False,,,,,,,,curated,SPA
+88,Constituency #88,Thiruvarur,Tamil Nadu,CENTRAL,SC,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣7.7 Cr,,0,85.8680988895788,,False,False,,,,,,,,curated,NDA
+88,Constituency #88,Thiruvarur,Tamil Nadu,CENTRAL,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣17.8 Cr,,2,86.0052418318406,,False,False,,,,,,,,curated,NDA
+88,Constituency #88,Thiruvarur,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣1.8 Cr,,2,93.04641175057276,,False,False,,,,,,,,curated,NDA
+88,Constituency #88,Thiruvarur,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.2 Cr,,2,86.7356650503319,,False,False,,,,,,,,curated,NDA
+89,Constituency #89,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣15.2 Cr,,1,93.67433307449916,,False,False,,,,,,,,curated,SPA
+89,Constituency #89,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣29.2 Cr,,2,88.53639154726204,,False,False,,,,,,,,curated,SPA
+89,Constituency #89,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣40.9 Cr,,0,85.38004465991008,,False,False,,,,,,,,curated,SPA
+89,Constituency #89,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣5.0 Cr,,1,89.26639214042149,,False,False,,,,,,,,curated,SPA
+90,Constituency #90,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣40.3 Cr,,2,90.20724730675204,,False,False,,,,,,,,curated,SPA
+90,Constituency #90,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣13.4 Cr,,0,93.62164223520207,,False,False,,,,,,,,curated,SPA
+90,Constituency #90,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.1 Cr,,0,85.68853904480136,,False,False,,,,,,,,curated,SPA
+90,Constituency #90,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.4 Cr,,1,94.97865092857569,,False,False,,,,,,,,curated,SPA
+91,Constituency #91,Tirupur,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣33.5 Cr,,2,88.3578944393821,,False,False,,,,,,,,curated,NDA
+91,Constituency #91,Tirupur,Tamil Nadu,WEST,SC,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣24.7 Cr,,2,89.42640881602323,,False,False,,,,,,,,curated,NDA
+91,Constituency #91,Tirupur,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣46.0 Cr,,1,93.93807701546848,,False,False,,,,,,,,curated,NDA
+91,Constituency #91,Tirupur,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣37.2 Cr,,2,85.06949072479291,,False,False,,,,,,,,curated,NDA
+92,Constituency #92,Namakkal,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣38.4 Cr,,2,92.8602871747438,,False,False,,,,,,,,curated,SPA
+92,Constituency #92,Namakkal,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣33.0 Cr,,1,90.32136041784263,,False,False,,,,,,,,curated,SPA
+92,Constituency #92,Namakkal,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣46.9 Cr,,1,94.03321665873304,,False,False,,,,,,,,curated,SPA
+92,Constituency #92,Namakkal,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣39.7 Cr,,2,88.12686107003283,,False,False,,,,,,,,curated,SPA
+93,Constituency #93,Tiruvannamalai,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣41.3 Cr,,0,88.04756612097904,,False,False,,,,,,,,curated,SPA
+93,Constituency #93,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣45.7 Cr,,1,89.94975334251684,,False,False,,,,,,,,curated,SPA
+93,Constituency #93,Tiruvannamalai,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣23.8 Cr,,2,91.25551479065042,,False,False,,,,,,,,curated,SPA
+93,Constituency #93,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.5 Cr,,0,89.86802047335534,,False,False,,,,,,,,curated,SPA
+94,Constituency #94,Vellore,Tamil Nadu,NORTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣38.8 Cr,,2,88.52705525862038,,False,False,,,,,,,,curated,SPA
+94,Constituency #94,Vellore,Tamil Nadu,NORTH,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣18.5 Cr,,1,88.52676698416514,,False,False,,,,,,,,curated,SPA
+94,Constituency #94,Vellore,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣23.2 Cr,,2,87.11068221255434,,False,False,,,,,,,,curated,SPA
+94,Constituency #94,Vellore,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣41.8 Cr,,0,93.91026398870785,,False,False,,,,,,,,curated,SPA
+95,Constituency #95,Tirupattur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣38.6 Cr,,1,90.55298916145833,,False,False,,,,,,,,curated,SPA
+95,Constituency #95,Tirupattur,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣20.8 Cr,,2,86.85031713594441,,False,False,,,,,,,,curated,SPA
+95,Constituency #95,Tirupattur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣34.4 Cr,,1,90.00427447515489,,False,False,,,,,,,,curated,SPA
+95,Constituency #95,Tirupattur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.4 Cr,,2,90.09592739581332,,False,False,,,,,,,,curated,SPA
+96,Constituency #96,Tiruvallur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣34.7 Cr,,2,85.40406594546869,,False,False,,,,,,,,curated,NDA
+96,Constituency #96,Tiruvallur,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣31.6 Cr,,2,90.07132386344878,,False,False,,,,,,,,curated,NDA
+96,Constituency #96,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣5.1 Cr,,2,89.98747647541097,,False,False,,,,,,,,curated,NDA
+96,Constituency #96,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣41.9 Cr,,1,89.5159126851197,,False,False,,,,,,,,curated,NDA
+97,Constituency #97,Chengalpattu,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣20.8 Cr,,2,94.54856315698892,,False,False,,,,,,,,curated,SPA
+97,Constituency #97,Chengalpattu,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣44.1 Cr,,2,92.37184109764965,,False,False,,,,,,,,curated,SPA
+97,Constituency #97,Chengalpattu,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.8 Cr,,0,92.90113190669058,,False,False,,,,,,,,curated,SPA
+97,Constituency #97,Chengalpattu,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣25.6 Cr,,0,87.20207849964088,,False,False,,,,,,,,curated,SPA
+98,Constituency #98,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣43.7 Cr,,0,93.29712877063116,,False,False,,,,,,,,curated,SPA
+98,Constituency #98,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣42.0 Cr,,0,87.3791860484358,,False,False,,,,,,,,curated,SPA
+98,Constituency #98,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.9 Cr,,0,93.42663401415504,,False,False,,,,,,,,curated,SPA
+98,Constituency #98,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.8 Cr,,1,92.47751046648877,,False,False,,,,,,,,curated,SPA
+99,Constituency #99,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣31.9 Cr,,1,94.88795648693187,,False,False,,,,,,,,curated,NDA
+99,Constituency #99,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣17.8 Cr,,1,88.74509510803948,,False,False,,,,,,,,curated,NDA
+99,Constituency #99,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣22.8 Cr,,2,92.84578361489942,,False,False,,,,,,,,curated,NDA
+99,Constituency #99,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣13.4 Cr,,0,92.8236648668933,,False,False,,,,,,,,curated,NDA
+100,Constituency #100,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣35.2 Cr,,1,85.2599822776267,,False,False,,,,,,,,curated,SPA
+100,Constituency #100,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣48.0 Cr,,0,92.41719039925513,,False,False,,,,,,,,curated,SPA
+100,Constituency #100,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣5.0 Cr,,1,85.66595250307564,,False,False,,,,,,,,curated,SPA
+100,Constituency #100,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣9.6 Cr,,1,94.74661884268619,,False,False,,,,,,,,curated,SPA
+101,Constituency #101,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣24.8 Cr,,0,91.2012873506338,,False,False,,,,,,,,curated,SPA
+101,Constituency #101,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣46.0 Cr,,0,85.3916732949586,,False,False,,,,,,,,curated,SPA
+101,Constituency #101,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.1 Cr,,1,94.80100540029783,,False,False,,,,,,,,curated,SPA
+101,Constituency #101,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣38.9 Cr,,2,85.08322295071267,,False,False,,,,,,,,curated,SPA
+102,Constituency #102,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣32.8 Cr,,0,93.81569075165572,,False,False,,,,,,,,curated,NDA
+102,Constituency #102,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣34.5 Cr,,2,91.82499645382686,,False,False,,,,,,,,curated,NDA
+102,Constituency #102,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.8 Cr,,2,91.78635367725927,,False,False,,,,,,,,curated,NDA
+102,Constituency #102,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.5 Cr,,0,87.47383991557831,,False,False,,,,,,,,curated,NDA
+103,Constituency #103,Perambalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣28.6 Cr,,1,87.7389022179806,,False,False,,,,,,,,curated,SPA
+103,Constituency #103,Perambalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣26.6 Cr,,2,92.7176267985299,,False,False,,,,,,,,curated,SPA
+103,Constituency #103,Perambalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣41.1 Cr,,2,86.41211888080846,,False,False,,,,,,,,curated,SPA
+103,Constituency #103,Perambalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.8 Cr,,1,93.29023036545999,,False,False,,,,,,,,curated,SPA
+104,Constituency #104,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.6 Cr,,1,89.03481299482115,,False,False,,,,,,,,curated,SPA
+104,Constituency #104,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣11.6 Cr,,0,86.25632405969259,,False,False,,,,,,,,curated,SPA
+104,Constituency #104,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.2 Cr,,1,85.74531096090736,,False,False,,,,,,,,curated,SPA
+104,Constituency #104,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.9 Cr,,0,90.87025880263454,,False,False,,,,,,,,curated,SPA
+105,Constituency #105,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣20.5 Cr,,0,93.36815949521815,,False,False,,,,,,,,curated,SPA
+105,Constituency #105,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣22.3 Cr,,2,87.75964118917285,,False,False,,,,,,,,curated,SPA
+105,Constituency #105,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.9 Cr,,2,93.49869188956016,,False,False,,,,,,,,curated,SPA
+105,Constituency #105,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣7.1 Cr,,2,90.27185618138395,,False,False,,,,,,,,curated,SPA
+106,Constituency #106,Dharmapuri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣43.3 Cr,,2,94.01566123901097,,False,False,,,,,,,,curated,SPA
+106,Constituency #106,Dharmapuri,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣21.6 Cr,,0,92.83821788467692,,False,False,,,,,,,,curated,SPA
+106,Constituency #106,Dharmapuri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.6 Cr,,1,88.64335743764133,,False,False,,,,,,,,curated,SPA
+106,Constituency #106,Dharmapuri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.0 Cr,,0,85.36282847999259,,False,False,,,,,,,,curated,SPA
+107,Constituency #107,Erode,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣26.2 Cr,,1,90.46804619502328,,False,False,,,,,,,,curated,NDA
+107,Constituency #107,Erode,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣23.1 Cr,,1,86.35192850251197,,False,False,,,,,,,,curated,NDA
+107,Constituency #107,Erode,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.0 Cr,,2,88.89840571462575,,False,False,,,,,,,,curated,NDA
+107,Constituency #107,Erode,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.2 Cr,,1,90.04523127028982,,False,False,,,,,,,,curated,NDA
+108,Constituency #108,Salem,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣26.3 Cr,,0,90.08408803911774,,False,False,,,,,,,,curated,SPA
+108,Constituency #108,Salem,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣37.6 Cr,,2,88.76222541989915,,False,False,,,,,,,,curated,SPA
+108,Constituency #108,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣16.1 Cr,,1,88.67955290972426,,False,False,,,,,,,,curated,SPA
+108,Constituency #108,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣31.2 Cr,,0,89.07041425207473,,False,False,,,,,,,,curated,SPA
+109,Constituency #109,Kallakurichi,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣36.4 Cr,,1,92.39932372137761,,False,False,,,,,,,,curated,SPA
+109,Constituency #109,Kallakurichi,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣7.2 Cr,,2,94.61015233505381,,False,False,,,,,,,,curated,SPA
+109,Constituency #109,Kallakurichi,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣41.8 Cr,,1,93.84934865810834,,False,False,,,,,,,,curated,SPA
+109,Constituency #109,Kallakurichi,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣41.1 Cr,,0,92.38504688820875,,False,False,,,,,,,,curated,SPA
+110,Constituency #110,Coimbatore,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣30.8 Cr,,2,87.28359614012422,,False,False,,,,,,,,curated,NDA
+110,Constituency #110,Coimbatore,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣28.2 Cr,,1,89.96379419359292,,False,False,,,,,,,,curated,NDA
+110,Constituency #110,Coimbatore,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.0 Cr,,1,94.48156694045743,,False,False,,,,,,,,curated,NDA
+110,Constituency #110,Coimbatore,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.8 Cr,,2,85.02233027481836,,False,False,,,,,,,,curated,NDA
+111,Constituency #111,Ranipet,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣28.4 Cr,,0,85.91791590230264,,False,False,,,,,,,,curated,SPA
+111,Constituency #111,Ranipet,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣50.1 Cr,,0,92.72910855661827,,False,False,,,,,,,,curated,SPA
+111,Constituency #111,Ranipet,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.3 Cr,,2,90.71303641934824,,False,False,,,,,,,,curated,SPA
+111,Constituency #111,Ranipet,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.9 Cr,,2,87.71629566491379,,False,False,,,,,,,,curated,SPA
+112,Constituency #112,Chennai,Tamil Nadu,CHENNAI,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣30.9 Cr,,2,90.50416078710862,,False,False,,,,,,,,curated,SPA
+112,Constituency #112,Chennai,Tamil Nadu,CHENNAI,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣46.2 Cr,,0,86.5740810745051,,False,False,,,,,,,,curated,SPA
+112,Constituency #112,Chennai,Tamil Nadu,CHENNAI,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.0 Cr,,1,90.59282782277606,,False,False,,,,,,,,curated,SPA
+112,Constituency #112,Chennai,Tamil Nadu,CHENNAI,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.4 Cr,,2,88.75438109661901,,False,False,,,,,,,,curated,SPA
+113,Constituency #113,Kancheepuram,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣37.8 Cr,,2,87.6963522021286,,False,False,,,,,,,,curated,NDA
+113,Constituency #113,Kancheepuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣32.6 Cr,,0,93.59038279035035,,False,False,,,,,,,,curated,NDA
+113,Constituency #113,Kancheepuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.4 Cr,,0,92.56674641372814,,False,False,,,,,,,,curated,NDA
+113,Constituency #113,Kancheepuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.8 Cr,,0,92.86130455820991,,False,False,,,,,,,,curated,NDA
+114,Constituency #114,Tenkasi,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣2.8 Cr,,0,93.74197945402288,,False,False,,,,,,,,curated,SPA
+114,Constituency #114,Tenkasi,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣41.0 Cr,,0,91.53334889491141,,False,False,,,,,,,,curated,SPA
+114,Constituency #114,Tenkasi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣16.7 Cr,,2,93.93331530125549,,False,False,,,,,,,,curated,SPA
+114,Constituency #114,Tenkasi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣1.6 Cr,,2,90.67774691727563,,False,False,,,,,,,,curated,SPA
+115,Constituency #115,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣42.8 Cr,,1,87.36437712785181,,False,False,,,,,,,,curated,NDA
+115,Constituency #115,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣32.8 Cr,,0,91.46414056855588,,False,False,,,,,,,,curated,NDA
+115,Constituency #115,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.5 Cr,,2,92.82563749968182,,False,False,,,,,,,,curated,NDA
+115,Constituency #115,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.3 Cr,,0,94.4400517538572,,False,False,,,,,,,,curated,NDA
+116,Constituency #116,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣8.1 Cr,,2,94.96435574025772,,False,False,,,,,,,,curated,NDA
+116,Constituency #116,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣45.9 Cr,,2,86.89728618892545,,False,False,,,,,,,,curated,NDA
+116,Constituency #116,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣41.8 Cr,,1,92.07774746004839,,False,False,,,,,,,,curated,NDA
+116,Constituency #116,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.3 Cr,,2,85.10681964928825,,False,False,,,,,,,,curated,NDA
+117,Constituency #117,Pudukkottai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣14.4 Cr,,2,89.297963378692,,False,False,,,,,,,,curated,SPA
+117,Constituency #117,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣29.0 Cr,,2,85.9783246710205,,False,False,,,,,,,,curated,SPA
+117,Constituency #117,Pudukkottai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣20.0 Cr,,0,88.29191353826599,,False,False,,,,,,,,curated,SPA
+117,Constituency #117,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.1 Cr,,2,89.9733129970551,,False,False,,,,,,,,curated,SPA
+118,Constituency #118,Dindigul,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣7.1 Cr,,0,87.5323869003847,,False,False,,,,,,,,curated,NDA
+118,Constituency #118,Dindigul,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣15.1 Cr,,0,85.06059568910872,,False,False,,,,,,,,curated,NDA
+118,Constituency #118,Dindigul,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣28.3 Cr,,2,87.75063541360213,,False,False,,,,,,,,curated,NDA
+118,Constituency #118,Dindigul,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.8 Cr,,0,88.09184368616698,,False,False,,,,,,,,curated,NDA
+119,Constituency #119,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣46.7 Cr,,2,86.93082354084102,,False,False,,,,,,,,curated,NDA
+119,Constituency #119,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣13.2 Cr,,0,90.28384682890746,,False,False,,,,,,,,curated,NDA
+119,Constituency #119,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.3 Cr,,0,88.83198896770391,,False,False,,,,,,,,curated,NDA
+119,Constituency #119,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣21.0 Cr,,2,88.21023765911737,,False,False,,,,,,,,curated,NDA
+120,Constituency #120,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣45.4 Cr,,1,90.50164581101534,,False,False,,,,,,,,curated,SPA
+120,Constituency #120,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣28.1 Cr,,1,86.41558292810915,,False,False,,,,,,,,curated,SPA
+120,Constituency #120,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣21.6 Cr,,1,89.74173844318454,,False,False,,,,,,,,curated,SPA
+120,Constituency #120,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣21.9 Cr,,1,86.36482340487417,,False,False,,,,,,,,curated,SPA
+121,Constituency #121,Thiruvarur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣6.9 Cr,,0,89.96425424071604,,False,False,,,,,,,,curated,NDA
+121,Constituency #121,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣45.9 Cr,,2,91.2619089807741,,False,False,,,,,,,,curated,NDA
+121,Constituency #121,Thiruvarur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.3 Cr,,2,94.57411841099328,,False,False,,,,,,,,curated,NDA
+121,Constituency #121,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣16.2 Cr,,0,91.43337123397518,,False,False,,,,,,,,curated,NDA
+122,Constituency #122,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣37.3 Cr,,2,88.79325206277171,,False,False,,,,,,,,curated,NDA
+122,Constituency #122,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣49.0 Cr,,2,91.3565479609314,,False,False,,,,,,,,curated,NDA
+122,Constituency #122,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣28.9 Cr,,1,93.50606784716591,,False,False,,,,,,,,curated,NDA
+122,Constituency #122,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.0 Cr,,1,85.44173193991347,,False,False,,,,,,,,curated,NDA
+123,Constituency #123,Coimbatore,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣3.3 Cr,,0,93.77519587644983,,False,False,,,,,,,,curated,SPA
+123,Constituency #123,Coimbatore,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣1.4 Cr,,2,90.7178737786022,,False,False,,,,,,,,curated,SPA
+123,Constituency #123,Coimbatore,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣13.9 Cr,,0,85.93802223849616,,False,False,,,,,,,,curated,SPA
+123,Constituency #123,Coimbatore,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣25.0 Cr,,0,85.2614559917109,,False,False,,,,,,,,curated,SPA
+124,Constituency #124,Tirupur,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣48.0 Cr,,1,87.21394571036937,,False,False,,,,,,,,curated,NDA
+124,Constituency #124,Tirupur,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣45.2 Cr,,1,94.12777232349822,,False,False,,,,,,,,curated,NDA
+124,Constituency #124,Tirupur,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.5 Cr,,1,93.64884079971033,,False,False,,,,,,,,curated,NDA
+124,Constituency #124,Tirupur,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣16.8 Cr,,1,87.5331275679563,,False,False,,,,,,,,curated,NDA
+125,Constituency #125,Villupuram,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣47.8 Cr,,2,90.7140276083251,,False,False,,,,,,,,curated,NDA
+125,Constituency #125,Villupuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣30.1 Cr,,2,89.26646118539719,,False,False,,,,,,,,curated,NDA
+125,Constituency #125,Villupuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.4 Cr,,1,90.57558056031255,,False,False,,,,,,,,curated,NDA
+125,Constituency #125,Villupuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣37.0 Cr,,0,85.72151538907961,,False,False,,,,,,,,curated,NDA
+126,Constituency #126,Tiruvannamalai,Tamil Nadu,NORTH,SC,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣19.5 Cr,,1,88.81334591874408,,False,False,,,,,,,,curated,NDA
+126,Constituency #126,Tiruvannamalai,Tamil Nadu,NORTH,SC,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣11.5 Cr,,0,86.93713572377611,,False,False,,,,,,,,curated,NDA
+126,Constituency #126,Tiruvannamalai,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.0 Cr,,1,88.47573566258863,,False,False,,,,,,,,curated,NDA
+126,Constituency #126,Tiruvannamalai,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.9 Cr,,0,90.89319499582237,,False,False,,,,,,,,curated,NDA
+127,Constituency #127,Vellore,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣42.9 Cr,,0,92.43237769531929,,False,False,,,,,,,,curated,SPA
+127,Constituency #127,Vellore,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣20.3 Cr,,0,93.82036184303962,,False,False,,,,,,,,curated,SPA
+127,Constituency #127,Vellore,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣2.6 Cr,,1,89.86252783662016,,False,False,,,,,,,,curated,SPA
+127,Constituency #127,Vellore,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.5 Cr,,1,90.22191292402452,,False,False,,,,,,,,curated,SPA
+128,Constituency #128,Kanyakumari,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣9.2 Cr,,1,93.80716879954878,,False,False,,,,,,,,curated,NDA
+128,Constituency #128,Kanyakumari,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣44.6 Cr,,1,90.59599183789783,,False,False,,,,,,,,curated,NDA
+128,Constituency #128,Kanyakumari,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.0 Cr,,0,85.53521164899675,,False,False,,,,,,,,curated,NDA
+128,Constituency #128,Kanyakumari,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣44.2 Cr,,2,88.01576993787467,,False,False,,,,,,,,curated,NDA
+129,Constituency #129,Tiruvallur,Tamil Nadu,NORTH,SC,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣1.5 Cr,,2,85.76653347916627,,False,False,,,,,,,,curated,NDA
+129,Constituency #129,Tiruvallur,Tamil Nadu,NORTH,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣22.7 Cr,,1,90.13146327189594,,False,False,,,,,,,,curated,NDA
+129,Constituency #129,Tiruvallur,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.6 Cr,,2,89.048213115061,,False,False,,,,,,,,curated,NDA
+129,Constituency #129,Tiruvallur,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.2 Cr,,1,86.23052572519168,,False,False,,,,,,,,curated,NDA
+130,Constituency #130,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣35.5 Cr,,0,93.02475356524057,,False,False,,,,,,,,curated,SPA
+130,Constituency #130,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣3.6 Cr,,2,92.11358430715977,,False,False,,,,,,,,curated,SPA
+130,Constituency #130,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣1.2 Cr,,1,92.47041961090761,,False,False,,,,,,,,curated,SPA
+130,Constituency #130,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.0 Cr,,0,91.35272483489534,,False,False,,,,,,,,curated,SPA
+131,Constituency #131,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣45.3 Cr,,1,85.75728017180292,,False,False,,,,,,,,curated,SPA
+131,Constituency #131,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣37.4 Cr,,1,94.70285795552897,,False,False,,,,,,,,curated,SPA
+131,Constituency #131,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣39.8 Cr,,2,88.73259828416643,,False,False,,,,,,,,curated,SPA
+131,Constituency #131,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.1 Cr,,1,89.75613362384289,,False,False,,,,,,,,curated,SPA
+132,Constituency #132,Sivaganga,Tamil Nadu,SOUTH,SC,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣20.3 Cr,,2,87.56562919106223,,False,False,,,,,,,,curated,NDA
+132,Constituency #132,Sivaganga,Tamil Nadu,SOUTH,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣49.1 Cr,,0,86.70604775396335,,False,False,,,,,,,,curated,NDA
+132,Constituency #132,Sivaganga,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.9 Cr,,1,90.37659732057885,,False,False,,,,,,,,curated,NDA
+132,Constituency #132,Sivaganga,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.3 Cr,,1,94.63553536982664,,False,False,,,,,,,,curated,NDA
+133,Constituency #133,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣29.4 Cr,,1,88.89943083451688,,False,False,,,,,,,,curated,SPA
+133,Constituency #133,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣18.8 Cr,,2,89.11088228021076,,False,False,,,,,,,,curated,SPA
+133,Constituency #133,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣6.0 Cr,,1,87.55445380638187,,False,False,,,,,,,,curated,SPA
+133,Constituency #133,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.6 Cr,,2,87.0001542638292,,False,False,,,,,,,,curated,SPA
+134,Constituency #134,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣46.6 Cr,,2,90.75501632714366,,False,False,,,,,,,,curated,SPA
+134,Constituency #134,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣46.4 Cr,,0,91.52207261715637,,False,False,,,,,,,,curated,SPA
+134,Constituency #134,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.9 Cr,,1,87.67026432708778,,False,False,,,,,,,,curated,SPA
+134,Constituency #134,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.0 Cr,,2,90.1112440876803,,False,False,,,,,,,,curated,SPA
+135,Constituency #135,Mayiladuthurai,Tamil Nadu,CENTRAL,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣26.7 Cr,,1,91.74410501478992,,False,False,,,,,,,,curated,SPA
+135,Constituency #135,Mayiladuthurai,Tamil Nadu,CENTRAL,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣17.3 Cr,,1,90.45201959357107,,False,False,,,,,,,,curated,SPA
+135,Constituency #135,Mayiladuthurai,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.3 Cr,,0,91.61332692795347,,False,False,,,,,,,,curated,SPA
+135,Constituency #135,Mayiladuthurai,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣25.8 Cr,,1,94.8254882829448,,False,False,,,,,,,,curated,SPA
+136,Constituency #136,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣42.2 Cr,,1,91.10107322974555,,False,False,,,,,,,,curated,SPA
+136,Constituency #136,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣7.3 Cr,,1,86.8133383144167,,False,False,,,,,,,,curated,SPA
+136,Constituency #136,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.9 Cr,,0,88.56472954829914,,False,False,,,,,,,,curated,SPA
+136,Constituency #136,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.8 Cr,,0,90.28469913046253,,False,False,,,,,,,,curated,SPA
+137,Constituency #137,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣31.4 Cr,,0,92.72226385103416,,False,False,,,,,,,,curated,NDA
+137,Constituency #137,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣6.0 Cr,,1,93.93781124408684,,False,False,,,,,,,,curated,NDA
+137,Constituency #137,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.5 Cr,,2,85.71526739562778,,False,False,,,,,,,,curated,NDA
+137,Constituency #137,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.6 Cr,,2,90.34366761948986,,False,False,,,,,,,,curated,NDA
+138,Constituency #138,Namakkal,Tamil Nadu,WEST,SC,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣35.6 Cr,,0,94.29554227875227,,False,False,,,,,,,,curated,SPA
+138,Constituency #138,Namakkal,Tamil Nadu,WEST,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣42.4 Cr,,1,94.40405400995375,,False,False,,,,,,,,curated,SPA
+138,Constituency #138,Namakkal,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.1 Cr,,2,87.89718089725969,,False,False,,,,,,,,curated,SPA
+138,Constituency #138,Namakkal,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣9.4 Cr,,1,85.21566823900011,,False,False,,,,,,,,curated,SPA
+139,Constituency #139,Dharmapuri,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣46.8 Cr,,0,90.93344723083499,,False,False,,,,,,,,curated,SPA
+139,Constituency #139,Dharmapuri,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣36.1 Cr,,2,86.21766498895569,,False,False,,,,,,,,curated,SPA
+139,Constituency #139,Dharmapuri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.9 Cr,,1,93.44852899059106,,False,False,,,,,,,,curated,SPA
+139,Constituency #139,Dharmapuri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣33.5 Cr,,1,93.3878578221033,,False,False,,,,,,,,curated,SPA
+140,Constituency #140,Erode,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣3.5 Cr,,0,93.50551083639247,,False,False,,,,,,,,curated,NDA
+140,Constituency #140,Erode,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣34.0 Cr,,0,89.85087008229358,,False,False,,,,,,,,curated,NDA
+140,Constituency #140,Erode,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣23.4 Cr,,0,85.91170708623947,,False,False,,,,,,,,curated,NDA
+140,Constituency #140,Erode,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣44.7 Cr,,1,86.99862906076883,,False,False,,,,,,,,curated,NDA
+141,Constituency #141,Tirupattur,Tamil Nadu,NORTH,SC,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣18.2 Cr,,0,94.56009932070471,,False,False,,,,,,,,curated,SPA
+141,Constituency #141,Tirupattur,Tamil Nadu,NORTH,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣17.6 Cr,,2,90.44186377851358,,False,False,,,,,,,,curated,SPA
+141,Constituency #141,Tirupattur,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣6.5 Cr,,0,87.76019012614357,,False,False,,,,,,,,curated,SPA
+141,Constituency #141,Tirupattur,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣7.0 Cr,,1,91.32842041545116,,False,False,,,,,,,,curated,SPA
+142,Constituency #142,Kallakurichi,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣50.7 Cr,,2,88.15598299086223,,False,False,,,,,,,,curated,SPA
+142,Constituency #142,Kallakurichi,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣28.8 Cr,,0,91.28846409249375,,False,False,,,,,,,,curated,SPA
+142,Constituency #142,Kallakurichi,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣35.8 Cr,,0,86.48777097756154,,False,False,,,,,,,,curated,SPA
+142,Constituency #142,Kallakurichi,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.4 Cr,,1,87.06608773511877,,False,False,,,,,,,,curated,SPA
+143,Constituency #143,Chengalpattu,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣18.3 Cr,,1,88.32110473251623,,False,False,,,,,,,,curated,NDA
+143,Constituency #143,Chengalpattu,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣1.1 Cr,,2,94.30221700030182,,False,False,,,,,,,,curated,NDA
+143,Constituency #143,Chengalpattu,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.6 Cr,,0,88.23301718906815,,False,False,,,,,,,,curated,NDA
+143,Constituency #143,Chengalpattu,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣47.8 Cr,,2,89.97104465517346,,False,False,,,,,,,,curated,NDA
+144,Constituency #144,Ranipet,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣27.3 Cr,,0,90.64017916712118,,False,False,,,,,,,,curated,SPA
+144,Constituency #144,Ranipet,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣37.6 Cr,,1,91.90465993262954,,False,False,,,,,,,,curated,SPA
+144,Constituency #144,Ranipet,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣29.7 Cr,,1,87.41919772558528,,False,False,,,,,,,,curated,SPA
+144,Constituency #144,Ranipet,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣28.3 Cr,,0,86.76110976407499,,False,False,,,,,,,,curated,SPA
+145,Madurai Central,Madurai,Tamil Nadu,SOUTH,GEN,PTR Palanivel Thiagarajan,DMK,SPA,True,Professional Degree,,,,Γé╣6.6 Cr,,1,89.62767486659567,,False,False,,,,,,,,curated,SPA
+145,Madurai Central,Madurai,Tamil Nadu,SOUTH,GEN,V. V. Rajan,AIADMK,NDA,False,Doctorate,,,,Γé╣44.7 Cr,,1,85.87503485313673,,False,False,,,,,,,,curated,SPA
+145,Madurai Central,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.2 Cr,,1,93.18063713814827,,False,False,,,,,,,,curated,SPA
+145,Madurai Central,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.0 Cr,,0,90.11737914781538,,False,False,,,,,,,,curated,SPA
+146,Constituency #146,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣18.0 Cr,,0,87.31173811625736,,False,False,,,,,,,,curated,SPA
+146,Constituency #146,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣31.0 Cr,,1,92.95502896313604,,False,False,,,,,,,,curated,SPA
+146,Constituency #146,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣45.5 Cr,,1,91.08308434164968,,False,False,,,,,,,,curated,SPA
+146,Constituency #146,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.2 Cr,,0,93.88151849936882,,False,False,,,,,,,,curated,SPA
+147,Constituency #147,Tenkasi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣36.5 Cr,,1,90.96599274784765,,False,False,,,,,,,,curated,SPA
+147,Constituency #147,Tenkasi,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣16.1 Cr,,2,93.66822644261705,,False,False,,,,,,,,curated,SPA
+147,Constituency #147,Tenkasi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.5 Cr,,2,87.64994801876406,,False,False,,,,,,,,curated,SPA
+147,Constituency #147,Tenkasi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣4.8 Cr,,0,87.16199995310443,,False,False,,,,,,,,curated,SPA
+148,Constituency #148,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣19.5 Cr,,1,93.90662801809373,,False,False,,,,,,,,curated,NDA
+148,Constituency #148,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣50.1 Cr,,0,87.52209982667826,,False,False,,,,,,,,curated,NDA
+148,Constituency #148,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣13.6 Cr,,2,91.32765184199884,,False,False,,,,,,,,curated,NDA
+148,Constituency #148,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.7 Cr,,0,85.69993351300002,,False,False,,,,,,,,curated,NDA
+149,Constituency #149,Perambalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣33.6 Cr,,1,89.94813400370657,,False,False,,,,,,,,curated,SPA
+149,Constituency #149,Perambalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣8.2 Cr,,0,92.67264562567462,,False,False,,,,,,,,curated,SPA
+149,Constituency #149,Perambalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣4.1 Cr,,2,92.51338508443392,,False,False,,,,,,,,curated,SPA
+149,Constituency #149,Perambalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.1 Cr,,2,88.53832956470916,,False,False,,,,,,,,curated,SPA
+150,Constituency #150,Pudukkottai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣24.1 Cr,,1,90.86572719588892,,False,False,,,,,,,,curated,SPA
+150,Constituency #150,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣32.3 Cr,,0,91.2609787476954,,False,False,,,,,,,,curated,SPA
+150,Constituency #150,Pudukkottai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣3.4 Cr,,1,90.09967214835136,,False,False,,,,,,,,curated,SPA
+150,Constituency #150,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.3 Cr,,0,90.93449206578303,,False,False,,,,,,,,curated,SPA
+151,Constituency #151,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣22.3 Cr,,1,87.762897798471,,False,False,,,,,,,,curated,NDA
+151,Constituency #151,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣12.3 Cr,,0,90.50115546145861,,False,False,,,,,,,,curated,NDA
+151,Constituency #151,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣14.1 Cr,,1,94.02146553205552,,False,False,,,,,,,,curated,NDA
+151,Constituency #151,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣1.3 Cr,,1,91.38455034319301,,False,False,,,,,,,,curated,NDA
+152,Constituency #152,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣14.8 Cr,,0,87.28400638659087,,False,False,,,,,,,,curated,SPA
+152,Constituency #152,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣30.5 Cr,,2,87.90383033501062,,False,False,,,,,,,,curated,SPA
+152,Constituency #152,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.1 Cr,,1,92.24551634774397,,False,False,,,,,,,,curated,SPA
+152,Constituency #152,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣15.2 Cr,,1,89.8196420031879,,False,False,,,,,,,,curated,SPA
+153,Constituency #153,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣2.9 Cr,,2,91.81834015005079,,False,False,,,,,,,,curated,SPA
+153,Constituency #153,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣36.4 Cr,,2,85.60760554745781,,False,False,,,,,,,,curated,SPA
+153,Constituency #153,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.9 Cr,,0,88.77549407977892,,False,False,,,,,,,,curated,SPA
+153,Constituency #153,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.9 Cr,,2,87.21721476555332,,False,False,,,,,,,,curated,SPA
+154,Constituency #154,Salem,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣10.6 Cr,,0,87.66236693326832,,False,False,,,,,,,,curated,NDA
+154,Constituency #154,Salem,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣14.1 Cr,,1,85.24078860242714,,False,False,,,,,,,,curated,NDA
+154,Constituency #154,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.8 Cr,,0,92.18762362959134,,False,False,,,,,,,,curated,NDA
+154,Constituency #154,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.0 Cr,,2,88.43979171003959,,False,False,,,,,,,,curated,NDA
+155,Constituency #155,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣6.9 Cr,,1,85.59686230585685,,False,False,,,,,,,,curated,SPA
+155,Constituency #155,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣12.0 Cr,,2,90.947564213053,,False,False,,,,,,,,curated,SPA
+155,Constituency #155,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.7 Cr,,0,87.61644015534952,,False,False,,,,,,,,curated,SPA
+155,Constituency #155,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣5.7 Cr,,2,91.26479984362379,,False,False,,,,,,,,curated,SPA
+156,Constituency #156,Coimbatore,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣19.0 Cr,,1,91.103859666336,,False,False,,,,,,,,curated,NDA
+156,Constituency #156,Coimbatore,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣6.5 Cr,,0,92.06230250243709,,False,False,,,,,,,,curated,NDA
+156,Constituency #156,Coimbatore,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣45.6 Cr,,1,87.64435979675665,,False,False,,,,,,,,curated,NDA
+156,Constituency #156,Coimbatore,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣32.7 Cr,,2,88.68718638222525,,False,False,,,,,,,,curated,NDA
+157,Constituency #157,Ranipet,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣44.9 Cr,,1,86.4473192141119,,False,False,,,,,,,,curated,SPA
+157,Constituency #157,Ranipet,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣13.4 Cr,,0,92.4508246703745,,False,False,,,,,,,,curated,SPA
+157,Constituency #157,Ranipet,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣30.9 Cr,,2,91.339752103963,,False,False,,,,,,,,curated,SPA
+157,Constituency #157,Ranipet,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.2 Cr,,0,86.66352571427753,,False,False,,,,,,,,curated,SPA
+158,Constituency #158,Villupuram,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.2 Cr,,2,93.26309021056741,,False,False,,,,,,,,curated,SPA
+158,Constituency #158,Villupuram,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣15.8 Cr,,2,88.9148687706258,,False,False,,,,,,,,curated,SPA
+158,Constituency #158,Villupuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.7 Cr,,1,92.74277021091281,,False,False,,,,,,,,curated,SPA
+158,Constituency #158,Villupuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.1 Cr,,1,90.89053070670636,,False,False,,,,,,,,curated,SPA
+159,Constituency #159,Kancheepuram,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣8.0 Cr,,0,92.36327505641802,,False,False,,,,,,,,curated,NDA
+159,Constituency #159,Kancheepuram,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣38.1 Cr,,2,86.38958727643411,,False,False,,,,,,,,curated,NDA
+159,Constituency #159,Kancheepuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣43.9 Cr,,1,93.56620000582737,,False,False,,,,,,,,curated,NDA
+159,Constituency #159,Kancheepuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣36.1 Cr,,1,87.08694347418643,,False,False,,,,,,,,curated,NDA
+160,Constituency #160,Vellore,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣33.4 Cr,,0,85.30811621369786,,False,False,,,,,,,,curated,NDA
+160,Constituency #160,Vellore,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣8.2 Cr,,0,87.79776469958593,,False,False,,,,,,,,curated,NDA
+160,Constituency #160,Vellore,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.6 Cr,,1,89.56829508379235,,False,False,,,,,,,,curated,NDA
+160,Constituency #160,Vellore,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣18.4 Cr,,1,85.19642109946773,,False,False,,,,,,,,curated,NDA
+161,Constituency #161,Kanyakumari,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣43.8 Cr,,1,88.03227876787251,,False,False,,,,,,,,curated,SPA
+161,Constituency #161,Kanyakumari,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣48.0 Cr,,0,92.12233946853219,,False,False,,,,,,,,curated,SPA
+161,Constituency #161,Kanyakumari,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣31.8 Cr,,0,86.96978567983939,,False,False,,,,,,,,curated,SPA
+161,Constituency #161,Kanyakumari,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.3 Cr,,0,92.36023962137847,,False,False,,,,,,,,curated,SPA
+162,Constituency #162,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣24.6 Cr,,2,93.4814933991243,,False,False,,,,,,,,curated,NDA
+162,Constituency #162,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣50.5 Cr,,2,89.49503355717142,,False,False,,,,,,,,curated,NDA
+162,Constituency #162,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣50.4 Cr,,2,92.75166259067805,,False,False,,,,,,,,curated,NDA
+162,Constituency #162,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.2 Cr,,0,90.21789931939529,,False,False,,,,,,,,curated,NDA
+163,Constituency #163,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣49.6 Cr,,2,89.52675386367171,,False,False,,,,,,,,curated,NDA
+163,Constituency #163,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣7.5 Cr,,1,85.68824480891654,,False,False,,,,,,,,curated,NDA
+163,Constituency #163,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣14.1 Cr,,1,86.80085550183986,,False,False,,,,,,,,curated,NDA
+163,Constituency #163,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.7 Cr,,1,87.4815198027894,,False,False,,,,,,,,curated,NDA
+164,Constituency #164,Dindigul,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣5.9 Cr,,1,91.12881191896399,,False,False,,,,,,,,curated,SPA
+164,Constituency #164,Dindigul,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣50.5 Cr,,2,91.73174564792862,,False,False,,,,,,,,curated,SPA
+164,Constituency #164,Dindigul,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.0 Cr,,2,86.71572643356792,,False,False,,,,,,,,curated,SPA
+164,Constituency #164,Dindigul,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣31.8 Cr,,0,88.50768317214647,,False,False,,,,,,,,curated,SPA
+165,Constituency #165,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣8.3 Cr,,1,87.84370807418068,,False,False,,,,,,,,curated,NDA
+165,Constituency #165,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣24.3 Cr,,0,90.89019750424094,,False,False,,,,,,,,curated,NDA
+165,Constituency #165,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.5 Cr,,1,89.65175558292631,,False,False,,,,,,,,curated,NDA
+165,Constituency #165,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.4 Cr,,1,85.09523333248505,,False,False,,,,,,,,curated,NDA
+166,Constituency #166,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣17.8 Cr,,0,88.32205188234816,,False,False,,,,,,,,curated,NDA
+166,Constituency #166,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣1.6 Cr,,0,93.56969461328555,,False,False,,,,,,,,curated,NDA
+166,Constituency #166,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣21.7 Cr,,0,91.35083294881846,,False,False,,,,,,,,curated,NDA
+166,Constituency #166,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣5.7 Cr,,2,91.10453753256802,,False,False,,,,,,,,curated,NDA
+167,Constituency #167,Thiruvarur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣47.8 Cr,,2,86.3272884371067,,False,False,,,,,,,,curated,NDA
+167,Constituency #167,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣23.8 Cr,,2,94.54179325223164,,False,False,,,,,,,,curated,NDA
+167,Constituency #167,Thiruvarur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣18.3 Cr,,0,88.81862458506913,,False,False,,,,,,,,curated,NDA
+167,Constituency #167,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣26.5 Cr,,1,94.15791295481166,,False,False,,,,,,,,curated,NDA
+168,Constituency #168,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣18.2 Cr,,0,92.56690219964139,,False,False,,,,,,,,curated,SPA
+168,Constituency #168,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣18.0 Cr,,1,89.94042238833597,,False,False,,,,,,,,curated,SPA
+168,Constituency #168,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣34.2 Cr,,0,92.92326504165469,,False,False,,,,,,,,curated,SPA
+168,Constituency #168,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.9 Cr,,1,93.04338950468559,,False,False,,,,,,,,curated,SPA
+169,Constituency #169,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣25.7 Cr,,0,88.54669226843876,,False,False,,,,,,,,curated,NDA
+169,Constituency #169,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣24.9 Cr,,0,94.7932037310785,,False,False,,,,,,,,curated,NDA
+169,Constituency #169,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣2.2 Cr,,2,86.7463646618789,,False,False,,,,,,,,curated,NDA
+169,Constituency #169,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.9 Cr,,1,87.17752133232162,,False,False,,,,,,,,curated,NDA
+170,Constituency #170,Tirupur,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣18.0 Cr,,0,89.59784887045436,,False,False,,,,,,,,curated,NDA
+170,Constituency #170,Tirupur,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣44.2 Cr,,1,89.01778007650569,,False,False,,,,,,,,curated,NDA
+170,Constituency #170,Tirupur,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.7 Cr,,1,93.37918722506211,,False,False,,,,,,,,curated,NDA
+170,Constituency #170,Tirupur,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣9.3 Cr,,2,89.19691277151908,,False,False,,,,,,,,curated,NDA
+171,Constituency #171,Namakkal,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣24.7 Cr,,0,88.98192306116232,,False,False,,,,,,,,curated,SPA
+171,Constituency #171,Namakkal,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣43.7 Cr,,2,91.0078901595503,,False,False,,,,,,,,curated,SPA
+171,Constituency #171,Namakkal,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣22.6 Cr,,0,90.8367353644178,,False,False,,,,,,,,curated,SPA
+171,Constituency #171,Namakkal,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.7 Cr,,1,86.92050278657214,,False,False,,,,,,,,curated,SPA
+172,Constituency #172,Tiruvannamalai,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣37.9 Cr,,2,93.1075604726933,,False,False,,,,,,,,curated,SPA
+172,Constituency #172,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣6.5 Cr,,1,90.83448164333647,,False,False,,,,,,,,curated,SPA
+172,Constituency #172,Tiruvannamalai,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣37.1 Cr,,2,93.57476449979733,,False,False,,,,,,,,curated,SPA
+172,Constituency #172,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.7 Cr,,1,89.78984574219074,,False,False,,,,,,,,curated,SPA
+173,Constituency #173,Erode,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣4.8 Cr,,2,90.12687953736072,,False,False,,,,,,,,curated,NDA
+173,Constituency #173,Erode,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣9.2 Cr,,2,88.6103090789772,,False,False,,,,,,,,curated,NDA
+173,Constituency #173,Erode,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣22.8 Cr,,1,85.19770030124242,,False,False,,,,,,,,curated,NDA
+173,Constituency #173,Erode,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.5 Cr,,1,90.4888770186244,,False,False,,,,,,,,curated,NDA
+174,Constituency #174,Tirupattur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣48.4 Cr,,0,87.4882387923601,,False,False,,,,,,,,curated,SPA
+174,Constituency #174,Tirupattur,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣27.0 Cr,,1,88.53151592207041,,False,False,,,,,,,,curated,SPA
+174,Constituency #174,Tirupattur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.1 Cr,,1,91.08211739068832,,False,False,,,,,,,,curated,SPA
+174,Constituency #174,Tirupattur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣17.7 Cr,,1,93.42516081625917,,False,False,,,,,,,,curated,SPA
+175,Constituency #175,Tiruvallur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣35.3 Cr,,2,91.15713695151767,,False,False,,,,,,,,curated,SPA
+175,Constituency #175,Tiruvallur,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣5.9 Cr,,0,86.44533095214089,,False,False,,,,,,,,curated,SPA
+175,Constituency #175,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣13.1 Cr,,1,91.20018483715052,,False,False,,,,,,,,curated,SPA
+175,Constituency #175,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.8 Cr,,1,93.6819325696112,,False,False,,,,,,,,curated,SPA
+176,Constituency #176,Chengalpattu,Tamil Nadu,NORTH,SC,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣21.5 Cr,,0,93.89597379910778,,False,False,,,,,,,,curated,NDA
+176,Constituency #176,Chengalpattu,Tamil Nadu,NORTH,SC,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣6.9 Cr,,1,85.32365714442429,,False,False,,,,,,,,curated,NDA
+176,Constituency #176,Chengalpattu,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.6 Cr,,2,88.5521778342993,,False,False,,,,,,,,curated,NDA
+176,Constituency #176,Chengalpattu,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣35.5 Cr,,0,89.65801944852718,,False,False,,,,,,,,curated,NDA
+177,Constituency #177,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣28.6 Cr,,2,94.90549897444667,,False,False,,,,,,,,curated,SPA
+177,Constituency #177,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣41.7 Cr,,0,93.28859950973303,,False,False,,,,,,,,curated,SPA
+177,Constituency #177,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.4 Cr,,2,87.76280488294339,,False,False,,,,,,,,curated,SPA
+177,Constituency #177,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.9 Cr,,1,91.54786134737495,,False,False,,,,,,,,curated,SPA
+178,Constituency #178,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣50.3 Cr,,2,86.95046558990978,,False,False,,,,,,,,curated,NDA
+178,Constituency #178,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣10.4 Cr,,1,89.96652235876748,,False,False,,,,,,,,curated,NDA
+178,Constituency #178,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣20.1 Cr,,2,89.664517501932,,False,False,,,,,,,,curated,NDA
+178,Constituency #178,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.5 Cr,,0,89.95867346016631,,False,False,,,,,,,,curated,NDA
+179,Constituency #179,Virudhunagar,Tamil Nadu,SOUTH,SC,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣7.1 Cr,,2,88.84788593415473,,False,False,,,,,,,,curated,SPA
+179,Constituency #179,Virudhunagar,Tamil Nadu,SOUTH,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣26.4 Cr,,2,92.46398431390526,,False,False,,,,,,,,curated,SPA
+179,Constituency #179,Virudhunagar,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣43.8 Cr,,1,87.82997974571427,,False,False,,,,,,,,curated,SPA
+179,Constituency #179,Virudhunagar,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.8 Cr,,1,86.71793239249308,,False,False,,,,,,,,curated,SPA
+180,Constituency #180,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣10.0 Cr,,0,87.54800727896104,,False,False,,,,,,,,curated,SPA
+180,Constituency #180,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣41.6 Cr,,1,94.98518382322378,,False,False,,,,,,,,curated,SPA
+180,Constituency #180,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣11.9 Cr,,2,89.15748307220021,,False,False,,,,,,,,curated,SPA
+180,Constituency #180,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣21.9 Cr,,0,86.04033051413298,,False,False,,,,,,,,curated,SPA
+181,Constituency #181,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣34.7 Cr,,1,88.51286359625601,,False,False,,,,,,,,curated,NDA
+181,Constituency #181,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣19.5 Cr,,2,94.13204959570845,,False,False,,,,,,,,curated,NDA
+181,Constituency #181,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.6 Cr,,2,87.5537990212293,,False,False,,,,,,,,curated,NDA
+181,Constituency #181,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣14.2 Cr,,1,93.06568730606745,,False,False,,,,,,,,curated,NDA
+182,Constituency #182,Perambalur,Tamil Nadu,CENTRAL,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣25.6 Cr,,1,89.09336386605878,,False,False,,,,,,,,curated,SPA
+182,Constituency #182,Perambalur,Tamil Nadu,CENTRAL,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣26.6 Cr,,1,92.55684935223643,,False,False,,,,,,,,curated,SPA
+182,Constituency #182,Perambalur,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.7 Cr,,1,88.14574303840699,,False,False,,,,,,,,curated,SPA
+182,Constituency #182,Perambalur,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣36.6 Cr,,1,86.87870849460761,,False,False,,,,,,,,curated,SPA
+183,Constituency #183,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣15.0 Cr,,0,88.72330307975099,,False,False,,,,,,,,curated,SPA
+183,Constituency #183,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣23.0 Cr,,2,90.74707039771023,,False,False,,,,,,,,curated,SPA
+183,Constituency #183,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣5.0 Cr,,1,94.21588484018928,,False,False,,,,,,,,curated,SPA
+183,Constituency #183,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.8 Cr,,1,86.43819019020933,,False,False,,,,,,,,curated,SPA
+184,Constituency #184,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣8.5 Cr,,2,87.2700321651435,,False,False,,,,,,,,curated,NDA
+184,Constituency #184,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣50.2 Cr,,2,91.65087662860743,,False,False,,,,,,,,curated,NDA
+184,Constituency #184,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣44.2 Cr,,0,94.12136578242412,,False,False,,,,,,,,curated,NDA
+184,Constituency #184,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣48.3 Cr,,1,91.77651424889112,,False,False,,,,,,,,curated,NDA
+185,Constituency #185,Dharmapuri,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣35.4 Cr,,2,88.86797001566528,,False,False,,,,,,,,curated,SPA
+185,Constituency #185,Dharmapuri,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣2.9 Cr,,0,88.06218785452899,,False,False,,,,,,,,curated,SPA
+185,Constituency #185,Dharmapuri,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.3 Cr,,1,92.90829920876914,,False,False,,,,,,,,curated,SPA
+185,Constituency #185,Dharmapuri,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.1 Cr,,2,85.34947098370785,,False,False,,,,,,,,curated,SPA
+186,Constituency #186,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣12.4 Cr,,1,87.26009448826068,,False,False,,,,,,,,curated,SPA
+186,Constituency #186,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣46.0 Cr,,0,91.50257281443271,,False,False,,,,,,,,curated,SPA
+186,Constituency #186,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.2 Cr,,1,89.7883174360378,,False,False,,,,,,,,curated,SPA
+186,Constituency #186,Tiruchirappalli,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.3 Cr,,2,90.08855747770012,,False,False,,,,,,,,curated,SPA
+187,Constituency #187,Salem,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣23.2 Cr,,2,85.05145983848917,,False,False,,,,,,,,curated,SPA
+187,Constituency #187,Salem,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣31.0 Cr,,1,88.5248871249293,,False,False,,,,,,,,curated,SPA
+187,Constituency #187,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣39.7 Cr,,0,86.29354426414933,,False,False,,,,,,,,curated,SPA
+187,Constituency #187,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.8 Cr,,1,93.97963685220353,,False,False,,,,,,,,curated,SPA
+188,Constituency #188,Kallakurichi,Tamil Nadu,NORTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣31.3 Cr,,2,85.21517549580423,,False,False,,,,,,,,curated,SPA
+188,Constituency #188,Kallakurichi,Tamil Nadu,NORTH,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣47.1 Cr,,1,91.82210937942008,,False,False,,,,,,,,curated,SPA
+188,Constituency #188,Kallakurichi,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.5 Cr,,2,86.85021486987705,,False,False,,,,,,,,curated,SPA
+188,Constituency #188,Kallakurichi,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣31.8 Cr,,2,89.00295051933148,,False,False,,,,,,,,curated,SPA
+189,Constituency #189,Coimbatore,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣38.5 Cr,,1,94.84854833541738,,False,False,,,,,,,,curated,NDA
+189,Constituency #189,Coimbatore,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣3.5 Cr,,0,93.61276688950836,,False,False,,,,,,,,curated,NDA
+189,Constituency #189,Coimbatore,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.2 Cr,,2,88.83083167677731,,False,False,,,,,,,,curated,NDA
+189,Constituency #189,Coimbatore,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣6.1 Cr,,0,89.15506616826761,,False,False,,,,,,,,curated,NDA
+190,Constituency #190,Ranipet,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣34.8 Cr,,0,85.26422946346571,,False,False,,,,,,,,curated,SPA
+190,Constituency #190,Ranipet,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣21.0 Cr,,2,87.25754222185216,,False,False,,,,,,,,curated,SPA
+190,Constituency #190,Ranipet,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.5 Cr,,0,90.0616883696397,,False,False,,,,,,,,curated,SPA
+190,Constituency #190,Ranipet,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.5 Cr,,1,88.0533360461459,,False,False,,,,,,,,curated,SPA
+191,Constituency #191,Chennai,Tamil Nadu,CHENNAI,SC,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣47.3 Cr,,2,91.25366758322274,,False,False,,,,,,,,curated,SPA
+191,Constituency #191,Chennai,Tamil Nadu,CHENNAI,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣6.2 Cr,,2,93.39053777616817,,False,False,,,,,,,,curated,SPA
+191,Constituency #191,Chennai,Tamil Nadu,CHENNAI,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣15.0 Cr,,2,91.00946679523042,,False,False,,,,,,,,curated,SPA
+191,Constituency #191,Chennai,Tamil Nadu,CHENNAI,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.8 Cr,,0,89.84480445707658,,False,False,,,,,,,,curated,SPA
+192,Constituency #192,Kancheepuram,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣40.5 Cr,,1,92.92778444321442,,False,False,,,,,,,,curated,NDA
+192,Constituency #192,Kancheepuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣1.6 Cr,,0,88.97115988981123,,False,False,,,,,,,,curated,NDA
+192,Constituency #192,Kancheepuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.7 Cr,,0,86.52646673631882,,False,False,,,,,,,,curated,NDA
+192,Constituency #192,Kancheepuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.3 Cr,,0,85.86298681657765,,False,False,,,,,,,,curated,NDA
+193,Constituency #193,Tenkasi,Tamil Nadu,SOUTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣27.4 Cr,,1,88.31726961002389,,False,False,,,,,,,,curated,SPA
+193,Constituency #193,Tenkasi,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣14.1 Cr,,2,89.47995638613267,,False,False,,,,,,,,curated,SPA
+193,Constituency #193,Tenkasi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣12.5 Cr,,0,90.75380387913158,,False,False,,,,,,,,curated,SPA
+193,Constituency #193,Tenkasi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.4 Cr,,1,92.48469701207047,,False,False,,,,,,,,curated,SPA
+194,Constituency #194,Kanyakumari,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣30.2 Cr,,2,87.67183587998903,,False,False,,,,,,,,curated,NDA
+194,Constituency #194,Kanyakumari,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣44.6 Cr,,2,85.63402910672893,,False,False,,,,,,,,curated,NDA
+194,Constituency #194,Kanyakumari,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.0 Cr,,1,85.14662904430057,,False,False,,,,,,,,curated,NDA
+194,Constituency #194,Kanyakumari,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.1 Cr,,0,93.38843038023505,,False,False,,,,,,,,curated,NDA
+195,Constituency #195,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣48.1 Cr,,1,86.45623124058415,,False,False,,,,,,,,curated,NDA
+195,Constituency #195,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣28.0 Cr,,2,85.5867772009135,,False,False,,,,,,,,curated,NDA
+195,Constituency #195,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣44.6 Cr,,0,92.92891390841622,,False,False,,,,,,,,curated,NDA
+195,Constituency #195,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣45.9 Cr,,0,90.66005755900748,,False,False,,,,,,,,curated,NDA
+196,Constituency #196,Pudukkottai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.9 Cr,,2,89.37187190160253,,False,False,,,,,,,,curated,NDA
+196,Constituency #196,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣17.9 Cr,,2,89.8489259336668,,False,False,,,,,,,,curated,NDA
+196,Constituency #196,Pudukkottai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.3 Cr,,2,91.85418423106532,,False,False,,,,,,,,curated,NDA
+196,Constituency #196,Pudukkottai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣34.3 Cr,,0,87.09639636724717,,False,False,,,,,,,,curated,NDA
+197,Constituency #197,Dindigul,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣21.9 Cr,,1,85.78859583147846,,False,False,,,,,,,,curated,NDA
+197,Constituency #197,Dindigul,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣40.7 Cr,,1,86.21058067945532,,False,False,,,,,,,,curated,NDA
+197,Constituency #197,Dindigul,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.7 Cr,,0,90.36247029457937,,False,False,,,,,,,,curated,NDA
+197,Constituency #197,Dindigul,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣4.3 Cr,,0,90.6337424374649,,False,False,,,,,,,,curated,NDA
+198,Constituency #198,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣36.0 Cr,,2,93.72873026328409,,False,False,,,,,,,,curated,SPA
+198,Constituency #198,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣22.5 Cr,,0,87.8247506207579,,False,False,,,,,,,,curated,SPA
+198,Constituency #198,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣42.0 Cr,,2,93.1413504264887,,False,False,,,,,,,,curated,SPA
+198,Constituency #198,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣17.9 Cr,,2,89.82246257176054,,False,False,,,,,,,,curated,SPA
+199,Constituency #199,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣49.1 Cr,,2,88.62070361207266,,False,False,,,,,,,,curated,SPA
+199,Constituency #199,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣47.4 Cr,,1,90.54575789310024,,False,False,,,,,,,,curated,SPA
+199,Constituency #199,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣7.3 Cr,,0,90.42298033095733,,False,False,,,,,,,,curated,SPA
+199,Constituency #199,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣21.7 Cr,,2,87.23803487640775,,False,False,,,,,,,,curated,SPA
+200,Constituency #200,Thiruvarur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣46.9 Cr,,0,93.316598482464,,False,False,,,,,,,,curated,NDA
+200,Constituency #200,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣39.4 Cr,,1,91.11517163339826,,False,False,,,,,,,,curated,NDA
+200,Constituency #200,Thiruvarur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.3 Cr,,2,89.97518918141168,,False,False,,,,,,,,curated,NDA
+200,Constituency #200,Thiruvarur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.7 Cr,,0,91.55096940739601,,False,False,,,,,,,,curated,NDA
+201,Constituency #201,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣11.4 Cr,,1,87.20362002696766,,False,False,,,,,,,,curated,SPA
+201,Constituency #201,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣32.3 Cr,,2,85.84532897948601,,False,False,,,,,,,,curated,SPA
+201,Constituency #201,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.1 Cr,,1,93.18096165197328,,False,False,,,,,,,,curated,SPA
+201,Constituency #201,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.4 Cr,,2,91.88552909036838,,False,False,,,,,,,,curated,SPA
+202,Constituency #202,The Nilgiris,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣45.6 Cr,,2,90.06628124331463,,False,False,,,,,,,,curated,SPA
+202,Constituency #202,The Nilgiris,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣43.8 Cr,,0,92.09585010296112,,False,False,,,,,,,,curated,SPA
+202,Constituency #202,The Nilgiris,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣42.1 Cr,,2,93.72747880533315,,False,False,,,,,,,,curated,SPA
+202,Constituency #202,The Nilgiris,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣41.2 Cr,,2,90.22088470649928,,False,False,,,,,,,,curated,SPA
+203,Constituency #203,Tirupur,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣19.4 Cr,,1,93.31646094645963,,False,False,,,,,,,,curated,NDA
+203,Constituency #203,Tirupur,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣3.3 Cr,,1,86.83484584801198,,False,False,,,,,,,,curated,NDA
+203,Constituency #203,Tirupur,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣4.2 Cr,,1,85.67485249381977,,False,False,,,,,,,,curated,NDA
+203,Constituency #203,Tirupur,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.9 Cr,,0,91.55194173271924,,False,False,,,,,,,,curated,NDA
+204,Constituency #204,Villupuram,Tamil Nadu,NORTH,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣43.1 Cr,,0,86.32191982046353,,False,False,,,,,,,,curated,SPA
+204,Constituency #204,Villupuram,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣16.7 Cr,,1,90.11911788215127,,False,False,,,,,,,,curated,SPA
+204,Constituency #204,Villupuram,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.6 Cr,,2,89.54294488312378,,False,False,,,,,,,,curated,SPA
+204,Constituency #204,Villupuram,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣22.3 Cr,,2,91.39023111864762,,False,False,,,,,,,,curated,SPA
+205,Constituency #205,Tiruvannamalai,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣4.6 Cr,,2,86.29129859202685,,False,False,,,,,,,,curated,SPA
+205,Constituency #205,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣26.1 Cr,,2,86.67201561254933,,False,False,,,,,,,,curated,SPA
+205,Constituency #205,Tiruvannamalai,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.0 Cr,,1,92.6537532585493,,False,False,,,,,,,,curated,SPA
+205,Constituency #205,Tiruvannamalai,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.1 Cr,,0,89.24374581933075,,False,False,,,,,,,,curated,SPA
+206,Constituency #206,Vellore,Tamil Nadu,NORTH,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣21.9 Cr,,1,88.23586075138734,,False,False,,,,,,,,curated,NDA
+206,Constituency #206,Vellore,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣35.3 Cr,,0,92.24262638363227,,False,False,,,,,,,,curated,NDA
+206,Constituency #206,Vellore,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣50.8 Cr,,1,85.04619409119705,,False,False,,,,,,,,curated,NDA
+206,Constituency #206,Vellore,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.8 Cr,,1,86.1836357421495,,False,False,,,,,,,,curated,NDA
+207,Constituency #207,Tirupattur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣10.4 Cr,,0,89.56482225338527,,False,False,,,,,,,,curated,SPA
+207,Constituency #207,Tirupattur,Tamil Nadu,NORTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣4.1 Cr,,1,93.84277873967065,,False,False,,,,,,,,curated,SPA
+207,Constituency #207,Tirupattur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣16.7 Cr,,0,85.27759482062528,,False,False,,,,,,,,curated,SPA
+207,Constituency #207,Tirupattur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.8 Cr,,2,86.97684475254437,,False,False,,,,,,,,curated,SPA
+208,Constituency #208,Tiruvallur,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣22.4 Cr,,2,94.97034489448414,,False,False,,,,,,,,curated,SPA
+208,Constituency #208,Tiruvallur,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣23.6 Cr,,1,85.18330203318732,,False,False,,,,,,,,curated,SPA
+208,Constituency #208,Tiruvallur,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣8.8 Cr,,2,86.92855468270535,,False,False,,,,,,,,curated,SPA
+208,Constituency #208,Tiruvallur,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣30.3 Cr,,2,94.48093273086499,,False,False,,,,,,,,curated,SPA
+209,Constituency #209,Tirunelveli,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣44.0 Cr,,2,90.69513144720894,,False,False,,,,,,,,curated,SPA
+209,Constituency #209,Tirunelveli,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣6.4 Cr,,1,94.54113197852814,,False,False,,,,,,,,curated,SPA
+209,Constituency #209,Tirunelveli,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣48.3 Cr,,0,94.17408598911535,,False,False,,,,,,,,curated,SPA
+209,Constituency #209,Tirunelveli,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.2 Cr,,1,85.71543458062301,,False,False,,,,,,,,curated,SPA
+210,Constituency #210,Thoothukudi,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣42.5 Cr,,0,89.31258437448862,,False,False,,,,,,,,curated,SPA
+210,Constituency #210,Thoothukudi,Tamil Nadu,SOUTH,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣14.3 Cr,,0,90.48019710228289,,False,False,,,,,,,,curated,SPA
+210,Constituency #210,Thoothukudi,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣43.2 Cr,,1,87.06860248412036,,False,False,,,,,,,,curated,SPA
+210,Constituency #210,Thoothukudi,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.0 Cr,,1,88.46023094337552,,False,False,,,,,,,,curated,SPA
+211,Constituency #211,Sivaganga,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣49.9 Cr,,2,90.7348223296687,,False,False,,,,,,,,curated,NDA
+211,Constituency #211,Sivaganga,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣9.7 Cr,,1,93.45692215649309,,False,False,,,,,,,,curated,NDA
+211,Constituency #211,Sivaganga,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣16.4 Cr,,1,87.86467496061222,,False,False,,,,,,,,curated,NDA
+211,Constituency #211,Sivaganga,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣19.8 Cr,,2,91.76616074520113,,False,False,,,,,,,,curated,NDA
+212,Constituency #212,Karur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣36.0 Cr,,2,86.42834799352579,,False,False,,,,,,,,curated,SPA
+212,Constituency #212,Karur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣42.0 Cr,,1,89.23731897549735,,False,False,,,,,,,,curated,SPA
+212,Constituency #212,Karur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.6 Cr,,2,90.40550355943492,,False,False,,,,,,,,curated,SPA
+212,Constituency #212,Karur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣28.8 Cr,,1,85.92307922460539,,False,False,,,,,,,,curated,SPA
+213,Constituency #213,Madurai,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣45.8 Cr,,2,89.71413540337247,,False,False,,,,,,,,curated,SPA
+213,Constituency #213,Madurai,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣16.7 Cr,,2,88.75613779632569,,False,False,,,,,,,,curated,SPA
+213,Constituency #213,Madurai,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣19.3 Cr,,0,89.07455856809018,,False,False,,,,,,,,curated,SPA
+213,Constituency #213,Madurai,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.2 Cr,,2,89.65380263845452,,False,False,,,,,,,,curated,SPA
+214,Constituency #214,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣35.0 Cr,,2,91.56741488032445,,False,False,,,,,,,,curated,NDA
+214,Constituency #214,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣48.8 Cr,,0,92.68316026066756,,False,False,,,,,,,,curated,NDA
+214,Constituency #214,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.4 Cr,,1,94.96254886176891,,False,False,,,,,,,,curated,NDA
+214,Constituency #214,Mayiladuthurai,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣39.4 Cr,,0,91.92300465965357,,False,False,,,,,,,,curated,NDA
+215,Constituency #215,Perambalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣20.2 Cr,,0,89.51953534998697,,False,False,,,,,,,,curated,SPA
+215,Constituency #215,Perambalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣31.6 Cr,,2,86.02874806665316,,False,False,,,,,,,,curated,SPA
+215,Constituency #215,Perambalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣20.7 Cr,,0,86.3407116334519,,False,False,,,,,,,,curated,SPA
+215,Constituency #215,Perambalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣35.5 Cr,,0,88.749295393499,,False,False,,,,,,,,curated,SPA
+216,Constituency #216,Thanjavur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣47.2 Cr,,1,91.61396637223814,,False,False,,,,,,,,curated,SPA
+216,Constituency #216,Thanjavur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣34.0 Cr,,0,86.01273384880501,,False,False,,,,,,,,curated,SPA
+216,Constituency #216,Thanjavur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.8 Cr,,1,85.6070613527245,,False,False,,,,,,,,curated,SPA
+216,Constituency #216,Thanjavur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣23.5 Cr,,0,87.55072766014015,,False,False,,,,,,,,curated,SPA
+217,Constituency #217,Namakkal,Tamil Nadu,WEST,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣18.2 Cr,,1,94.23076058988747,,False,False,,,,,,,,curated,NDA
+217,Constituency #217,Namakkal,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣35.9 Cr,,1,89.18481275395328,,False,False,,,,,,,,curated,NDA
+217,Constituency #217,Namakkal,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣27.0 Cr,,2,89.5249787584319,,False,False,,,,,,,,curated,NDA
+217,Constituency #217,Namakkal,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣12.1 Cr,,2,89.59465213660164,,False,False,,,,,,,,curated,NDA
+218,Constituency #218,Dharmapuri,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣34.3 Cr,,1,94.34174202093054,,False,False,,,,,,,,curated,SPA
+218,Constituency #218,Dharmapuri,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣15.3 Cr,,2,90.15745175055667,,False,False,,,,,,,,curated,SPA
+218,Constituency #218,Dharmapuri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣26.2 Cr,,0,86.69960935680665,,False,False,,,,,,,,curated,SPA
+218,Constituency #218,Dharmapuri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣15.9 Cr,,0,87.60263102100345,,False,False,,,,,,,,curated,SPA
+219,Constituency #219,Erode,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣39.1 Cr,,1,90.10769158550335,,False,False,,,,,,,,curated,NDA
+219,Constituency #219,Erode,Tamil Nadu,WEST,GEN,NDA Nominee,PMK,NDA,True,12th Pass,,,,Γé╣47.7 Cr,,2,85.02326746522488,,False,False,,,,,,,,curated,NDA
+219,Constituency #219,Erode,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.7 Cr,,1,89.50086680365216,,False,False,,,,,,,,curated,NDA
+219,Constituency #219,Erode,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣34.4 Cr,,2,85.52346480695688,,False,False,,,,,,,,curated,NDA
+220,Constituency #220,Salem,Tamil Nadu,WEST,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣13.6 Cr,,2,85.43835994436739,,False,False,,,,,,,,curated,SPA
+220,Constituency #220,Salem,Tamil Nadu,WEST,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣50.1 Cr,,1,88.97747515484713,,False,False,,,,,,,,curated,SPA
+220,Constituency #220,Salem,Tamil Nadu,WEST,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣30.8 Cr,,1,90.90472505844461,,False,False,,,,,,,,curated,SPA
+220,Constituency #220,Salem,Tamil Nadu,WEST,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣49.5 Cr,,2,86.90732264888175,,False,False,,,,,,,,curated,SPA
+221,Constituency #221,Kallakurichi,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣1.0 Cr,,2,88.55506866015448,,False,False,,,,,,,,curated,SPA
+221,Constituency #221,Kallakurichi,Tamil Nadu,NORTH,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣2.7 Cr,,1,90.51939370790699,,False,False,,,,,,,,curated,SPA
+221,Constituency #221,Kallakurichi,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣36.3 Cr,,1,90.1516815357333,,False,False,,,,,,,,curated,SPA
+221,Constituency #221,Kallakurichi,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣43.8 Cr,,2,86.6866269426846,,False,False,,,,,,,,curated,SPA
+222,Constituency #222,Chengalpattu,Tamil Nadu,NORTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣13.2 Cr,,0,89.56567226598109,,False,False,,,,,,,,curated,NDA
+222,Constituency #222,Chengalpattu,Tamil Nadu,NORTH,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣34.4 Cr,,2,88.5612312581748,,False,False,,,,,,,,curated,NDA
+222,Constituency #222,Chengalpattu,Tamil Nadu,NORTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣38.9 Cr,,2,90.97230026211592,,False,False,,,,,,,,curated,NDA
+222,Constituency #222,Chengalpattu,Tamil Nadu,NORTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣38.1 Cr,,0,92.8502432052577,,False,False,,,,,,,,curated,NDA
+223,Constituency #223,Ranipet,Tamil Nadu,NORTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣4.0 Cr,,1,85.14583650490215,,False,False,,,,,,,,curated,SPA
+223,Constituency #223,Ranipet,Tamil Nadu,NORTH,SC,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣31.2 Cr,,2,91.6136144730029,,False,False,,,,,,,,curated,SPA
+223,Constituency #223,Ranipet,Tamil Nadu,NORTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣14.3 Cr,,1,86.43987544483562,,False,False,,,,,,,,curated,SPA
+223,Constituency #223,Ranipet,Tamil Nadu,NORTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣27.4 Cr,,1,88.745237274121,,False,False,,,,,,,,curated,SPA
+224,Constituency #224,Chennai,Tamil Nadu,CHENNAI,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣11.1 Cr,,1,88.34069612922671,,False,False,,,,,,,,curated,SPA
+224,Constituency #224,Chennai,Tamil Nadu,CHENNAI,GEN,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣1.9 Cr,,1,87.89019795545933,,False,False,,,,,,,,curated,SPA
+224,Constituency #224,Chennai,Tamil Nadu,CHENNAI,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣25.3 Cr,,1,93.31571007406882,,False,False,,,,,,,,curated,SPA
+224,Constituency #224,Chennai,Tamil Nadu,CHENNAI,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣20.9 Cr,,2,86.16054489402558,,False,False,,,,,,,,curated,SPA
+225,Constituency #225,Virudhunagar,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,False,12th Pass,,,,Γé╣20.3 Cr,,1,87.59431761808872,,False,False,,,,,,,,curated,NDA
+225,Constituency #225,Virudhunagar,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣12.3 Cr,,0,86.02209578714798,,False,False,,,,,,,,curated,NDA
+225,Constituency #225,Virudhunagar,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣30.8 Cr,,0,93.89468722284313,,False,False,,,,,,,,curated,NDA
+225,Constituency #225,Virudhunagar,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣39.7 Cr,,2,87.23694115013362,,False,False,,,,,,,,curated,NDA
+226,Constituency #226,Tenkasi,Tamil Nadu,SOUTH,SC,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣1.3 Cr,,2,92.50544204135882,,False,False,,,,,,,,curated,SPA
+226,Constituency #226,Tenkasi,Tamil Nadu,SOUTH,SC,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣1.8 Cr,,0,90.82520905224521,,False,False,,,,,,,,curated,SPA
+226,Constituency #226,Tenkasi,Tamil Nadu,SOUTH,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣9.7 Cr,,0,88.78472263166336,,False,False,,,,,,,,curated,SPA
+226,Constituency #226,Tenkasi,Tamil Nadu,SOUTH,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.8 Cr,,1,89.7586069686046,,False,False,,,,,,,,curated,SPA
+227,Constituency #227,Theni,Tamil Nadu,SOUTH,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣46.0 Cr,,2,94.26290231601602,,False,False,,,,,,,,curated,SPA
+227,Constituency #227,Theni,Tamil Nadu,SOUTH,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣19.3 Cr,,2,89.25310583360933,,False,False,,,,,,,,curated,SPA
+227,Constituency #227,Theni,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣32.9 Cr,,0,85.92481105501815,,False,False,,,,,,,,curated,SPA
+227,Constituency #227,Theni,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣10.5 Cr,,2,92.8957870119774,,False,False,,,,,,,,curated,SPA
+228,Constituency #228,Ramanathapuram,Tamil Nadu,SOUTH,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣50.7 Cr,,2,94.90027168508168,,False,False,,,,,,,,curated,NDA
+228,Constituency #228,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣1.6 Cr,,1,86.11810978423237,,False,False,,,,,,,,curated,NDA
+228,Constituency #228,Ramanathapuram,Tamil Nadu,SOUTH,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣49.3 Cr,,2,87.8705194651948,,False,False,,,,,,,,curated,NDA
+228,Constituency #228,Ramanathapuram,Tamil Nadu,SOUTH,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣31.8 Cr,,2,89.36655772367322,,False,False,,,,,,,,curated,NDA
+229,Constituency #229,Pudukkottai,Tamil Nadu,CENTRAL,SC,SPA Nominee,INC,SPA,True,12th Pass,,,,Γé╣7.1 Cr,,1,86.81717559523472,,False,False,,,,,,,,curated,SPA
+229,Constituency #229,Pudukkottai,Tamil Nadu,CENTRAL,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣11.5 Cr,,1,94.64409547749148,,False,False,,,,,,,,curated,SPA
+229,Constituency #229,Pudukkottai,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣2.4 Cr,,1,85.4706473197062,,False,False,,,,,,,,curated,SPA
+229,Constituency #229,Pudukkottai,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣42.3 Cr,,2,86.41136532190937,,False,False,,,,,,,,curated,SPA
+230,Constituency #230,Nagapattinam,Tamil Nadu,CENTRAL,GEN,SPA Nominee,INC,SPA,False,12th Pass,,,,Γé╣41.1 Cr,,1,85.72018323867277,,False,False,,,,,,,,curated,NDA
+230,Constituency #230,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NDA Nominee,BJP,NDA,True,12th Pass,,,,Γé╣43.8 Cr,,0,90.61177344457181,,False,False,,,,,,,,curated,NDA
+230,Constituency #230,Nagapattinam,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣10.5 Cr,,2,85.46572661590444,,False,False,,,,,,,,curated,NDA
+230,Constituency #230,Nagapattinam,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣8.5 Cr,,0,89.13302309177118,,False,False,,,,,,,,curated,NDA
+231,Constituency #231,Ariyalur,Tamil Nadu,CENTRAL,GEN,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣23.4 Cr,,0,91.36201614382242,,False,False,,,,,,,,curated,SPA
+231,Constituency #231,Ariyalur,Tamil Nadu,CENTRAL,GEN,NDA Nominee,PMK,NDA,False,12th Pass,,,,Γé╣27.5 Cr,,1,94.80016353168517,,False,False,,,,,,,,curated,SPA
+231,Constituency #231,Ariyalur,Tamil Nadu,CENTRAL,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣34.7 Cr,,1,86.35746351854009,,False,False,,,,,,,,curated,SPA
+231,Constituency #231,Ariyalur,Tamil Nadu,CENTRAL,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣40.4 Cr,,2,94.53915779987376,,False,False,,,,,,,,curated,SPA
+232,Constituency #232,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,SPA Nominee,VCK,SPA,True,12th Pass,,,,Γé╣44.2 Cr,,2,90.6302112982423,,False,False,,,,,,,,curated,SPA
+232,Constituency #232,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,NDA Nominee,AIADMK,NDA,False,Doctorate,,,,Γé╣27.3 Cr,,0,92.97001774536923,,False,False,,,,,,,,curated,SPA
+232,Constituency #232,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣17.4 Cr,,2,90.72537916248947,,False,False,,,,,,,,curated,SPA
+232,Constituency #232,Tiruchirappalli,Tamil Nadu,CENTRAL,SC,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣50.9 Cr,,2,93.02198712106541,,False,False,,,,,,,,curated,SPA
+233,Constituency #233,Salem,Tamil Nadu,WEST,GEN,SPA Nominee,VCK,SPA,False,12th Pass,,,,Γé╣31.3 Cr,,0,94.57354358130229,,False,False,,,,,,,,curated,NDA
+233,Constituency #233,Salem,Tamil Nadu,WEST,GEN,NDA Nominee,AIADMK,NDA,True,Doctorate,,,,Γé╣38.3 Cr,,0,86.19965275880405,,False,False,,,,,,,,curated,NDA
+233,Constituency #233,Salem,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣24.6 Cr,,1,92.72572251162755,,False,False,,,,,,,,curated,NDA
+233,Constituency #233,Salem,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣3.5 Cr,,2,89.9073550315109,,False,False,,,,,,,,curated,NDA
+234,Constituency #234,Krishnagiri,Tamil Nadu,WEST,GEN,SPA Nominee,DMK,SPA,True,12th Pass,,,,Γé╣16.7 Cr,,2,92.63318354671466,,False,False,,,,,,,,curated,NDA
+234,Constituency #234,Krishnagiri,Tamil Nadu,WEST,GEN,NDA Nominee,BJP,NDA,False,12th Pass,,,,Γé╣21.0 Cr,,2,94.83239688885261,,False,False,,,,,,,,curated,NDA
+234,Constituency #234,Krishnagiri,Tamil Nadu,WEST,GEN,TVK Nominee,TVK,TVK,False,12th Pass,,,,Γé╣47.1 Cr,,0,94.27360662696276,,False,False,,,,,,,,curated,NDA
+234,Constituency #234,Krishnagiri,Tamil Nadu,WEST,GEN,NTK Nominee,NTK,NTK,False,12th Pass,,,,Γé╣34.3 Cr,,1,92.35635330915501,,False,False,,,,,,,,curated,NDA

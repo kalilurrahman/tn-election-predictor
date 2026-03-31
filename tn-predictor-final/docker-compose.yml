@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - PORT=7860
+    volumes:
+      - ./backend:/app/backend  # Hot reload backend in dev
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
