@@ -85,9 +85,41 @@ GET  /api/surprises
 GET  /api/elections/history
 GET  /api/elections/community-split?ac_no={ac_no}
 GET  /api/admin/candidate-sync/presets
+GET  /api/admin/extract-checkin/latest
+GET  /api/admin/extract-worker/status
+POST /api/admin/extract-worker/run-once
+POST /api/admin/extract-worker/start-daemon
 POST /api/admin/trigger-update
 POST /api/admin/clear-cache
 ```
+
+## Background ECI/Extract Worker (Local + HF)
+
+This project now includes a background extraction/check-in worker:
+- Script: `backend/extract_checkin_worker.py`
+- Output: `data/processed/latest_extract_checkin.json`
+- Purpose: periodic extraction from configured sources and admin review checkpoint.
+
+Run once (local):
+```bash
+python backend/extract_checkin_worker.py
+```
+
+Run as daemon (local):
+```bash
+EXTRACT_WORKER_MODE=daemon EXTRACT_INTERVAL_MINUTES=180 python backend/extract_checkin_worker.py
+```
+
+Auto-start inside API app (HF/local server):
+- `ENABLE_EXTRACT_WORKER=true`
+- `EXTRACT_INTERVAL_MINUTES=180`
+- Configure source URLs:
+  - `CANDIDATE_SOURCE_URLS=https://...csv,https://...json`
+  - `ELECTION_RESULTS_SOURCE_URLS=https://...csv`
+
+Admin check-in:
+- Read latest extract summary: `/api/admin/extract-checkin/latest`
+- Trigger manual run: `POST /api/admin/extract-worker/run-once`
 
 ## Local Run
 

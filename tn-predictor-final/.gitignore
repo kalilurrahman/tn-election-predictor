@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Background extract worker artifacts
+data/processed/latest_extract_checkin.json
+data/processed/extract_checkin_history.jsonl

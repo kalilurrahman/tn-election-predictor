@@ -3,6 +3,7 @@ import json
 import os
 import io
 import csv
+import threading
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
@@ -21,6 +22,7 @@ from backend.source_registry import get_candidate_sync_presets
 from backend.seat_dynamics import build_seat_dynamics
 from backend.election_results_sync import ElectionResultsSyncEngine
 from backend.dataset_bootstrap import DatasetBootstrapEngine
+from backend.extract_checkin_worker import ExtractCheckinWorker
 
 app = FastAPI(title="TN Election Predictor 2026 API", version="2.1.0")
 
@@ -41,6 +43,7 @@ insights_engine = ConstituencyInsightsEngine()
 candidate_sync_engine = CandidateSyncEngine(BASE_DIR)
 results_sync_engine = ElectionResultsSyncEngine(BASE_DIR)
 dataset_bootstrap_engine = DatasetBootstrapEngine(BASE_DIR)
+extract_checkin_worker = ExtractCheckinWorker(BASE_DIR)
 bayesian = BayesianPredictor(data_path=os.path.join(PUBLIC_PATH, "constituencies.json"))
 
 cache: Dict[str, Dict] = {}
@@ -70,6 +73,12 @@ dataset_bootstrap_status = {
     "last_run": None,
     "last_result": None,
 }
+extract_worker_status = {
+    "running": False,
+    "last_run": None,
+    "last_result": None,
+    "mode": "disabled",
+}
 
 
 class UpdateTriggerRequest(BaseModel):
@@ -88,6 +97,10 @@ class CandidateSyncRequest(BaseModel):
 
 class ElectionResultsSyncRequest(BaseModel):
     source_urls: Optional[List[str]] = None
+
+
+class ExtractWorkerRequest(BaseModel):
+    interval_minutes: int = 180
 
 
 def log_update(message: str):
@@ -126,6 +139,16 @@ def find_file(filename: str) -> Optional[str]:
 
 
 refresh_bayesian_model()
+
+
+@app.on_event("startup")
+async def maybe_start_extract_daemon():
+    enabled = os.getenv("ENABLE_EXTRACT_WORKER", "false").strip().lower() in {"1", "true", "yes", "y"}
+    if not enabled or extract_worker_status["running"]:
+        return
+    interval = int(os.getenv("EXTRACT_INTERVAL_MINUTES", "180"))
+    thread = threading.Thread(target=_extract_daemon, args=(interval,), daemon=True)
+    thread.start()
 
 
 def load_constituencies() -> List[Dict]:
@@ -585,6 +608,55 @@ async def run_dataset_bootstrap():
         return result
     finally:
         dataset_bootstrap_status["running"] = False
+
+
+def _extract_daemon(interval_minutes: int):
+    extract_worker_status["running"] = True
+    extract_worker_status["mode"] = "daemon"
+    try:
+        extract_checkin_worker.run_forever(interval_minutes=interval_minutes)
+    finally:
+        extract_worker_status["running"] = False
+
+
+@app.get("/api/admin/extract-checkin/latest")
+async def get_latest_extract_checkin():
+    path = os.path.join(BASE_DIR, "data", "processed", "latest_extract_checkin.json")
+    if not os.path.exists(path):
+        return {"status": "empty", "message": "No extract check-in has been generated yet."}
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+@app.get("/api/admin/extract-worker/status")
+async def get_extract_worker_status():
+    return extract_worker_status
+
+
+@app.post("/api/admin/extract-worker/run-once")
+async def run_extract_worker_once():
+    result = extract_checkin_worker.run_once()
+    extract_worker_status["last_result"] = result
+    extract_worker_status["last_run"] = datetime.now().isoformat()
+    extract_worker_status["mode"] = "manual_once"
+    return result
+
+
+@app.post("/api/admin/extract-worker/start-daemon")
+async def start_extract_worker_daemon(req: ExtractWorkerRequest):
+    if extract_worker_status["running"]:
+        return JSONResponse(
+            {"status": "already_running", "message": "Extract worker daemon already running"},
+            status_code=409,
+        )
+    thread = threading.Thread(target=_extract_daemon, args=(req.interval_minutes,), daemon=True)
+    thread.start()
+    return {
+        "status": "started",
+        "mode": "daemon",
+        "interval_minutes": max(5, req.interval_minutes),
+        "message": "Background extraction daemon started. Admin should review /api/admin/extract-checkin/latest.",
+    }
 
 
 @app.post("/api/admin/election-results-sync")
