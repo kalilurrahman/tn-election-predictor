@@ -417,6 +417,46 @@ async def get_simulation_types():
     return {"types": insights_engine.get_simulation_types()}
 
 
+@app.get("/api/system/methodology")
+async def get_system_methodology():
+    return {
+        "name": "Tamil Nadu Assembly Election Predictor",
+        "version": "3.0-methodology",
+        "architecture_layers": [
+            "Data ingestion",
+            "Feature engineering",
+            "Prediction engine",
+            "Forecasting and simulation",
+            "Analytics UI",
+        ],
+        "models": [
+            "Baseline probabilistic seat prior",
+            "Bayesian logit updater for incoming sentiment/news evidence",
+            "Scenario simulation with structural feature adjustments",
+        ],
+        "feature_family": [
+            "Incumbency fatigue index",
+            "Competitiveness index (margin sensitivity)",
+            "Welfare saturation proxy",
+            "Demographic fractionalization proxy",
+            "Sentiment and swing signals",
+        ],
+        "validation_strategy": [
+            "Time-aware validation (train on older cycles, test on latest)",
+            "Constituency-level holdout checks",
+            "Probability calibration checks",
+            "Cross-source consistency checks for candidate/election records",
+        ],
+        "data_sources": [
+            "ECI / TN CEO official election records",
+            "ADR / MyNeta candidate affidavits",
+            "Historical curated election datasets (Dataful/Kaggle where available)",
+            "Geo-boundary and demographic datasets",
+            "News/sentiment streams for campaign-time updates",
+        ],
+    }
+
+
 @app.get("/api/elections/history")
 async def get_election_history():
     path = find_file("tn_assembly_history.json")

@@ -7,12 +7,13 @@ import { CandidateRegistryPage } from './components/candidates/CandidateRegistry
 import { StrategyLabPage } from './components/strategy/StrategyLabPage'
 import { OpinionPollsPage } from './components/polls/OpinionPollsPage'
 import { StatisticsPage } from './components/stats/StatisticsPage'
+import { MethodologyPage } from './components/docs/MethodologyPage'
 import { DEFAULT_PARAMS } from './data/constituencies2026'
 import type { SimulationParams } from './data/constituencies2026'
 
 function App() {
   const [params, setParams] = useState<SimulationParams>(DEFAULT_PARAMS);
-  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats'>('dashboard');
+  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats' | 'methodology'>('dashboard');
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-foreground flex flex-col font-sans relative overflow-x-hidden">
@@ -50,6 +51,12 @@ function App() {
             className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'stats' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Statistics
+          </button>
+          <button
+            onClick={() => setView('methodology')}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'methodology' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+          >
+            Methodology
           </button>
         </div>
         </div>
@@ -89,6 +96,8 @@ function App() {
         <OpinionPollsPage />
       ) : view === 'stats' ? (
         <StatisticsPage />
+      ) : view === 'methodology' ? (
+        <MethodologyPage />
       ) : (
         <CandidateRegistryPage />
       )}

@@ -66,6 +66,24 @@ TN_DATASET_CATALOG: List[DatasetSource] = [
         requires_auth=False,
         notes="Official portal. Live scraping can be blocked; use exported files where possible.",
     ),
+    DatasetSource(
+        dataset_id="tcpd_lokdhaba",
+        name="TCPD Lok Dhaba (Ashoka University)",
+        priority=1,
+        url="https://lokdhaba.ashoka.edu.in/",
+        format="api/csv",
+        requires_auth=True,
+        notes="Longitudinal cleaned election dataset with candidate entity resolution.",
+    ),
+    DatasetSource(
+        dataset_id="lokniti_csds_surveys",
+        name="Lokniti-CSDS Survey Data",
+        priority=2,
+        url="https://www.lokniti.org/",
+        format="survey",
+        requires_auth=True,
+        notes="Weighted behavioral and welfare-attribution survey features for calibration.",
+    ),
 ]
 
 

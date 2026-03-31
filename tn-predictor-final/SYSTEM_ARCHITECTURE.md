@@ -19,18 +19,24 @@ Current status:
 - Alliance transfer and coherence proxy
 - Issue salience (NEET, jobs, Cauvery, welfare, etc.)
 - Sentiment velocity (weekly acceleration / deceleration)
+- Incumbency fatigue index (candidate + seat competitiveness)
+- Welfare saturation proxy (issue + turnout + context based)
+- Demographic fractionalization proxy (heterogeneity pressure)
 
 Current status:
 - Regional swings, anti-incumbency, turnout delta, alliance cohesion, and campaign intensity are implemented in simulation controls.
+- Structural feature snapshots now feed scenario simulation and toss-up prioritization.
 - Next upgrade: persist daily feature snapshots into a dedicated table for drift tracking.
 
 ## Layer 3: Prediction Engine
 - Baseline seat model (historical vote and margin priors)
 - Bayesian updater for incremental evidence
 - Tamil/English NLP sentiment score fusion
+- Structural simulation adjuster (feature-conditioned seat shifts)
 
 Current status:
 - Hybrid predictor + analytics endpoints are active in FastAPI.
+- New API layer now exposes methodology metadata and seat dynamics classifications.
 - Next upgrade: plug in model registry with explicit model versioning and backtesting windows.
 
 ## Layer 4: Forecasting Layer
@@ -48,9 +54,11 @@ Current status:
 - Constituency deep-dive and candidate cards
 - Interactive TN map
 - Scenario simulator and opinion poll view
+- In-app Methodology page (README-style architecture/model/data documentation)
 
 Current status:
 - Dashboard, Candidate Registry, Strategy Lab, and Opinion Polls pages are live.
+- Statistics and Methodology pages now include advanced analytics and modeling explanation.
 - View transitions are enabled globally for smoother interaction.
 
 ## Recommended Production Stack
@@ -65,4 +73,3 @@ Current status:
 2. Add model calibration reports and error dashboards.
 3. Add poll-of-polls weighting by recency and sample quality.
 4. Add confidence bands and decaying uncertainty curves in UI.
-

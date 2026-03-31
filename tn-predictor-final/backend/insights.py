@@ -30,6 +30,51 @@ class ConstituencyInsightsEngine:
             "youth_surge": {"spa": -2.5, "nda": -2.0, "tvk": 4.5, "ntk": 1.5},
             "leadership_wave_spa": {"spa": 4.0, "nda": -2.0, "tvk": -1.0, "ntk": -0.5},
             "fragmented_mandate": {"spa": -2.0, "nda": -2.0, "tvk": 3.5, "ntk": 2.5},
+            "welfare_surge_spa": {"spa": 3.0, "nda": -1.5, "tvk": -0.5, "ntk": -0.5},
+            "localized_anti_incumbency": {"spa": -3.0, "nda": 1.8, "tvk": 0.8, "ntk": 0.4},
+        }
+
+    def _margin_pct_2021(self, constituency: Dict) -> float:
+        result = constituency.get("result2021", {}) or {}
+        winner_votes = _safe_num(result.get("winnerVotes"))
+        runner_votes = _safe_num(result.get("runnerUpVotes"))
+        total = winner_votes + runner_votes
+        if total <= 0:
+            return 0.0
+        return abs(winner_votes - runner_votes) / total * 100
+
+    def _feature_snapshot(self, constituency: Dict) -> Dict:
+        prediction = constituency.get("prediction", {}) or {}
+        candidates = constituency.get("candidates2026", []) or []
+        registered = _safe_num(constituency.get("registeredVoters2021"), 0.0)
+        issues = len(constituency.get("keyIssues", []) or [])
+        incumbents = sum(1 for c in candidates if bool(c.get("isIncumbent")))
+        margin_pct = self._margin_pct_2021(constituency)
+        turnout = _safe_num((constituency.get("result2021", {}) or {}).get("turnoutPercent"), 70.0)
+
+        incumbency_fatigue_index = _clamp(incumbents * 0.55 + (12.0 - min(margin_pct, 12.0)) / 12.0, 0.0, 1.0)
+        competitiveness_index = _clamp((8.0 - min(margin_pct, 8.0)) / 8.0, 0.0, 1.0)
+        welfare_saturation_proxy = _clamp(
+            (1.0 if "welfare" in " ".join([str(i).lower() for i in constituency.get("keyIssues", [])]) else 0.45)
+            + (turnout / 100.0) * 0.2
+            + (0.1 if registered > 300000 else 0.0),
+            0.0,
+            1.0,
+        )
+        demographic_fractionalization_proxy = _clamp(
+            0.4 + issues * 0.07 + (0.15 if constituency.get("reservedFor") in {"SC", "ST"} else 0.0),
+            0.0,
+            1.0,
+        )
+        swing_signal = _safe_num(prediction.get("swingFrom2021"))
+
+        return {
+            "incumbency_fatigue_index": round(incumbency_fatigue_index, 3),
+            "competitiveness_index": round(competitiveness_index, 3),
+            "welfare_saturation_proxy": round(welfare_saturation_proxy, 3),
+            "demographic_fractionalization_proxy": round(demographic_fractionalization_proxy, 3),
+            "swing_signal": round(swing_signal, 3),
+            "margin_pct_2021": round(margin_pct, 3),
         }
 
     def get_simulation_types(self) -> List[Dict]:
@@ -58,6 +103,16 @@ class ConstituencyInsightsEngine:
                 "type": "fragmented_mandate",
                 "title": "Fragmented Mandate",
                 "description": "Vote fragmentation rises; hung-style outcomes increase.",
+            },
+            {
+                "type": "welfare_surge_spa",
+                "title": "Welfare Surge",
+                "description": "Higher welfare attribution lifts incumbent-bloc stability in welfare-heavy seats.",
+            },
+            {
+                "type": "localized_anti_incumbency",
+                "title": "Localized Anti-incumbency",
+                "description": "Sharper anti-incumbency in marginal seats with high fatigue index.",
             },
         ]
 
@@ -146,6 +201,7 @@ class ConstituencyInsightsEngine:
                 "margin": result.get("margin"),
                 "turnout_percent": result.get("turnoutPercent"),
             },
+            "feature_snapshot": self._feature_snapshot(target),
             "candidate_cards": candidate_cards,
         }
 
@@ -198,12 +254,32 @@ class ConstituencyInsightsEngine:
 
         for constituency in constituencies:
             prediction = constituency.get("prediction", {})
+            features = self._feature_snapshot(constituency)
+            structural_delta = {
+                "spa": (
+                    features["welfare_saturation_proxy"] * 1.6
+                    - features["incumbency_fatigue_index"] * 1.5
+                    + features["swing_signal"] * 0.14
+                ),
+                "nda": (
+                    features["incumbency_fatigue_index"] * 1.2
+                    + max(0.0, -features["swing_signal"]) * 0.12
+                ),
+                "tvk": (
+                    features["demographic_fractionalization_proxy"] * 1.25
+                    + features["competitiveness_index"] * 1.0
+                ),
+                "ntk": (
+                    features["competitiveness_index"] * 0.8
+                    + features["demographic_fractionalization_proxy"] * 0.6
+                ),
+            }
             adjusted = _renormalize(
                 {
-                    "SPA": _safe_num(prediction.get("spaWinProb")) + base_swing["spa"],
-                    "NDA": _safe_num(prediction.get("ndaWinProb")) + base_swing["nda"],
-                    "TVK": _safe_num(prediction.get("tvkWinProb")) + base_swing["tvk"],
-                    "NTK": _safe_num(prediction.get("ntkWinProb")) + base_swing["ntk"],
+                    "SPA": _safe_num(prediction.get("spaWinProb")) + base_swing["spa"] + structural_delta["spa"],
+                    "NDA": _safe_num(prediction.get("ndaWinProb")) + base_swing["nda"] + structural_delta["nda"],
+                    "TVK": _safe_num(prediction.get("tvkWinProb")) + base_swing["tvk"] + structural_delta["tvk"],
+                    "NTK": _safe_num(prediction.get("ntkWinProb")) + base_swing["ntk"] + structural_delta["ntk"],
                     "OTHERS": _safe_num(prediction.get("othersWinProb")),
                 }
             )
@@ -221,6 +297,7 @@ class ConstituencyInsightsEngine:
                     "winner_prob": round(ordered[0][1], 2),
                     "runner_up": ordered[1][0],
                     "margin": round(margin, 2),
+                    "features": features,
                 }
             )
 
