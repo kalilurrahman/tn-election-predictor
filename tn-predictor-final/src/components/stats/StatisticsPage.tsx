@@ -510,9 +510,12 @@ const ChartPanel = ({ title, children }: { title: string; children: React.ReactN
 );
 
 const InsightCard = ({ title, text }: { title: string; text: string }) => (
-  <div className="rounded-2xl border border-border/30 p-4 bg-gradient-to-br from-white/80 to-slate-50 dark:from-slate-900/60 dark:to-slate-900/20">
-    <h4 className="font-black text-sm">{title}</h4>
-    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{text}</p>
+  <div className="rounded-2xl border border-border/30 p-5 bg-gradient-to-br from-white/80 to-slate-50 dark:from-slate-900/60 dark:to-slate-900/20 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-center gap-2 mb-2">
+      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+      <h4 className="font-black text-sm">{title}</h4>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed pl-4 border-l-2 border-primary/10 ml-1">{text}</p>
   </div>
 );
 

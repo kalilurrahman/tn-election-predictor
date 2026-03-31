@@ -81,7 +81,8 @@ export const MethodologyPage = () => {
         <h3 className="text-sm font-black uppercase tracking-widest">Data Sources and Governance</h3>
         <ul className="mt-3 space-y-2 text-sm">
           {data.data_sources.map((item) => (
-            <li key={item} className="rounded-xl border border-border/30 px-3 py-2 bg-white/60 dark:bg-slate-900/40">
+            <li key={item} className="flex items-start gap-3 rounded-xl border border-border/30 px-4 py-3 bg-white/60 dark:bg-slate-900/40 hover:bg-white/80 dark:hover:bg-slate-900/60 transition-colors">
+              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
               {item}
             </li>
           ))}
@@ -99,7 +100,8 @@ const MethodCard = ({ title, items }: { title: string; items: string[] }) => (
     <h3 className="text-sm md:text-[13px] font-black uppercase tracking-widest text-foreground/90">{title}</h3>
     <ul className="mt-3 space-y-2 text-sm">
       {items.map((item) => (
-        <li key={item} className="rounded-xl border border-border/20 px-3 py-2 bg-white/60 dark:bg-slate-900/40">
+        <li key={item} className="flex items-start gap-3 rounded-xl border border-border/20 px-4 py-3 bg-white/60 dark:bg-slate-900/40 hover:bg-white/80 dark:hover:bg-slate-900/60 transition-colors">
+          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
           {item}
         </li>
       ))}

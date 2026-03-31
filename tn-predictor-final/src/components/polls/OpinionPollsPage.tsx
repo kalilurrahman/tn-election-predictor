@@ -70,9 +70,12 @@ const SeatCard = ({ label, value, color }: { label: string; value: number; color
 );
 
 const PollRow = ({ label, value }: { label: string; value: string }) => (
-  <div className="rounded-xl border border-border/30 p-2 bg-white/50 dark:bg-slate-900/30">
-    <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{label}</div>
-    <div className="font-black mt-0.5">{value}</div>
+  <div className="flex items-center justify-between rounded-xl border border-border/30 px-3 py-2 bg-white/50 dark:bg-slate-900/30 hover:bg-white/70 dark:hover:bg-slate-900/50 transition-colors">
+    <div className="flex items-center gap-2">
+      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
+      <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{label}</div>
+    </div>
+    <div className="font-black">{value}</div>
   </div>
 );
 
