@@ -191,9 +191,9 @@ export const StatisticsPage = () => {
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-6 border border-border/40">
-        <h2 className="text-xl font-black tracking-tight">Tamil Nadu Election Statistics and Visualization Hub</h2>
-        <p className="text-sm text-muted-foreground mt-2">
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-6 md:p-7 border border-border/40 bg-gradient-to-br from-white/85 to-slate-50/60 dark:from-slate-900/70 dark:to-slate-900/40">
+        <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight">Tamil Nadu Election Statistics and Visualization Hub</h2>
+        <p className="text-sm md:text-[15px] text-muted-foreground mt-2 leading-relaxed">
           Historical records, vote-share movement, turnout behavior, and constituency-level context summarized for fast decision making.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5">
@@ -495,16 +495,16 @@ export const StatisticsPage = () => {
 };
 
 const StatCard = ({ title, value, subtitle }: { title: string; value: string; subtitle: string }) => (
-  <div className="rounded-2xl border border-border/30 p-4 bg-white/60 dark:bg-slate-900/40">
-    <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{title}</div>
-    <div className="text-2xl font-black mt-1">{value}</div>
-    <div className="text-[11px] text-muted-foreground mt-1">{subtitle}</div>
+  <div className="rounded-2xl border border-border/30 p-4 bg-gradient-to-br from-white to-slate-50/70 dark:from-slate-900/60 dark:to-slate-900/25 shadow-sm">
+    <div className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-muted-foreground">{title}</div>
+    <div className="text-2xl md:text-3xl font-black mt-1">{value}</div>
+    <div className="text-[11px] md:text-xs text-muted-foreground mt-1">{subtitle}</div>
   </div>
 );
 
 const ChartPanel = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-5 border border-border/40">
-    <h3 className="text-sm font-black uppercase tracking-widest mb-3">{title}</h3>
+  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-5 md:p-6 border border-border/40 bg-white/75 dark:bg-slate-900/55 shadow-sm">
+    <h3 className="text-sm md:text-[13px] font-black uppercase tracking-widest mb-3 text-foreground/90">{title}</h3>
     {children}
   </motion.div>
 );

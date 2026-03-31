@@ -60,9 +60,9 @@ export const MethodologyPage = () => {
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-6 border border-border/40">
-        <h2 className="text-xl font-black tracking-tight">{data.name} - Methodology</h2>
-        <p className="text-sm text-muted-foreground mt-2">
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-6 md:p-7 border border-border/40 bg-gradient-to-br from-white/85 to-slate-50/60 dark:from-slate-900/70 dark:to-slate-900/40">
+        <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight">{data.name} - Methodology</h2>
+        <p className="text-sm md:text-[15px] text-muted-foreground mt-2 leading-relaxed">
           README-style system architecture and modeling blueprint used for Tamil Nadu Assembly forecast analytics.
         </p>
         <div className="mt-3 inline-flex rounded-xl bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-200 px-3 py-1.5 text-xs font-black uppercase tracking-wider">
@@ -95,8 +95,8 @@ export const MethodologyPage = () => {
 };
 
 const MethodCard = ({ title, items }: { title: string; items: string[] }) => (
-  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-5 border border-border/40">
-    <h3 className="text-sm font-black uppercase tracking-widest">{title}</h3>
+  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="glass-panel rounded-3xl p-5 md:p-6 border border-border/40 bg-white/75 dark:bg-slate-900/55 shadow-sm">
+    <h3 className="text-sm md:text-[13px] font-black uppercase tracking-widest text-foreground/90">{title}</h3>
     <ul className="mt-3 space-y-2 text-sm">
       {items.map((item) => (
         <li key={item} className="rounded-xl border border-border/20 px-3 py-2 bg-white/60 dark:bg-slate-900/40">

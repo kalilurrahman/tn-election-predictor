@@ -92,9 +92,9 @@ export const CandidateRegistryPage = () => {
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <section className="lg:col-span-5 rounded-3xl border border-border/40 overflow-hidden bg-white/60 dark:bg-slate-900/50">
+        <section className="lg:col-span-5 rounded-3xl border border-border/40 overflow-hidden bg-gradient-to-br from-white/85 to-slate-50/60 dark:from-slate-900/70 dark:to-slate-900/40 shadow-sm">
           <div className="px-5 py-4 border-b border-border/30 flex items-center justify-between">
-            <h3 className="font-black text-sm uppercase tracking-widest">Constituency Selector</h3>
+            <h3 className="font-black text-sm md:text-[13px] uppercase tracking-widest">Constituency Selector</h3>
             <a href="/api/candidates/export.csv" target="_blank" rel="noreferrer" className="text-xs font-bold text-primary hover:underline">
               Download CSV
             </a>
@@ -122,10 +122,10 @@ export const CandidateRegistryPage = () => {
           </div>
         </section>
 
-        <section className="lg:col-span-7 rounded-3xl border border-border/40 bg-white/70 dark:bg-slate-900/60">
+        <section className="lg:col-span-7 rounded-3xl border border-border/40 bg-gradient-to-br from-white/85 to-slate-50/60 dark:from-slate-900/70 dark:to-slate-900/40 shadow-sm">
           <div className="px-5 py-4 border-b border-border/30">
-            <h3 className="font-black text-sm uppercase tracking-widest">Comprehensive Candidate Dossier</h3>
-            <p className="text-xs text-muted-foreground mt-1">{selectedName} {selectedAc ? `(AC #${selectedAc})` : ''}</p>
+            <h3 className="font-black text-base md:text-lg uppercase tracking-widest">Comprehensive Candidate Dossier</h3>
+            <p className="text-xs md:text-sm text-muted-foreground mt-1">{selectedName} {selectedAc ? `(AC #${selectedAc})` : ''}</p>
             <p className="text-[11px] text-muted-foreground mt-1">
               Validation mode: ECI/party/public-source tagged records. Use citation links in each card for audit trail.
             </p>
@@ -144,11 +144,11 @@ export const CandidateRegistryPage = () => {
             )}
 
             {!loading && candidates.length > 0 && candidates.map((candidate, idx) => (
-              <div key={`${candidate.candidate_name}-${idx}`} className="rounded-2xl border border-border/40 p-4">
+              <div key={`${candidate.candidate_name}-${idx}`} className="rounded-2xl border border-border/40 p-4 bg-white/80 dark:bg-slate-900/55 shadow-sm">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h4 className="font-bold text-base">{candidate.candidate_name}</h4>
-                    <p className="text-xs text-muted-foreground">{candidate.party} | {candidate.alliance}</p>
+                    <h4 className="font-black text-base md:text-lg leading-tight">{candidate.candidate_name}</h4>
+                    <p className="text-xs md:text-sm text-muted-foreground mt-0.5">{candidate.party} | {candidate.alliance}</p>
                   </div>
                   <div className="flex flex-wrap gap-1.5 justify-end">
                     {candidate.eci_approved && <Badge text="ECI Verified" tone="emerald" />}
@@ -181,7 +181,7 @@ export const CandidateRegistryPage = () => {
               </div>
             ))}
 
-            <div className="rounded-2xl border border-border/40 p-4">
+            <div className="rounded-2xl border border-border/40 p-4 bg-white/80 dark:bg-slate-900/55 shadow-sm">
               <h4 className="font-black text-xs uppercase tracking-widest">Assembly Election Summary</h4>
               <div className="mt-3 space-y-2">
                 {(history?.elections || []).map((item) => (
@@ -193,7 +193,7 @@ export const CandidateRegistryPage = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border/40 p-4">
+            <div className="rounded-2xl border border-border/40 p-4 bg-white/80 dark:bg-slate-900/55 shadow-sm">
               <h4 className="font-black text-xs uppercase tracking-widest">Constituency Community Vote Split (Indicative)</h4>
               <p className="text-[11px] text-muted-foreground mt-1">{communitySplit?.source_note || 'No community split data loaded.'}</p>
               <div className="mt-3 space-y-2">
