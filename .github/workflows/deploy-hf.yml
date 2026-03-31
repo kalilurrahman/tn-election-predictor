@@ -1,0 +1,39 @@
+name: Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "tn-predictor-final/**"
+      - ".github/workflows/deploy-hf.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Validate HF token
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "HF_TOKEN secret is not set."
+            exit 1
+          fi
+
+      - name: Push project folder to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          cd tn-predictor-final
+          git remote remove hf || true
+          git remote add hf https://oauth2:${HF_TOKEN}@huggingface.co/spaces/kalilurrahman/tn-election-predictor
+          git push hf master:main --force
