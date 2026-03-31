@@ -2,12 +2,14 @@ name: Deploy to Hugging Face Spaces
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,9 +17,19 @@ jobs:
           fetch-depth: 0
           lfs: true
 
+      - name: Validate HF token
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "HF_TOKEN secret is not set."
+            exit 1
+          fi
+
       - name: Push to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add hf https://USER:${HF_TOKEN}@huggingface.co/spaces/YOUR_USERNAME/tn-election-predictor
-          git push hf main --force
+          git remote remove hf || true
+          git remote add hf https://oauth2:${HF_TOKEN}@huggingface.co/spaces/kalilurrahman/tn-election-predictor
+          git push hf master:main --force
