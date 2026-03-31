@@ -18,6 +18,8 @@ from backend.signal_pipeline import SentimentEngine
 from backend.insights import ConstituencyInsightsEngine
 from backend.candidate_sync import CandidateSyncEngine
 from backend.source_registry import get_candidate_sync_presets
+from backend.seat_dynamics import build_seat_dynamics
+from backend.election_results_sync import ElectionResultsSyncEngine
 
 app = FastAPI(title="TN Election Predictor 2026 API", version="2.1.0")
 
@@ -36,6 +38,7 @@ scraper = NewsScraper()
 sentiment_engine = SentimentEngine()
 insights_engine = ConstituencyInsightsEngine()
 candidate_sync_engine = CandidateSyncEngine(BASE_DIR)
+results_sync_engine = ElectionResultsSyncEngine(BASE_DIR)
 bayesian = BayesianPredictor(data_path=os.path.join(PUBLIC_PATH, "constituencies.json"))
 
 cache: Dict[str, Dict] = {}
@@ -55,6 +58,11 @@ candidate_sync_status = {
     "last_run": None,
     "last_result": None,
 }
+results_sync_status = {
+    "running": False,
+    "last_run": None,
+    "last_result": None,
+}
 
 
 class UpdateTriggerRequest(BaseModel):
@@ -68,6 +76,10 @@ class SimulationRunRequest(BaseModel):
 
 
 class CandidateSyncRequest(BaseModel):
+    source_urls: Optional[List[str]] = None
+
+
+class ElectionResultsSyncRequest(BaseModel):
     source_urls: Optional[List[str]] = None
 
 
@@ -425,6 +437,17 @@ async def get_constituency_community_split(ac_no: Optional[int] = None):
     }
 
 
+@app.get("/api/elections/seat-dynamics")
+async def get_seat_dynamics(limit: int = 40):
+    payload = build_seat_dynamics(load_constituencies())
+    bounded = max(5, min(limit, 120))
+    payload["safe_seats"] = payload["safe_seats"][:bounded]
+    payload["swing_seats"] = payload["swing_seats"][:bounded]
+    payload["bellwether_seats"] = payload["bellwether_seats"][:bounded]
+    payload["limit"] = bounded
+    return payload
+
+
 @app.post("/api/simulations/run")
 async def run_simulation(req: SimulationRunRequest):
     return insights_engine.run_simulation(
@@ -474,6 +497,40 @@ async def trigger_candidate_sync(req: CandidateSyncRequest):
 @app.get("/api/admin/candidate-sync/presets")
 async def get_candidate_sync_presets_api():
     return get_candidate_sync_presets()
+
+
+@app.get("/api/admin/election-results-sync/status")
+async def get_results_sync_status():
+    return results_sync_status
+
+
+@app.post("/api/admin/election-results-sync")
+async def trigger_results_sync(req: ElectionResultsSyncRequest):
+    if results_sync_status["running"]:
+        return JSONResponse(
+            {"status": "already_running", "message": "Election result sync already in progress"},
+            status_code=409,
+        )
+
+    results_sync_status["running"] = True
+    try:
+        env_urls = os.getenv("ELECTION_RESULTS_SOURCE_URLS", "")
+        fallback_urls = [u.strip() for u in env_urls.split(",") if u.strip()]
+        source_urls = req.source_urls or fallback_urls
+        if not source_urls:
+            return JSONResponse(
+                {
+                    "status": "no_sources",
+                    "message": "No election-result source URLs configured. Set ELECTION_RESULTS_SOURCE_URLS or pass source_urls.",
+                },
+                status_code=400,
+            )
+        result = results_sync_engine.run_sync(source_urls)
+        results_sync_status["last_result"] = result
+        results_sync_status["last_run"] = datetime.now().isoformat()
+        return result
+    finally:
+        results_sync_status["running"] = False
 
 
 @app.post("/api/admin/trigger-update")

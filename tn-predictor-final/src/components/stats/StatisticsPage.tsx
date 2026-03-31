@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Area,
@@ -81,7 +82,27 @@ const CLASS_TRANSITIONS = [
 
 const COLORS = ['#d72828', '#1e7b1e', '#0ea5e9', '#f59e0b', '#8b5cf6'];
 
+type SeatDynamicsRow = {
+  ac_no: number;
+  name: string;
+  district: string;
+  margin_2021_pct: number;
+  projected_margin_pct: number;
+  vote_swing_pct: number;
+  class_2021: string;
+  class_2026: string;
+};
+
+type SeatDynamicsPayload = {
+  counts_2026: { safe: number; swing: number; bellwether: number };
+  transition_counts_2021_to_2026: Record<string, number>;
+  safe_seats: SeatDynamicsRow[];
+  swing_seats: SeatDynamicsRow[];
+  bellwether_seats: SeatDynamicsRow[];
+};
+
 export const StatisticsPage = () => {
+  const [seatDynamics, setSeatDynamics] = useState<SeatDynamicsPayload | null>(null);
   const avgTurnout =
     Math.round((HISTORICAL_RESULTS.reduce((sum, row) => sum + row.turnout, 0) / HISTORICAL_RESULTS.length) * 10) / 10;
   const avgWinnerSeats =
@@ -96,6 +117,21 @@ export const StatisticsPage = () => {
   );
   const transitionsOnly = CLASS_TRANSITIONS.filter((row) => row.from !== row.to);
   const switchedSeats = transitionsOnly.reduce((sum, row) => sum + row.count, 0);
+  const dynamicSwitched = seatDynamics
+    ? Object.entries(seatDynamics.transition_counts_2021_to_2026)
+        .filter(([key]) => {
+          const [from, to] = key.split('->');
+          return from !== to;
+        })
+        .reduce((sum, [, value]) => sum + value, 0)
+    : switchedSeats;
+
+  useEffect(() => {
+    fetch('/api/elections/seat-dynamics?limit=24')
+      .then((res) => res.json())
+      .then((json) => setSeatDynamics(json))
+      .catch(() => setSeatDynamics(null));
+  }, []);
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
@@ -236,7 +272,7 @@ export const StatisticsPage = () => {
       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="glass-panel rounded-3xl p-5 border border-border/40 mt-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <h3 className="text-sm font-black uppercase tracking-widest">Seat Class Heatmap and Transition Matrix</h3>
-          <p className="text-xs text-muted-foreground">Switched class seats across two transitions: {switchedSeats}</p>
+          <p className="text-xs text-muted-foreground">Switched class seats across two transitions: {dynamicSwitched}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           <div className="rounded-2xl border border-border/30 p-4 bg-white/60 dark:bg-slate-900/40">
@@ -276,6 +312,14 @@ export const StatisticsPage = () => {
           </div>
         </div>
       </motion.div>
+
+      {seatDynamics && (
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-6 grid grid-cols-1 xl:grid-cols-3 gap-4">
+          <NamedSeatPanel title={`Safe Seats (${seatDynamics.counts_2026.safe})`} rows={seatDynamics.safe_seats} tone="safe" />
+          <NamedSeatPanel title={`Swing Seats (${seatDynamics.counts_2026.swing})`} rows={seatDynamics.swing_seats} tone="swing" />
+          <NamedSeatPanel title={`Bellwether Seats (${seatDynamics.counts_2026.bellwether})`} rows={seatDynamics.bellwether_seats} tone="bellwether" />
+        </motion.div>
+      )}
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <InsightCard
@@ -375,6 +419,31 @@ const ShiftChip = ({ period, from, to }: { period: string; from: string; to: str
     <div className="rounded-lg border border-border/30 px-2 py-1">
       <div className="text-[10px] text-muted-foreground">{from} → {to}</div>
       <div className="text-sm font-black">{flow?.count ?? 0} seats</div>
+    </div>
+  );
+};
+
+const NamedSeatPanel = ({ title, rows, tone }: { title: string; rows: SeatDynamicsRow[]; tone: 'safe' | 'swing' | 'bellwether' }) => {
+  const toneClass =
+    tone === 'safe'
+      ? 'from-emerald-100/80 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-800/10'
+      : tone === 'swing'
+        ? 'from-amber-100/80 to-amber-50 dark:from-amber-900/20 dark:to-amber-800/10'
+        : 'from-violet-100/80 to-violet-50 dark:from-violet-900/20 dark:to-violet-800/10';
+  return (
+    <div className={`rounded-2xl border border-border/30 p-4 bg-gradient-to-br ${toneClass}`}>
+      <h4 className="font-black text-sm mb-3 uppercase tracking-wider">{title}</h4>
+      <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+        {rows.slice(0, 14).map((row) => (
+          <div key={row.ac_no} className="rounded-lg border border-border/30 p-2 bg-white/80 dark:bg-slate-900/70">
+            <div className="text-xs font-bold">{row.name} ({row.ac_no})</div>
+            <div className="text-[11px] text-muted-foreground">{row.district}</div>
+            <div className="text-[11px] mt-1">
+              Swing: <span className="font-semibold">{row.vote_swing_pct > 0 ? '+' : ''}{row.vote_swing_pct}%</span> · 2021 Margin: <span className="font-semibold">{row.margin_2021_pct}%</span> · Projected: <span className="font-semibold">{row.projected_margin_pct}%</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

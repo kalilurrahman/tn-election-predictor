@@ -95,6 +95,26 @@ def get_candidate_sync_presets() -> dict:
                 ],
             }
         ],
+        "election_results_presets": [
+            {
+                "id": "tn_historical_results_csv",
+                "label": "Tamil Nadu Historical Results (CSV format required)",
+                "urls": [
+                    "https://raw.githubusercontent.com/kalilurrahman/tn-election-predictor/master/tn-predictor-final/public/tn_election_results_history.csv"
+                ],
+                "required_columns": [
+                    "ac_no",
+                    "constituency",
+                    "year",
+                    "winner",
+                    "winner_party",
+                    "runner_up",
+                    "runner_up_party",
+                    "winner_votes",
+                    "runner_up_votes",
+                ],
+            }
+        ],
         "references": [
             {
                 "name": source.name,
