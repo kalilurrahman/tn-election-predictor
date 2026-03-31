@@ -6,12 +6,13 @@ import { MapComponent } from './components/dashboard/MapComponent'
 import { CandidateRegistryPage } from './components/candidates/CandidateRegistryPage'
 import { StrategyLabPage } from './components/strategy/StrategyLabPage'
 import { OpinionPollsPage } from './components/polls/OpinionPollsPage'
+import { StatisticsPage } from './components/stats/StatisticsPage'
 import { DEFAULT_PARAMS } from './data/constituencies2026'
 import type { SimulationParams } from './data/constituencies2026'
 
 function App() {
   const [params, setParams] = useState<SimulationParams>(DEFAULT_PARAMS);
-  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates'>('dashboard');
+  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats'>('dashboard');
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-foreground flex flex-col font-sans relative overflow-x-hidden">
@@ -42,6 +43,12 @@ function App() {
             className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'polls' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Opinion Polls
+          </button>
+          <button
+            onClick={() => setView('stats')}
+            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'stats' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+          >
+            Statistics
           </button>
         </div>
       </div>
@@ -78,6 +85,8 @@ function App() {
         <StrategyLabPage params={params} onParamChange={setParams} />
       ) : view === 'polls' ? (
         <OpinionPollsPage />
+      ) : view === 'stats' ? (
+        <StatisticsPage />
       ) : (
         <CandidateRegistryPage />
       )}
