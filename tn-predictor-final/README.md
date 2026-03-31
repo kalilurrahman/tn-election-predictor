@@ -16,6 +16,17 @@ pinned: false
 
 ---
 
+## Architecture
+
+The app now uses a formal 5-layer election-forecast architecture:
+1. Data ingestion
+2. Feature engineering
+3. Prediction engine
+4. Forecasting/simulation
+5. Analytics UI
+
+See `SYSTEM_ARCHITECTURE.md` for full details and implementation roadmap.
+
 ## Features
 
 | Feature | Description |
