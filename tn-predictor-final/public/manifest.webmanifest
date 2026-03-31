@@ -1,0 +1,25 @@
+{
+  "name": "Tamil Nadu Assembly Election 2026",
+  "short_name": "TN Election 2026",
+  "description": "AI-powered Tamil Nadu Assembly election analytics, simulation and candidate intelligence dashboard.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+

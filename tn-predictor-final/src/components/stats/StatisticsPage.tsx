@@ -12,6 +12,8 @@ import {
   Pie,
   PieChart,
   ResponsiveContainer,
+  Scatter,
+  ScatterChart,
   Tooltip,
   XAxis,
   YAxis,
@@ -38,11 +40,27 @@ const REGION_2021 = [
   { name: 'South TN', value: 84 },
 ];
 
+const TURNOUT_VS_WIN_MARGIN = [
+  { year: '2011', turnout: 78.0, margin: 172 },
+  { year: '2016', turnout: 74.3, margin: 36 },
+  { year: '2021', turnout: 73.6, margin: 84 },
+];
+
 const COLORS = ['#d72828', '#1e7b1e', '#0ea5e9', '#f59e0b', '#8b5cf6'];
 
 export const StatisticsPage = () => {
   const avgTurnout =
     Math.round((HISTORICAL_RESULTS.reduce((sum, row) => sum + row.turnout, 0) / HISTORICAL_RESULTS.length) * 10) / 10;
+  const avgWinnerSeats =
+    Math.round((HISTORICAL_RESULTS.reduce((sum, row) => sum + row.winnerSeats, 0) / HISTORICAL_RESULTS.length) * 10) / 10;
+  const volatilityIndex = Math.round(
+    (Math.abs(HISTORICAL_RESULTS[0].winnerSeats - HISTORICAL_RESULTS[1].winnerSeats) +
+      Math.abs(HISTORICAL_RESULTS[1].winnerSeats - HISTORICAL_RESULTS[2].winnerSeats)) /
+      2
+  );
+  const closestCycle = HISTORICAL_RESULTS.reduce((prev, curr) =>
+    Math.abs(curr.winnerSeats - curr.runnerSeats) < Math.abs(prev.winnerSeats - prev.runnerSeats) ? curr : prev
+  );
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
@@ -57,11 +75,18 @@ export const StatisticsPage = () => {
           <StatCard title="Avg Turnout" value={`${avgTurnout}%`} subtitle="Across 3 cycles" />
           <StatCard title="Current Mode" value="Forecast + Archive" subtitle="Historical + simulation" />
         </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+          <StatCard title="Avg Winner Seats" value={`${avgWinnerSeats}`} subtitle="Cycle baseline" />
+          <StatCard title="Volatility Index" value={`${volatilityIndex}`} subtitle="Seat swing pressure" />
+          <StatCard title="Closest Cycle" value={`${closestCycle.year}`} subtitle={`${Math.abs(closestCycle.winnerSeats - closestCycle.runnerSeats)} seat margin`} />
+          <StatCard title="Neck & Neck Risk" value="High" subtitle="In swing clusters" />
+        </div>
       </motion.div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-6">
         <ChartPanel title="Seat Outcome History (Winner vs Runner-up)">
-          <ResponsiveContainer width="100%" height={300}>
+          <div className="h-[260px] sm:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={HISTORICAL_RESULTS}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
@@ -72,10 +97,12 @@ export const StatisticsPage = () => {
               <Bar dataKey="runnerSeats" name="Runner-up Seats" fill="#1e7b1e" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
+          </div>
         </ChartPanel>
 
         <ChartPanel title="Turnout Trajectory">
-          <ResponsiveContainer width="100%" height={300}>
+          <div className="h-[260px] sm:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={HISTORICAL_RESULTS}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
@@ -84,10 +111,12 @@ export const StatisticsPage = () => {
               <Area type="monotone" dataKey="turnout" name="Turnout %" fill="#0ea5e9" stroke="#0284c7" fillOpacity={0.3} />
             </AreaChart>
           </ResponsiveContainer>
+          </div>
         </ChartPanel>
 
         <ChartPanel title="Party Vote Share Trend (Major Blocs)">
-          <ResponsiveContainer width="100%" height={300}>
+          <div className="h-[260px] sm:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
             <LineChart data={ALLIANCE_TREND}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
@@ -100,10 +129,12 @@ export const StatisticsPage = () => {
               <Line type="monotone" dataKey="BJP" stroke="#f59e0b" strokeWidth={2} dot />
             </LineChart>
           </ResponsiveContainer>
+          </div>
         </ChartPanel>
 
         <ChartPanel title="Regional Seat Distribution (Assembly Share)">
-          <ResponsiveContainer width="100%" height={300}>
+          <div className="h-[260px] sm:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie data={REGION_2021} dataKey="value" nameKey="name" outerRadius={100} innerRadius={55} label>
                 {REGION_2021.map((entry, index) => (
@@ -114,10 +145,29 @@ export const StatisticsPage = () => {
               <Legend />
             </PieChart>
           </ResponsiveContainer>
+          </div>
+        </ChartPanel>
+
+        <ChartPanel title="Turnout vs Winning Margin">
+          <div className="h-[260px] sm:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <ScatterChart>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="turnout" name="Turnout" unit="%" />
+              <YAxis type="number" dataKey="margin" name="Seat Margin" />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={TURNOUT_VS_WIN_MARGIN} fill="#6366f1" />
+            </ScatterChart>
+          </ResponsiveContainer>
+          </div>
         </ChartPanel>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <InsightCard
+          title="Turnout-Competitiveness Link"
+          text="Lower turnout cycles have shown tighter regional competition and sharper booth-level variance."
+        />
         <InsightCard
           title="Historical Pattern"
           text="Tamil Nadu remains strongly bipolar at alliance level, but third-force vote share growth has increased volatility in tight constituencies."
@@ -130,6 +180,40 @@ export const StatisticsPage = () => {
           title="2026 Reading"
           text="Current trend signals a competitive frame with a wider uncertainty band in swing seats and stronger need for seat-level micro strategy."
         />
+        <InsightCard
+          title="Micro-targeting Signal"
+          text="High-impact constituencies are increasingly those with narrow 2021 margins and differentiated local issue salience."
+        />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="glass-panel rounded-3xl p-5 border border-border/40 mt-6">
+        <h3 className="text-sm font-black uppercase tracking-widest mb-3">Election Cycle Snapshot Table</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[640px] text-xs">
+            <thead>
+              <tr className="text-left border-b border-border/40">
+                <th className="py-2 pr-4">Year</th>
+                <th className="py-2 pr-4">Winner</th>
+                <th className="py-2 pr-4">Winner Seats</th>
+                <th className="py-2 pr-4">Runner Seats</th>
+                <th className="py-2 pr-4">Margin</th>
+                <th className="py-2 pr-4">Turnout</th>
+              </tr>
+            </thead>
+            <tbody>
+              {HISTORICAL_RESULTS.map((row) => (
+                <tr key={row.year} className="border-b border-border/20">
+                  <td className="py-2 pr-4 font-semibold">{row.year}</td>
+                  <td className="py-2 pr-4">{row.winner}</td>
+                  <td className="py-2 pr-4">{row.winnerSeats}</td>
+                  <td className="py-2 pr-4">{row.runnerSeats}</td>
+                  <td className="py-2 pr-4">{Math.abs(row.winnerSeats - row.runnerSeats)}</td>
+                  <td className="py-2 pr-4">{row.turnout}%</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </motion.div>
     </main>
   );

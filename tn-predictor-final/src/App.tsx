@@ -19,37 +19,39 @@ function App() {
       <Header />
 
       <div className="container mx-auto px-4 md:px-8 pt-6">
-        <div className="inline-flex rounded-2xl border border-border/40 bg-white/70 dark:bg-slate-900/60 p-1">
+        <div className="overflow-x-auto no-scrollbar">
+        <div className="inline-flex rounded-2xl border border-border/40 bg-white/70 dark:bg-slate-900/60 p-1 min-w-max">
           <button
             onClick={() => setView('dashboard')}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'dashboard' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'dashboard' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Dashboard
           </button>
           <button
             onClick={() => setView('candidates')}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'candidates' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'candidates' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Candidate Registry
           </button>
           <button
             onClick={() => setView('strategy')}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'strategy' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'strategy' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Strategy Lab
           </button>
           <button
             onClick={() => setView('polls')}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'polls' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'polls' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Opinion Polls
           </button>
           <button
             onClick={() => setView('stats')}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'stats' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'stats' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
           >
             Statistics
           </button>
+        </div>
         </div>
       </div>
 

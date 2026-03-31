@@ -1,5 +1,5 @@
 ---
-title: TN Election Predictor 2026
+title: Tamil Nadu Assembly Election Predictor 2026
 emoji: 🗳️
 colorFrom: red
 colorTo: green
@@ -8,194 +8,113 @@ app_port: 7860
 pinned: false
 ---
 
-# TN Election Predictor 2026
+# Tamil Nadu Assembly Election Predictor 2026
 
-> AI-Powered Psephology Dashboard for the 2026 Tamil Nadu Legislative Assembly Elections
+Production-ready full-stack election analytics platform for Tamil Nadu (TN), with seat simulations, constituency deep-dives, candidate registry, opinion-poll synthesis, and historical/statistical visualizations.
 
-**Stack:** React 19 + TypeScript + Tailwind · FastAPI + Uvicorn · Bayesian Model · VADER Sentiment · Leaflet Maps
+Live app:
+- Hugging Face Space: [kalilurrahman-tn-election-predictor.hf.space](https://kalilurrahman-tn-election-predictor.hf.space)
+- GitHub repository: [kalilurrahman/tn-election-predictor](https://github.com/kalilurrahman/tn-election-predictor)
 
----
+## Screenshots
 
-## Architecture
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.svg)
 
-The app now uses a formal 5-layer election-forecast architecture:
+### Candidate Registry
+![Candidate Registry](docs/screenshots/candidate-dossier.svg)
+
+### Strategy Lab
+![Strategy Lab](docs/screenshots/strategy-lab.svg)
+
+### Statistics & Visualization
+![Statistics](docs/screenshots/statistics.svg)
+
+## Product Summary
+
+The app is structured across five model layers:
+
 1. Data ingestion
+- Pulls source data from election archives, curated reports, and polling/sentiment feeds.
+- Includes source provenance utilities and sync presets.
+
 2. Feature engineering
+- Derives seat-level factors including alliance effects, trend/swing behavior, and constituency context.
+
 3. Prediction engine
-4. Forecasting/simulation
+- Hybrid scoring pipeline combining priors, update signals, and sentiment-informed adjustments.
+
+4. Forecasting and simulation
+- Seat-by-seat outcomes, confidence bands, neck-and-neck detection, upset probabilities, and scenario simulation.
+
 5. Analytics UI
+- Interactive dashboard, map drill-down, candidate intelligence, strategy lab, poll-of-polls, and historical stats page.
 
-See `SYSTEM_ARCHITECTURE.md` for full details and implementation roadmap.
+## Core Pages
 
-## Features
+- Dashboard: State tally, battleground map, constituency cards, and quick prediction state.
+- Candidate Registry: Candidate dossiers with incumbency/rerunner/celebrity tags, validation links, and constituency metadata.
+- Strategy Lab: Multi-parameter what-if sliders and predefined strategy scenarios.
+- Opinion Polls: Poll aggregation and trend-oriented poll-of-polls summary.
+- Statistics & Visualization: Historical election records, turnout trends, and animated charts.
 
-| Feature | Description |
-|---|---|
-| 🗺️ **Battleground Map** | Real 234-constituency TopoJSON map, coloured by predicted winner |
-| 📊 **State Assembly Projection** | Live seat tally with Magic Number (118) tracker |
-| 🎛️ **Strategy Simulator** | Swing sliders for SPA/NDA/TVK/NTK — re-runs full 234-seat model live |
-| 🔍 **Constituency Deep-Dive** | Candidate profiles, issues, Bayesian win probability, sentiment trend |
-| 📰 **Live Buzz Tab** | Real-time Google News scraping with Tamil/English sentiment scoring |
-| 🤖 **Admin Update Panel** | Manual trigger to re-scrape all 234 constituencies and update Bayesian model |
-| 🎯 **Neck-and-Neck Tracker** | `/api/neck-and-neck` — seats with < 3% margin |
-| 💥 **Surprise Detector** | `/api/surprises` — upsets where trailing candidate has 25–45% chance |
+## PWA + Mobile Readiness
 
----
+The app is configured as an installable Progressive Web App:
+- `public/manifest.webmanifest` is configured with app identity and display mode.
+- `public/sw.js` service worker is registered from `src/main.tsx`.
+- Favicon and app icon links are wired in `index.html`.
+- Responsive behavior includes mobile-safe navigation and fluid layout scaling for charts/maps/tables.
 
-## API Endpoints
+## Tech Stack
 
+- Frontend: React 19, TypeScript, Vite, Tailwind CSS
+- Backend: FastAPI, Uvicorn, Python analytics services
+- Data/Model: Bayesian-style update flow, sentiment utilities, constituency simulation logic
+- Deployment: GitHub + Hugging Face Docker Space (auto-deploy)
+
+## API Surface (selected)
+
+```txt
+GET  /api/health
+GET  /api/constituencies
+GET  /api/predictions/summary
+GET  /api/predictions/{ac_no}
+GET  /api/neck-and-neck
+GET  /api/surprises
+GET  /api/elections/history
+GET  /api/elections/community-split?ac_no={ac_no}
+GET  /api/admin/candidate-sync/presets
+POST /api/admin/trigger-update
+POST /api/admin/clear-cache
 ```
-GET  /api/health                           Health check
-GET  /api/constituencies                   Full 234-constituency data
-GET  /api/predictions/summary              State-level seat tally
-GET  /api/predictions/{ac_no}              Per-seat Bayesian prediction
-GET  /api/neck-and-neck                    Closest margin seats
-GET  /api/surprises                        High upset-risk seats
-GET  /api/news/{constituency}/{district}   Live news + sentiment
-GET  /api/admin/update-status              Poll update progress
 
-POST /api/admin/trigger-update             Start update job
-     Body: { "force_refresh": false }
-POST /api/admin/clear-cache                Wipe all cached results
-```
-
----
-
-## Deployment Options
-
-### Option 1: Hugging Face Spaces (FREE — Recommended)
-
-1. Create a new Space at https://huggingface.co/new-space
-2. Select **Docker** as the SDK
-3. Push this repo:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial deploy"
-   git remote add hf https://huggingface.co/spaces/YOUR_USERNAME/tn-election-predictor
-   git push hf main
-   ```
-4. The Space will auto-build and serve at `https://YOUR_USERNAME-tn-election-predictor.hf.space`
-
-> **Port:** Hugging Face Docker Spaces expose port 7860 by default — already configured.
-
----
-
-### Option 2: Docker (any host — Railway, Fly.io, Render, VPS)
+## Local Run
 
 ```bash
-# Build and run locally
-docker build -t tn-predictor .
-docker run -p 7860:7860 tn-predictor
-
-# With docker-compose
-docker-compose up --build
-
-# Deploy to Railway (free tier available)
-# Install Railway CLI: npm install -g @railway/cli
-railway login
-railway init
-railway up
-```
-
----
-
-### Option 3: Lovable (Frontend only)
-
-Lovable deploys the React frontend only — the FastAPI backend won't run.
-Use this mode for a static demo with simulated predictions (no live news/sentiment).
-
-1. Upload the `src/` folder to Lovable
-2. Set all API calls to use mock data (see `src/data/constituencies2026.ts`)
-3. Deploy via Lovable's one-click deploy
-
----
-
-### Option 4: GitHub Pages (Static / Frontend only)
-
-```bash
-# Build for static deployment
+# from tn-predictor-final/
+npm install
+pip install -r backend/requirements.txt
 npm run build
 
-# Deploy dist/ to GitHub Pages
-npm install -g gh-pages
-gh-pages -d dist
-```
-
-> Note: Live news/sentiment features require the Python backend. GitHub Pages serves static files only.
-
----
-
-## Local Development
-
-```bash
-# 1. Install frontend deps
-npm install
-
-# 2. Install backend deps
-pip install -r backend/requirements.txt
-
-# 3. Run backend (terminal 1)
+# terminal 1
 python -m uvicorn backend.main:app --reload --port 7860
 
-# 4. Run frontend dev server (terminal 2)
+# terminal 2
 npm run dev
-# Opens at http://localhost:6001
-# Vite proxies /api/* to http://localhost:7860
 ```
 
----
+Frontend: `http://localhost:6001`  
+Backend: `http://localhost:7860`
 
-## Triggering a Prediction Update
+## Deployment Status
 
-Via the Admin Panel in the UI header, or via API:
+- Local: build/testable from the project directory.
+- GitHub: synced to `master` branch in `kalilurrahman/tn-election-predictor`.
+- Hugging Face: auto-deployed via GitHub Action to `kalilurrahman/tn-election-predictor` Space.
 
-```bash
-# Trigger update via curl
-curl -X POST http://localhost:7860/api/admin/trigger-update \
-  -H "Content-Type: application/json" \
-  -d '{"force_refresh": false}'
+## Disclaimer
 
-# Poll progress
-curl http://localhost:7860/api/admin/update-status
+Built and curated by Kalilur Rahman: [kalilurrahman.lovable.app](https://kalilurrahman.lovable.app)
 
-# Force refresh (ignores cache)
-curl -X POST http://localhost:7860/api/admin/trigger-update \
-  -d '{"force_refresh": true}'
-```
-
-The update job:
-1. Scrapes Google News RSS for each of the 234 constituencies
-2. Runs VADER + Tamil lexicon sentiment analysis on headlines
-3. Feeds sentiment scores into the Bayesian model as logit-space updates
-4. Invalidates cached predictions so the UI fetches fresh data
-
----
-
-## Architecture
-
-```
-Browser (React)
-    │
-    ├── /                    → Static SPA (Vite build)
-    ├── /api/news/...        → FastAPI → NewsScraper → SentimentEngine
-    ├── /api/predictions/... → FastAPI → BayesianPredictor
-    └── /api/admin/...       → FastAPI → Background update job
-                                           │
-                               ┌───────────┘
-                               │  BayesianPredictor
-                               │  (logit-space Bayesian updates)
-                               │  ← sentiment signals
-                               │  ← prior from 2021 ECI results
-                               └───────────────────────────────
-```
-
----
-
-## Credits
-
-Built with [Antigravity](https://antigravity.dev) + [Claude](https://claude.ai) by Anthropic.
-
-Data sources: ECI 2021 Results · Wikipedia Alliance Data (March 2026) · Google News RSS
-
-Refresh marker: 2026-03-31 IST
+This platform is for informational and simulation purposes only. Forecasts are model-based estimates and real-world outcomes may differ.
