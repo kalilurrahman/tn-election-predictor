@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 
 import requests
+from backend.eci_adapter import parse_eci_html_candidates
 
 
 def _normalize_name(value: str) -> str:
@@ -109,7 +110,17 @@ class CandidateSyncEngine:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
         content_type = response.headers.get("content-type", "")
-        return self.parse_candidate_payload(response.text, content_type)
+        payload = self.parse_candidate_payload(response.text, content_type)
+        if payload:
+            return payload
+
+        # Fallback for ECI-like HTML pages with candidate tables
+        if "eci.gov.in" in url.lower() or "eci" in url.lower():
+            html_rows = parse_eci_html_candidates(response.text, source_url=url)
+            if html_rows:
+                return html_rows
+
+        return []
 
     def normalize_candidate_record(self, record: Dict) -> Dict:
         return {
