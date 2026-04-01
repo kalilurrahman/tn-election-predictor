@@ -18,11 +18,11 @@ import {
 export const getPartyColor = (party: string): string => {
   // Map old party names to alliance colors for the map
   const allianceMap: Record<string, string> = {
-    DMK: '#d72828', ADMK: '#1e7b1e', AIADMK: '#1e7b1e',
-    BJP: '#f97316', NTK: '#de425b', TVK: '#FFD700',
-    OTHERS: '#6b7280', INC: '#19AAED', PMK: '#FFCC00',
+    DMK: '#E32636', ADMK: '#008000', AIADMK: '#008000',
+    BJP: '#FF9933', NTK: '#8B0000', TVK: '#FFC000',
+    OTHERS: '#708090', INC: '#00BFFF', PMK: '#FFFF00',
   };
-  return allianceMap[party] || getPartyColor2026(party as any) || '#6b7280';
+  return allianceMap[party] || getPartyColor2026(party as any) || '#708090';
 };
 
 // ============================================================

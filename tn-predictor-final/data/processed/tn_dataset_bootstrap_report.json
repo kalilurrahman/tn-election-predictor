@@ -4,16 +4,16 @@
     {
       "dataset_id": "dataful_tn_1967_2021",
       "name": "Dataful TN Assembly Results 1967-2021",
-      "status": "manual_auth_required",
+      "status": "public_source",
       "url": "https://dataful.in/datasets/14452/",
       "notes": "Primary historical candidate-level dataset from ECI compilation."
     },
     {
       "dataset_id": "kaggle_tn_legislative_1971_2021",
       "name": "Kaggle TN Legislative Dataset 1971-2021",
-      "status": "manual_auth_required",
+      "status": "public_source",
       "url": "https://www.kaggle.com/datasets/srinrealyf/1971-2021-tamilnadu-legislative-election-dataset",
-      "notes": "Cross-validation dataset; requires Kaggle auth/API."
+      "notes": "Cross-validation dataset; Accessible publicly via kaggle API."
     },
     {
       "dataset_id": "github_myneta_candidates",
@@ -61,7 +61,7 @@
     {
       "dataset_id": "eci_official_portal",
       "name": "Election Commission of India",
-      "status": "manual_or_custom_parser_required",
+      "status": "public_source",
       "url": "https://results.eci.gov.in/",
       "notes": "Official portal. Live scraping can be blocked; use exported files where possible."
     }

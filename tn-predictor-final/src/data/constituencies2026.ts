@@ -127,7 +127,7 @@ export const OPINION_POLLS_2026 = [
   },
   {
     agency: 'Agni News',
-    date: '2026-03-23',
+    date: '2026-03-15',
     spa: { min: 160, max: 180 },
     nda: { min: 45, max: 65 },
     tvk: { min: 3, max: 8 },
@@ -139,7 +139,7 @@ export const OPINION_POLLS_2026 = [
   },
   {
     agency: 'SouthTrack',
-    date: '2026-03-18',
+    date: '2026-02-28',
     spa: { min: 122, max: 136 },
     nda: { min: 88, max: 101 },
     tvk: { min: 4, max: 10 },
@@ -151,7 +151,7 @@ export const OPINION_POLLS_2026 = [
   },
   {
     agency: 'Cauvery Analytics',
-    date: '2026-03-12',
+    date: '2026-02-10',
     spa: { min: 108, max: 124 },
     nda: { min: 98, max: 114 },
     tvk: { min: 6, max: 14 },
@@ -552,20 +552,20 @@ export function getStatePrediction() {
 
 export function getAllianceColor(alliance: Alliance): string {
   switch (alliance) {
-    case 'SPA': return '#d72828';
-    case 'NDA': return '#1e7b1e';
-    case 'TVK': return '#FFD700';
-    case 'NTK': return '#de425b';
-    case 'OTHERS': return '#6b7280';
+    case 'SPA': return '#E32636'; // Alizarin Crimson (more distinct from NTK)
+    case 'NDA': return '#008000'; // Office Green
+    case 'TVK': return '#FFC000'; // Golden Yellow
+    case 'NTK': return '#8B0000'; // Dark Red (distinct from DMK)
+    case 'OTHERS': return '#708090'; // Slate Gray
   }
 }
 
 export function getPartyColor2026(party: Party): string {
   const colors: Record<string, string> = {
-    DMK: '#d72828', INC: '#19AAED', VCK: '#8B0000', CPI: '#FF0000', CPIM: '#CC0000',
-    DMDK: '#FF6B35', MDMK: '#FFD700', IUML: '#006400',
-    AIADMK: '#1e7b1e', BJP: '#f97316', PMK: '#FFCC00', AMMK: '#800080', TMCM: '#4169E1',
-    TVK: '#FFD700', NTK: '#de425b', MNM: '#4B0082', IND: '#999999', OTHERS: '#6b7280',
+    DMK: '#E32636', INC: '#00BFFF', VCK: '#483D8B', CPI: '#FF4500', CPIM: '#B22222',
+    DMDK: '#FF8C00', MDMK: '#DAA520', IUML: '#2E8B57',
+    AIADMK: '#008000', BJP: '#FF9933', PMK: '#FFFF00', AMMK: '#9932CC', TMCM: '#4169E1',
+    TVK: '#FFC000', NTK: '#8B0000', MNM: '#4B0082', IND: '#A9A9A9', OTHERS: '#708090',
   };
-  return colors[party] || '#6b7280';
+  return colors[party] || '#708090';
 }

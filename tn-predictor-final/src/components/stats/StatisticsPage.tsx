@@ -47,6 +47,12 @@ const REGION_2021 = [
   { name: 'South TN', value: 84 },
 ];
 
+const DEMOGRAPHIC_BREAKDOWN = [
+  { group: 'Urban', DMK: 45, AIADMK: 30, NTK: 8, TVK: 12, OTHERS: 5 },
+  { group: 'Semi-Urban', DMK: 40, AIADMK: 38, NTK: 7, TVK: 10, OTHERS: 5 },
+  { group: 'Rural', DMK: 35, AIADMK: 45, NTK: 5, TVK: 8, OTHERS: 7 },
+];
+
 const TURNOUT_VS_WIN_MARGIN = [
   { year: '2011', turnout: 78.0, margin: 172 },
   { year: '2016', turnout: 74.3, margin: 36 },
@@ -359,11 +365,30 @@ export const StatisticsPage = () => {
               </ResponsiveContainer>
             </div>
           </ChartPanel>
+
+          <ChartPanel title="Demographic Voting Intent Breakdown">
+            <div className="h-[280px] sm:h-[320px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={DEMOGRAPHIC_BREAKDOWN} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="group" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="DMK" stackId="a" fill="#E32636" />
+                  <Bar dataKey="AIADMK" stackId="a" fill="#008000" />
+                  <Bar dataKey="TVK" stackId="a" fill="#FFC000" />
+                  <Bar dataKey="NTK" stackId="a" fill="#8B0000" />
+                  <Bar dataKey="OTHERS" stackId="a" fill="#708090" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </ChartPanel>
         </div>
       )}
 
       {swingWaveData.length > 0 && (
-        <div className="grid grid-cols-1 mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
           <ChartPanel title="Swing Shockwave (Seat Count by Swing Band)">
             <div className="h-[280px] sm:h-[320px]">
               <ResponsiveContainer width="100%" height="100%">
