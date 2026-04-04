@@ -1,0 +1,145 @@
+# ─────────────────────────────────────────────────────────────
+# GitHub Actions — CI + Deploy to Hugging Face Spaces
+#
+# Triggers:
+#   • Push to `main`        → run tests, then sync to HF Space
+#   • Pull Request to main  → run tests only (no deploy)
+#
+# Required GitHub Secrets:
+#   HF_TOKEN   — Hugging Face write token
+#               (Settings → Developer Tokens → New token → Write)
+#   HF_SPACE   — Full Space repo ID, e.g. "kalilurrahman/tn-election-predictor"
+# ─────────────────────────────────────────────────────────────
+
+name: CI / Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── Job 1: Lint & basic validation ──────────────────────────
+  test:
+    name: Lint & Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8
+
+      - name: Lint with flake8
+        run: |
+          # Stop if syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Warn on style issues (non-blocking)
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
+
+      - name: Validate project structure
+        run: |
+          echo "Checking required files exist..."
+          for f in app.py requirements.txt static/styles.css \
+                   src/__init__.py src/utils.py src/scraper.py \
+                   src/sentiment.py src/predictor.py \
+                   src/candidate_db.py src/constituency.py; do
+            [ -f "$f" ] && echo "  ✓ $f" || (echo "  ✗ MISSING: $f" && exit 1)
+          done
+
+      - name: Smoke-test module imports
+        run: |
+          python -c "
+          import sys, os
+          sys.path.insert(0, '.')
+          from src.utils import load_json, save_json, flatten_dict_list, unflatten_dict
+          print('utils      OK')
+          from src.scraper import ElectionScraper
+          print('scraper    OK')
+          # Predictor/Sentiment skip model download in CI
+          print('All imports OK')
+          "
+
+  # ── Job 2: Deploy (main branch only) ────────────────────────
+  deploy:
+    name: Deploy to Hugging Face Spaces
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Install HuggingFace Hub CLI
+        run: pip install huggingface_hub
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ secrets.HF_SPACE }}
+        run: |
+          python - <<'EOF'
+          import os
+          from huggingface_hub import HfApi
+
+          token  = os.environ["HF_TOKEN"]
+          repo   = os.environ["HF_SPACE"]          # e.g. "kalilurrahman/tn-election-predictor"
+          api    = HfApi()
+
+          # Files to sync (exclude local-only files)
+          EXCLUDE = {".git", ".github", "venv", "__pycache__", ".DS_Store", "data"}
+
+          def iter_files(root="."):
+              for dirpath, dirs, files in os.walk(root):
+                  dirs[:] = [d for d in dirs if d not in EXCLUDE]
+                  for fn in files:
+                      full = os.path.join(dirpath, fn)
+                      rel  = os.path.relpath(full, root)
+                      yield full, rel
+
+          print(f"Uploading to Space: {repo}")
+          for full_path, rel_path in iter_files():
+              print(f"  → {rel_path}")
+              api.upload_file(
+                  path_or_fileobj=full_path,
+                  path_in_repo=rel_path,
+                  repo_id=repo,
+                  repo_type="space",
+                  token=token,
+              )
+          print("Deploy complete.")
+          EOF
+
+      - name: Post deploy summary
+        run: |
+          echo "### 🚀 Deployed to Hugging Face Spaces" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Space:** https://huggingface.co/spaces/${{ secrets.HF_SPACE }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY

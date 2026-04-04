@@ -1,46 +1,49 @@
-# ============================================================
-# TN Election Predictor 2026 — Multi-stage Docker Build
-# Targets: Hugging Face Spaces (port 7860) / any Docker host
-# ============================================================
+# ─────────────────────────────────────────────────────────────
+# TN Election Predictor — Hugging Face Spaces Dockerfile
+# SDK: Docker  |  Hardware: CPU (free tier compatible)
+# ─────────────────────────────────────────────────────────────
 
-# Stage 1: Build React frontend
-FROM node:20-slim AS build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+FROM python:3.10-slim
 
-# Stage 2: Python/FastAPI runtime
-FROM python:3.11-slim
+# HF Spaces runs as a non-root user; create one
+RUN useradd -m -u 1000 appuser
+
 WORKDIR /app
 
+# ── System deps ──────────────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential curl \
+        build-essential \
+        git \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# ── Python deps (cached layer) ───────────────────────────────
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Copy frontend build
-COPY --from=build-stage /app/dist ./dist
+# ── App source ───────────────────────────────────────────────
+COPY --chown=appuser:appuser . .
 
-# Copy backend source
-COPY backend ./backend
-COPY public ./public
+# Create writable data dir for JSON persistence
+RUN mkdir -p /app/data && chown appuser:appuser /app/data
 
-# Create non-root user for Hugging Face Spaces compatibility
-RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+# HF Spaces expects the app to listen on port 7860
+ENV GRADIO_SERVER_PORT=7860
+ENV GRADIO_SERVER_NAME=0.0.0.0
+
+# Pre-download transformer models at build time
+# (avoids cold-start timeout on free-tier Spaces)
+# Comment out if you prefer lazy loading at first run.
+RUN python -c "\
+from transformers import pipeline; \
+print('Downloading sentiment model...'); \
+pipeline('sentiment-analysis', model='cardiffnlp/twitter-roberta-base-sentiment-latest', device=-1); \
+print('Downloading zero-shot model...'); \
+pipeline('zero-shot-classification', model='facebook/bart-large-mnli', device=-1); \
+print('Models ready.')"
+
 USER appuser
 
-# Hugging Face uses 7860; override with PORT env var for other hosts
 EXPOSE 7860
-ENV PORT=7860
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=20s --retries=3 \
-  CMD curl -f http://localhost:${PORT}/api/health || exit 1
-
-CMD ["python", "-m", "uvicorn", "backend.app_v2:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "1"]
+CMD ["python", "app.py"]

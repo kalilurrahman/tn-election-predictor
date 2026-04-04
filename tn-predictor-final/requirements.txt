@@ -1,0 +1,6 @@
+gradio
+transformers
+torch
+pandas
+requests
+beautifulsoup4

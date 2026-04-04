@@ -1,15 +1,35 @@
-version: '3.8'
+# ─────────────────────────────────────────────────────────────
+# docker-compose.yml — Local development & testing
+# Usage:
+#   docker compose up --build      # First run
+#   docker compose up              # Subsequent runs (uses cache)
+#   docker compose down            # Stop
+# ─────────────────────────────────────────────────────────────
+
+version: "3.9"
+
 services:
-  app:
-    build: .
+  tn-predictor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tn_election_predictor
     ports:
       - "7860:7860"
-    environment:
-      - PORT=7860
     volumes:
-      - ./backend:/app/backend  # Hot reload backend in dev
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:7860/api/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+      # Mount data dir so JSON files persist between container restarts
+      - ./data:/app/data
+    environment:
+      - GRADIO_SERVER_PORT=7860
+      - GRADIO_SERVER_NAME=0.0.0.0
+      # Disable HF telemetry in dev
+      - TRANSFORMERS_NO_ADVISORY_WARNINGS=1
+      - HF_HUB_DISABLE_TELEMETRY=1
+      # Cache transformer models in a named volume (avoids re-download)
+      - TRANSFORMERS_CACHE=/root/.cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  # Shared HuggingFace model cache across rebuilds
+  hf_cache:
+    driver: local
