@@ -37,7 +37,13 @@ type DatasetCatalog = {
   }>;
 };
 
+type AdminAuthStatus = {
+  auth_required: boolean;
+  configured: boolean;
+};
+
 const jsonHeaders = { 'Content-Type': 'application/json' };
+const ADMIN_KEY_STORAGE = 'tn_admin_key';
 
 export const AdminConsolePage = () => {
   const [modelData, setModelData] = useState<ModelSelectionResponse | null>(null);
@@ -53,8 +59,73 @@ export const AdminConsolePage = () => {
   const [intervalMinutes, setIntervalMinutes] = useState('180');
   const [busyKey, setBusyKey] = useState<string | null>(null);
   const [message, setMessage] = useState<string>('');
+  const [authStatus, setAuthStatus] = useState<AdminAuthStatus>({ auth_required: true, configured: false });
+  const [adminKeyInput, setAdminKeyInput] = useState('');
+  const [isUnlocked, setIsUnlocked] = useState(false);
+
+  useEffect(() => {
+    const saved = typeof window !== 'undefined' ? window.sessionStorage.getItem(ADMIN_KEY_STORAGE) || '' : '';
+    if (saved) {
+      setAdminKeyInput(saved);
+    }
+  }, []);
+
+  const adminFetch = (url: string, init?: RequestInit) => {
+    const headers = new Headers(init?.headers || {});
+    if (adminKeyInput.trim()) {
+      headers.set('X-Admin-Key', adminKeyInput.trim());
+    }
+    return fetch(url, { ...init, headers });
+  };
+
+  const ensureUnlocked = async (showMessage = true) => {
+    const statusResp = await fetch('/api/admin/auth/status').catch(() => null);
+    if (!statusResp?.ok) {
+      if (showMessage) setMessage('Unable to read admin auth status from server.');
+      return false;
+    }
+    const statusPayload = (await statusResp.json()) as AdminAuthStatus;
+    setAuthStatus(statusPayload);
+
+    if (!statusPayload.auth_required) {
+      setIsUnlocked(true);
+      return true;
+    }
+
+    if (!statusPayload.configured) {
+      setIsUnlocked(false);
+      if (showMessage) setMessage('Admin key is required, but server key is not configured. Set ADMIN_ACCESS_KEY in environment.');
+      return false;
+    }
+
+    if (!adminKeyInput.trim()) {
+      setIsUnlocked(false);
+      if (showMessage) setMessage('Enter the admin key to unlock protected admin actions.');
+      return false;
+    }
+
+    const verifyResp = await adminFetch('/api/admin/auth/verify').catch(() => null);
+    if (!verifyResp?.ok) {
+      setIsUnlocked(false);
+      const payload = await verifyResp?.json().catch(() => ({}));
+      if (showMessage) setMessage((payload as any)?.detail || 'Invalid admin key.');
+      return false;
+    }
+
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.setItem(ADMIN_KEY_STORAGE, adminKeyInput.trim());
+    }
+    setIsUnlocked(true);
+    return true;
+  };
 
   const refreshAll = async () => {
+    setMessage('');
+    const unlocked = await ensureUnlocked(false);
+    if (!unlocked) {
+      return;
+    }
+
     const [
       modelsRes,
       candidateStatusRes,
@@ -64,13 +135,13 @@ export const AdminConsolePage = () => {
       presetsRes,
       datasetCatalogRes,
     ] = await Promise.all([
-      fetch('/api/admin/models').then((res) => res.json()).catch(() => null),
-      fetch('/api/admin/candidate-sync/status').then((res) => res.json()).catch(() => null),
-      fetch('/api/admin/datasets/bootstrap/status').then((res) => res.json()).catch(() => null),
-      fetch('/api/admin/extract-worker/status').then((res) => res.json()).catch(() => null),
-      fetch('/api/admin/extract-checkin/latest').then((res) => res.json()).catch(() => null),
-      fetch('/api/admin/candidate-sync/presets').then((res) => res.json()).catch(() => []),
-      fetch('/api/admin/datasets/catalog').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/models').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/candidate-sync/status').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/datasets/bootstrap/status').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/extract-worker/status').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/extract-checkin/latest').then((res) => res.json()).catch(() => null),
+      adminFetch('/api/admin/candidate-sync/presets').then((res) => res.json()).catch(() => []),
+      adminFetch('/api/admin/datasets/catalog').then((res) => res.json()).catch(() => null),
     ]);
 
     setModelData(modelsRes);
@@ -97,21 +168,33 @@ export const AdminConsolePage = () => {
   );
 
   const runAction = async (key: string, action: () => Promise<Response>) => {
+    const unlocked = await ensureUnlocked(true);
+    if (!unlocked) return;
+
     setBusyKey(key);
     setMessage('');
     try {
       const response = await action();
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
-        throw new Error(payload?.message || payload?.detail || `Request failed with ${response.status}`);
+        throw new Error((payload as any)?.message || (payload as any)?.detail || `Request failed with ${response.status}`);
       }
-      setMessage(payload?.message || payload?.status || 'Action completed successfully.');
+      setMessage((payload as any)?.message || (payload as any)?.status || 'Action completed successfully.');
       await refreshAll();
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Unable to complete admin action.');
     } finally {
       setBusyKey(null);
     }
+  };
+
+  const lockConsole = () => {
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.removeItem(ADMIN_KEY_STORAGE);
+    }
+    setAdminKeyInput('');
+    setIsUnlocked(false);
+    setMessage('Admin console locked.');
   };
 
   return (
@@ -128,7 +211,43 @@ export const AdminConsolePage = () => {
         <div className="mt-3 rounded-xl border border-border/30 bg-white/70 dark:bg-slate-900/50 px-4 py-3 text-xs leading-relaxed">
           <span className="font-black uppercase tracking-widest text-muted-foreground">Access</span>
           <div className="mt-1">Open from top menu: <span className="font-semibold">Admin</span>, or use URL query <span className="font-semibold">`?view=admin`</span>.</div>
+          <div className="mt-1">Protection: set server env <span className="font-semibold">`ADMIN_ACCESS_KEY`</span>, then enter the same key below.</div>
         </div>
+
+        <div className="mt-4 rounded-2xl border border-border/30 bg-white/75 dark:bg-slate-900/55 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+            <label className="text-xs font-black uppercase tracking-widest text-muted-foreground md:col-span-2">
+              Admin key
+              <input
+                type="password"
+                value={adminKeyInput}
+                onChange={(event) => setAdminKeyInput(event.target.value)}
+                placeholder="Enter ADMIN_ACCESS_KEY"
+                className="mt-2 w-full rounded-2xl border border-border/40 bg-white/80 dark:bg-slate-900/70 px-4 py-3 text-sm font-medium"
+              />
+            </label>
+            <div className="flex gap-2">
+              <button
+                onClick={() => ensureUnlocked(true).then((ok) => ok && setMessage('Admin console unlocked.'))}
+                className="rounded-xl bg-primary px-4 py-3 text-xs font-black uppercase tracking-widest text-white"
+              >
+                Unlock
+              </button>
+              <button
+                onClick={lockConsole}
+                className="rounded-xl border border-border/40 px-4 py-3 text-xs font-black uppercase tracking-widest"
+              >
+                Lock
+              </button>
+            </div>
+          </div>
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+            <MiniStat label="Auth Required" value={authStatus.auth_required ? 'Yes' : 'No'} />
+            <MiniStat label="Server Configured" value={authStatus.configured ? 'Yes' : 'No'} />
+            <MiniStat label="Session" value={isUnlocked ? 'Unlocked' : 'Locked'} />
+          </div>
+        </div>
+
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             onClick={() => refreshAll().then(() => setMessage('Admin dashboard refreshed.')).catch(() => setMessage('Refresh failed.'))}
@@ -183,7 +302,7 @@ export const AdminConsolePage = () => {
             <button
               onClick={() =>
                 runAction('models', () =>
-                  fetch('/api/admin/models/select', {
+                  adminFetch('/api/admin/models/select', {
                     method: 'POST',
                     headers: jsonHeaders,
                     body: JSON.stringify({
@@ -242,7 +361,7 @@ export const AdminConsolePage = () => {
             <button
               onClick={() =>
                 runAction('candidate-sync', () =>
-                  fetch('/api/admin/candidate-sync', {
+                  adminFetch('/api/admin/candidate-sync', {
                     method: 'POST',
                     headers: jsonHeaders,
                     body: JSON.stringify({
@@ -279,7 +398,7 @@ export const AdminConsolePage = () => {
             </div>
 
             <button
-              onClick={() => runAction('bootstrap', () => fetch('/api/admin/datasets/bootstrap', { method: 'POST' }))}
+              onClick={() => runAction('bootstrap', () => adminFetch('/api/admin/datasets/bootstrap', { method: 'POST' }))}
               disabled={busyKey === 'bootstrap'}
               className="rounded-2xl bg-primary px-4 py-3 text-xs font-black uppercase tracking-widest text-white disabled:opacity-60"
             >
@@ -306,7 +425,7 @@ export const AdminConsolePage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
-                onClick={() => runAction('extract-once', () => fetch('/api/admin/extract-worker/run-once', { method: 'POST' }))}
+                onClick={() => runAction('extract-once', () => adminFetch('/api/admin/extract-worker/run-once', { method: 'POST' }))}
                 disabled={busyKey === 'extract-once'}
                 className="rounded-2xl bg-primary px-4 py-3 text-xs font-black uppercase tracking-widest text-white disabled:opacity-60"
               >
@@ -315,7 +434,7 @@ export const AdminConsolePage = () => {
               <button
                 onClick={() =>
                   runAction('extract-daemon', () =>
-                    fetch('/api/admin/extract-worker/start-daemon', {
+                    adminFetch('/api/admin/extract-worker/start-daemon', {
                       method: 'POST',
                       headers: jsonHeaders,
                       body: JSON.stringify({ interval_minutes: Number(intervalMinutes || '180') }),

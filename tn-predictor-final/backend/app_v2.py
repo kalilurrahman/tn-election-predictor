@@ -7,7 +7,7 @@ import threading
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
-from fastapi import BackgroundTasks, FastAPI, HTTPException
+from fastapi import BackgroundTasks, Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -47,6 +47,8 @@ dataset_bootstrap_engine = DatasetBootstrapEngine(BASE_DIR)
 extract_checkin_worker = ExtractCheckinWorker(BASE_DIR)
 model_registry = ModelRegistry(BASE_DIR)
 bayesian = BayesianPredictor(data_path=os.path.join(PUBLIC_PATH, "constituencies.json"))
+ADMIN_ACCESS_KEY = os.getenv("ADMIN_ACCESS_KEY", "").strip()
+ADMIN_AUTH_DISABLED = os.getenv("ADMIN_AUTH_DISABLED", "false").strip().lower() in {"1", "true", "yes", "y"}
 
 cache: Dict[str, Dict] = {}
 CACHE_TTL = timedelta(hours=1)
@@ -108,6 +110,18 @@ class ExtractWorkerRequest(BaseModel):
 class ModelSelectionRequest(BaseModel):
     sentiment_model_id: Optional[str] = None
     forecast_profile_id: Optional[str] = None
+
+
+def require_admin_access(x_admin_key: Optional[str] = Header(default=None, alias="X-Admin-Key")):
+    if ADMIN_AUTH_DISABLED:
+        return
+    if not ADMIN_ACCESS_KEY:
+        raise HTTPException(
+            status_code=503,
+            detail="Admin access key is not configured on server. Set ADMIN_ACCESS_KEY env variable.",
+        )
+    if not x_admin_key or x_admin_key != ADMIN_ACCESS_KEY:
+        raise HTTPException(status_code=401, detail="Unauthorized admin request.")
 
 
 def log_update(message: str):
@@ -459,8 +473,21 @@ async def get_simulation_types():
     return {"types": insights_engine.get_simulation_types()}
 
 
+@app.get("/api/admin/auth/status")
+async def get_admin_auth_status():
+    return {
+        "auth_required": not ADMIN_AUTH_DISABLED,
+        "configured": bool(ADMIN_ACCESS_KEY),
+    }
+
+
+@app.get("/api/admin/auth/verify")
+async def verify_admin_auth(admin: None = Depends(require_admin_access)):
+    return {"status": "ok"}
+
+
 @app.get("/api/admin/models")
-async def get_model_selection():
+async def get_model_selection(admin: None = Depends(require_admin_access)):
     current = model_registry.load()
     return {
         "current": current,
@@ -469,7 +496,7 @@ async def get_model_selection():
 
 
 @app.post("/api/admin/models/select")
-async def set_model_selection(req: ModelSelectionRequest):
+async def set_model_selection(req: ModelSelectionRequest, admin: None = Depends(require_admin_access)):
     current = model_registry.load()
     if req.sentiment_model_id:
         current["sentiment_model_id"] = req.sentiment_model_id
@@ -582,12 +609,12 @@ async def run_simulation(req: SimulationRunRequest):
 
 
 @app.get("/api/admin/candidate-sync/status")
-async def get_candidate_sync_status():
+async def get_candidate_sync_status(admin: None = Depends(require_admin_access)):
     return candidate_sync_status
 
 
 @app.post("/api/admin/candidate-sync")
-async def trigger_candidate_sync(req: CandidateSyncRequest):
+async def trigger_candidate_sync(req: CandidateSyncRequest, admin: None = Depends(require_admin_access)):
     if candidate_sync_status["running"]:
         return JSONResponse(
             {"status": "already_running", "message": "Candidate sync already in progress"},
@@ -619,27 +646,27 @@ async def trigger_candidate_sync(req: CandidateSyncRequest):
 
 
 @app.get("/api/admin/candidate-sync/presets")
-async def get_candidate_sync_presets_api():
+async def get_candidate_sync_presets_api(admin: None = Depends(require_admin_access)):
     return get_candidate_sync_presets()
 
 
 @app.get("/api/admin/election-results-sync/status")
-async def get_results_sync_status():
+async def get_results_sync_status(admin: None = Depends(require_admin_access)):
     return results_sync_status
 
 
 @app.get("/api/admin/datasets/catalog")
-async def get_dataset_catalog():
+async def get_dataset_catalog(admin: None = Depends(require_admin_access)):
     return dataset_bootstrap_engine.catalog()
 
 
 @app.get("/api/admin/datasets/bootstrap/status")
-async def get_dataset_bootstrap_status():
+async def get_dataset_bootstrap_status(admin: None = Depends(require_admin_access)):
     return dataset_bootstrap_status
 
 
 @app.post("/api/admin/datasets/bootstrap")
-async def run_dataset_bootstrap():
+async def run_dataset_bootstrap(admin: None = Depends(require_admin_access)):
     if dataset_bootstrap_status["running"]:
         return JSONResponse(
             {"status": "already_running", "message": "Dataset bootstrap already in progress"},
@@ -665,7 +692,7 @@ def _extract_daemon(interval_minutes: int):
 
 
 @app.get("/api/admin/extract-checkin/latest")
-async def get_latest_extract_checkin():
+async def get_latest_extract_checkin(admin: None = Depends(require_admin_access)):
     path = os.path.join(BASE_DIR, "data", "processed", "latest_extract_checkin.json")
     if not os.path.exists(path):
         return {"status": "empty", "message": "No extract check-in has been generated yet."}
@@ -674,12 +701,12 @@ async def get_latest_extract_checkin():
 
 
 @app.get("/api/admin/extract-worker/status")
-async def get_extract_worker_status():
+async def get_extract_worker_status(admin: None = Depends(require_admin_access)):
     return extract_worker_status
 
 
 @app.post("/api/admin/extract-worker/run-once")
-async def run_extract_worker_once():
+async def run_extract_worker_once(admin: None = Depends(require_admin_access)):
     result = extract_checkin_worker.run_once()
     extract_worker_status["last_result"] = result
     extract_worker_status["last_run"] = datetime.now().isoformat()
@@ -688,7 +715,7 @@ async def run_extract_worker_once():
 
 
 @app.post("/api/admin/extract-worker/start-daemon")
-async def start_extract_worker_daemon(req: ExtractWorkerRequest):
+async def start_extract_worker_daemon(req: ExtractWorkerRequest, admin: None = Depends(require_admin_access)):
     if extract_worker_status["running"]:
         return JSONResponse(
             {"status": "already_running", "message": "Extract worker daemon already running"},
@@ -705,7 +732,7 @@ async def start_extract_worker_daemon(req: ExtractWorkerRequest):
 
 
 @app.post("/api/admin/election-results-sync")
-async def trigger_results_sync(req: ElectionResultsSyncRequest):
+async def trigger_results_sync(req: ElectionResultsSyncRequest, admin: None = Depends(require_admin_access)):
     if results_sync_status["running"]:
         return JSONResponse(
             {"status": "already_running", "message": "Election result sync already in progress"},
@@ -734,7 +761,11 @@ async def trigger_results_sync(req: ElectionResultsSyncRequest):
 
 
 @app.post("/api/admin/trigger-update")
-async def trigger_update(req: UpdateTriggerRequest, background_tasks: BackgroundTasks):
+async def trigger_update(
+    req: UpdateTriggerRequest,
+    background_tasks: BackgroundTasks,
+    admin: None = Depends(require_admin_access),
+):
     if update_status["running"]:
         return JSONResponse(
             {"status": "already_running", "message": "Update already in progress"},
@@ -750,12 +781,12 @@ async def trigger_update(req: UpdateTriggerRequest, background_tasks: Background
 
 
 @app.get("/api/admin/update-status")
-async def get_update_status():
+async def get_update_status(admin: None = Depends(require_admin_access)):
     return update_status
 
 
 @app.post("/api/admin/clear-cache")
-async def clear_cache():
+async def clear_cache(admin: None = Depends(require_admin_access)):
     cache.clear()
     return {"status": "ok", "message": "Cache cleared"}
 

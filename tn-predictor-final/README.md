@@ -93,6 +93,22 @@ POST /api/admin/trigger-update
 POST /api/admin/clear-cache
 ```
 
+## Admin Security (PIN/env-key gate)
+
+Admin APIs are protected behind an environment key check.
+
+- Backend env vars:
+  - `ADMIN_ACCESS_KEY=<your-strong-secret>`
+  - `ADMIN_AUTH_DISABLED=false` (default; keep this for production)
+- Frontend admin access:
+  - Open `Admin` tab or `?view=admin`
+  - Enter the same key in the Admin console unlock box
+  - Key is stored only in browser `sessionStorage` for the current session
+
+Hugging Face setup:
+- In Space settings, add `ADMIN_ACCESS_KEY` as a secret variable.
+- Do not expose this key in public docs or client code.
+
 ## Background ECI/Extract Worker (Local + HF)
 
 This project now includes a background extraction/check-in worker:
