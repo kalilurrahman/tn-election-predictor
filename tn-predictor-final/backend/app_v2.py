@@ -112,6 +112,33 @@ class ModelSelectionRequest(BaseModel):
     forecast_profile_id: Optional[str] = None
 
 
+def _default_candidate_source_urls() -> List[str]:
+    payload = get_candidate_sync_presets()
+    presets = payload.get("presets", []) if isinstance(payload, dict) else []
+    preferred_ids = {"tn_public_candidates_bootstrap", "tn_repo_curated_candidates"}
+    collected: List[str] = []
+
+    for preset in presets:
+        if not isinstance(preset, dict):
+            continue
+        preset_id = str(preset.get("id", ""))
+        if preset_id not in preferred_ids:
+            continue
+        for url in preset.get("urls", []) or []:
+            value = str(url).strip()
+            if value and value not in collected:
+                collected.append(value)
+
+    if not collected and presets:
+        first = presets[0] if isinstance(presets[0], dict) else {}
+        for url in first.get("urls", []) or []:
+            value = str(url).strip()
+            if value and value not in collected:
+                collected.append(value)
+
+    return collected
+
+
 def require_admin_access(x_admin_key: Optional[str] = Header(default=None, alias="X-Admin-Key")):
     if ADMIN_AUTH_DISABLED:
         return
@@ -625,7 +652,7 @@ async def trigger_candidate_sync(req: CandidateSyncRequest, admin: None = Depend
     try:
         env_urls = os.getenv("CANDIDATE_SOURCE_URLS", "")
         fallback_urls = [u.strip() for u in env_urls.split(",") if u.strip()]
-        source_urls = req.source_urls or fallback_urls
+        source_urls = req.source_urls or fallback_urls or _default_candidate_source_urls()
         if not source_urls:
             return JSONResponse(
                 {
@@ -634,7 +661,19 @@ async def trigger_candidate_sync(req: CandidateSyncRequest, admin: None = Depend
                 },
                 status_code=400,
             )
-        result = candidate_sync_engine.run_sync(source_urls)
+        try:
+            result = candidate_sync_engine.run_sync(source_urls)
+        except Exception as exc:
+            result = {
+                "status": "error",
+                "message": f"Candidate sync failed: {exc}",
+                "timestamp": datetime.now().isoformat(),
+                "source_urls": source_urls,
+            }
+            candidate_sync_status["last_result"] = result
+            candidate_sync_status["last_run"] = datetime.now().isoformat()
+            return JSONResponse(result, status_code=500)
+
         refresh_bayesian_model()
         candidate_sync_status["last_result"] = result
         candidate_sync_status["last_run"] = datetime.now().isoformat()
@@ -752,7 +791,19 @@ async def trigger_results_sync(req: ElectionResultsSyncRequest, admin: None = De
                 },
                 status_code=400,
             )
-        result = results_sync_engine.run_sync(source_urls)
+        try:
+            result = results_sync_engine.run_sync(source_urls)
+        except Exception as exc:
+            result = {
+                "status": "error",
+                "message": f"Election results sync failed: {exc}",
+                "timestamp": datetime.now().isoformat(),
+                "source_urls": source_urls,
+            }
+            results_sync_status["last_result"] = result
+            results_sync_status["last_run"] = datetime.now().isoformat()
+            return JSONResponse(result, status_code=500)
+
         results_sync_status["last_result"] = result
         results_sync_status["last_run"] = datetime.now().isoformat()
         return result

@@ -48,7 +48,7 @@ class ElectionResultsSyncEngine:
             "source_url": row.get("source_url", ""),
         }
 
-    def _write(self, rows: List[Dict]):
+    def _write(self, rows: List[Dict]) -> Dict[str, List[str]]:
         headers = [
             "ac_no",
             "constituency",
@@ -62,16 +62,28 @@ class ElectionResultsSyncEngine:
             "margin_pct",
             "source_url",
         ]
+        written_files: List[str] = []
+        write_warnings: List[str] = []
         for folder in (self.public_dir, self.dist_dir):
             csv_path = os.path.join(folder, self.output_csv)
             json_path = os.path.join(folder, self.output_json)
-            with open(csv_path, "w", newline="", encoding="utf-8") as handle:
-                writer = csv.DictWriter(handle, fieldnames=headers)
-                writer.writeheader()
-                for row in rows:
-                    writer.writerow({key: row.get(key, "") for key in headers})
-            with open(json_path, "w", encoding="utf-8") as handle:
-                json.dump({"rows": rows}, handle, ensure_ascii=False)
+            try:
+                os.makedirs(folder, exist_ok=True)
+                with open(csv_path, "w", newline="", encoding="utf-8") as handle:
+                    writer = csv.DictWriter(handle, fieldnames=headers)
+                    writer.writeheader()
+                    for row in rows:
+                        writer.writerow({key: row.get(key, "") for key in headers})
+                with open(json_path, "w", encoding="utf-8") as handle:
+                    json.dump({"rows": rows}, handle, ensure_ascii=False)
+                written_files.extend([csv_path, json_path])
+            except Exception as exc:
+                write_warnings.append(f"{folder}: {exc}")
+
+        if not written_files:
+            raise RuntimeError("Unable to write election results artifacts to public/dist targets.")
+
+        return {"written_files": written_files, "write_warnings": write_warnings}
 
     def run_sync(self, source_urls: List[str]) -> Dict:
         aggregated: List[Dict] = []
@@ -93,12 +105,14 @@ class ElectionResultsSyncEngine:
 
         unique = {(r["ac_no"], r["year"]): r for r in aggregated}
         merged = sorted(unique.values(), key=lambda x: (x["year"], x["ac_no"]))
-        self._write(merged)
+        write_result = self._write(merged)
         return {
             "status": "ok",
             "timestamp": datetime.utcnow().isoformat() + "Z",
             "rows": len(merged),
             "providers": providers,
-            "output_csv": os.path.join(self.public_dir, self.output_csv),
-            "output_json": os.path.join(self.public_dir, self.output_json),
+            "output_csv": next((path for path in write_result["written_files"] if path.endswith(".csv")), ""),
+            "output_json": next((path for path in write_result["written_files"] if path.endswith(".json")), ""),
+            "output_files": write_result["written_files"],
+            "write_warnings": write_result["write_warnings"],
         }

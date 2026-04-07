@@ -374,12 +374,24 @@ class CandidateSyncEngine:
             updated.append(out)
         return updated
 
-    def write_curated(self, rows: List[Dict]):
+    def write_curated(self, rows: List[Dict]) -> Dict[str, List[str]]:
         payload = json.dumps(rows, ensure_ascii=False)
+        written_files: List[str] = []
+        write_warnings: List[str] = []
         for folder in (self.public_dir, self.dist_dir):
             target = os.path.join(folder, self.curated_filename)
-            with open(target, "w", encoding="utf-8") as handle:
-                handle.write(payload)
+            try:
+                os.makedirs(folder, exist_ok=True)
+                with open(target, "w", encoding="utf-8") as handle:
+                    handle.write(payload)
+                written_files.append(target)
+            except Exception as exc:
+                write_warnings.append(f"{target}: {exc}")
+
+        if not written_files:
+            raise RuntimeError("Unable to write curated constituency data to public/dist targets.")
+
+        return {"written_files": written_files, "write_warnings": write_warnings}
 
     def run_sync(self, source_urls: List[str]) -> Dict:
         rows, source_file = self.load_master()
@@ -397,7 +409,8 @@ class CandidateSyncEngine:
             except Exception as exc:
                 provider_stats.append({"url": url, "records": 0, "status": f"error: {exc}"})
 
-        self.write_curated(merged_rows)
+        write_result = self.write_curated(merged_rows)
+        primary_output = write_result["written_files"][0]
         return {
             "status": "ok",
             "timestamp": datetime.utcnow().isoformat() + "Z",
@@ -405,5 +418,7 @@ class CandidateSyncEngine:
             "rows": len(merged_rows),
             "imported_records": imported,
             "providers": provider_stats,
-            "output_file": os.path.join(self.public_dir, self.curated_filename),
+            "output_file": primary_output,
+            "output_files": write_result["written_files"],
+            "write_warnings": write_result["write_warnings"],
         }
