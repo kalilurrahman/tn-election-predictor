@@ -88,11 +88,27 @@ def get_candidate_sync_presets() -> dict:
         "note": "Use machine-readable feeds for automated import. Web pages marked non-machine-readable should be used for validation/citation.",
         "presets": [
             {
-                "id": "tn_curated_bootstrap",
-                "label": "TN Curated Bootstrap (CSV/JSON feeds)",
+                "id": "tn_public_candidates_bootstrap",
+                "label": "TN Public Candidate Bootstrap (GitHub CSV feeds)",
+                "urls": [
+                    "https://raw.githubusercontent.com/kracekumar/Tamil-Nadu-Assembly-Election-2021/master/candidates.csv",
+                    "https://raw.githubusercontent.com/kracekumar/Tamil-Nadu-Assembly-Election-2021/master/tn_2021_election_candidates.csv",
+                ]
+            },
+            {
+                "id": "tn_repo_curated_candidates",
+                "label": "Current Repo Curated Candidate Snapshot",
                 "urls": [
                     "https://raw.githubusercontent.com/kalilurrahman/tn-election-predictor/master/tn-predictor-final/public/tn_candidates_2026.csv"
-                ],
+                ]
+            },
+            {
+                "id": "tn_eci_reference_pages",
+                "label": "ECI Reference Pages (HTML parse when available)",
+                "urls": [
+                    "https://www.eci.gov.in/",
+                    "https://results.eci.gov.in/",
+                ]
             }
         ],
         "election_results_presets": [

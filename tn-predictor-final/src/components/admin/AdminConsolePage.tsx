@@ -23,7 +23,7 @@ type ModelSelectionResponse = {
   catalog: ModelCatalog;
 };
 
-type PresetResponse = Array<{ id: string; label: string; url: string; type?: string; notes?: string }>;
+type CandidatePreset = { id: string; label: string; urls: string[]; notes?: string };
 
 type DatasetCatalog = {
   datasets?: Array<{
@@ -45,7 +45,7 @@ export const AdminConsolePage = () => {
   const [datasetStatus, setDatasetStatus] = useState<AdminStatus | null>(null);
   const [extractStatus, setExtractStatus] = useState<AdminStatus | null>(null);
   const [checkin, setCheckin] = useState<Record<string, unknown> | null>(null);
-  const [candidatePresets, setCandidatePresets] = useState<PresetResponse>([]);
+  const [candidatePresets, setCandidatePresets] = useState<CandidatePreset[]>([]);
   const [datasetCatalog, setDatasetCatalog] = useState<DatasetCatalog | null>(null);
   const [selectedSentiment, setSelectedSentiment] = useState('');
   const [selectedForecast, setSelectedForecast] = useState('');
@@ -78,7 +78,7 @@ export const AdminConsolePage = () => {
     setDatasetStatus(datasetStatusRes);
     setExtractStatus(extractStatusRes);
     setCheckin(checkinRes);
-    setCandidatePresets(Array.isArray(presetsRes) ? presetsRes : []);
+    setCandidatePresets(parseCandidatePresets(presetsRes));
     setDatasetCatalog(datasetCatalogRes);
 
     if (modelsRes?.current) {
@@ -92,7 +92,7 @@ export const AdminConsolePage = () => {
   }, []);
 
   const presetSourceText = useMemo(
-    () => candidatePresets.map((preset) => preset.url).join('\n'),
+    () => candidatePresets.flatMap((preset) => preset.urls).join('\n'),
     [candidatePresets],
   );
 
@@ -125,6 +125,10 @@ export const AdminConsolePage = () => {
         <p className="text-sm md:text-[15px] text-muted-foreground mt-2 leading-relaxed">
           Trigger backend sync pipelines, choose forecasting models, inspect extraction check-ins, and manage dataset refresh operations from one place.
         </p>
+        <div className="mt-3 rounded-xl border border-border/30 bg-white/70 dark:bg-slate-900/50 px-4 py-3 text-xs leading-relaxed">
+          <span className="font-black uppercase tracking-widest text-muted-foreground">Access</span>
+          <div className="mt-1">Open from top menu: <span className="font-semibold">Admin</span>, or use URL query <span className="font-semibold">`?view=admin`</span>.</div>
+        </div>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             onClick={() => refreshAll().then(() => setMessage('Admin dashboard refreshed.')).catch(() => setMessage('Refresh failed.'))}
@@ -220,11 +224,16 @@ export const AdminConsolePage = () => {
                 {candidatePresets.slice(0, 6).map((preset) => (
                   <button
                     key={preset.id}
-                    onClick={() => setCandidateSources((current) => (current.trim() ? `${current.trim()}\n${preset.url}` : preset.url))}
+                    onClick={() =>
+                      setCandidateSources((current) => {
+                        const incoming = preset.urls.join('\n');
+                        return current.trim() ? `${current.trim()}\n${incoming}` : incoming;
+                      })
+                    }
                     className="w-full rounded-xl border border-border/30 bg-white/80 dark:bg-slate-900/60 px-3 py-2 text-left text-xs"
                   >
                     <div className="font-bold">{preset.label}</div>
-                    <div className="text-muted-foreground break-all">{preset.url}</div>
+                    <div className="text-muted-foreground break-all">{preset.urls.join(' | ')}</div>
                   </button>
                 ))}
               </div>
@@ -364,3 +373,30 @@ const splitLines = (value: string) =>
     .split('\n')
     .map((item) => item.trim())
     .filter(Boolean);
+
+const parseCandidatePresets = (raw: unknown): CandidatePreset[] => {
+  if (Array.isArray(raw)) {
+    return raw
+      .map((item: any) => ({
+        id: String(item?.id || 'preset'),
+        label: String(item?.label || item?.id || 'Preset'),
+        urls: item?.url ? [String(item.url)] : Array.isArray(item?.urls) ? item.urls.map((url: any) => String(url)) : [],
+        notes: item?.notes ? String(item.notes) : undefined,
+      }))
+      .filter((preset) => preset.urls.length > 0);
+  }
+
+  const data = raw as any;
+  if (data && Array.isArray(data.presets)) {
+    return data.presets
+      .map((item: any) => ({
+        id: String(item?.id || 'preset'),
+        label: String(item?.label || item?.id || 'Preset'),
+        urls: Array.isArray(item?.urls) ? item.urls.map((url: any) => String(url)) : [],
+        notes: item?.notes ? String(item.notes) : undefined,
+      }))
+      .filter((preset: CandidatePreset) => preset.urls.length > 0);
+  }
+
+  return [];
+};

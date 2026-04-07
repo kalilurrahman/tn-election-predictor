@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './components/layout/Header'
 import { StateOverview } from './components/dashboard/StateOverview'
 import { ConstituencyList } from './components/dashboard/ConstituencyList'
@@ -15,6 +15,19 @@ import type { SimulationParams } from './data/constituencies2026'
 function App() {
   const [params, setParams] = useState<SimulationParams>(DEFAULT_PARAMS);
   const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats' | 'methodology' | 'admin'>('dashboard');
+
+  useEffect(() => {
+    const queryView = new URLSearchParams(window.location.search).get('view');
+    if (queryView && ['dashboard', 'strategy', 'polls', 'candidates', 'stats', 'methodology', 'admin'].includes(queryView)) {
+      setView(queryView as 'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats' | 'methodology' | 'admin');
+    }
+  }, []);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('view', view);
+    window.history.replaceState({}, '', url.toString());
+  }, [view]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-foreground flex flex-col font-sans relative overflow-x-hidden">

@@ -1,4 +1,5 @@
 import csv
+import difflib
 import io
 import json
 import os
@@ -12,9 +13,32 @@ from backend.eci_adapter import parse_eci_html_candidates
 
 def _normalize_name(value: str) -> str:
     cleaned = (value or "").strip().lower()
-    cleaned = re.sub(r"\(.*?\)", "", cleaned)
+    cleaned = cleaned.replace("(", " ").replace(")", " ")
     cleaned = re.sub(r"[^a-z0-9\s]", " ", cleaned)
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def _normalize_constituency(value: str) -> str:
+    cleaned = _normalize_name(value)
+    cleaned = cleaned.replace(" constituency", " ")
+    cleaned = cleaned.replace(" assembly", " ")
+    cleaned = re.sub(r"\bsc\b", " ", cleaned)
+    cleaned = re.sub(r"\bst\b", " ", cleaned)
+    return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def _constituency_aliases(value: str) -> List[str]:
+    base = _normalize_constituency(value)
+    aliases = {base}
+    if not base:
+        return []
+    aliases.add(base.replace("th", "t"))
+    aliases.add(base.replace("dh", "d"))
+    aliases.add(base.replace("pp", "p"))
+    aliases.add(base.replace("tt", "t"))
+    aliases.add(base.replace("zh", "l"))
+    aliases.add(base.replace("iy", "i"))
+    return [alias.strip() for alias in aliases if alias.strip()]
 
 
 def _normalize_state(value: str) -> str:
@@ -25,6 +49,38 @@ def _normalize_state(value: str) -> str:
 def _to_bool(value) -> bool:
     text = str(value or "").strip().lower()
     return text in {"1", "true", "yes", "y"}
+
+
+def _to_int(value, default: int = 0) -> int:
+    if value in (None, ""):
+        return default
+    try:
+        cleaned = re.sub(r"[^0-9\-]", "", str(value))
+        return int(cleaned) if cleaned else default
+    except ValueError:
+        return default
+
+
+def _to_float(value, default: float = 0.0) -> float:
+    if value in (None, ""):
+        return default
+    try:
+        cleaned = re.sub(r"[^0-9.\-]", "", str(value))
+        return float(cleaned) if cleaned else default
+    except ValueError:
+        return default
+
+
+MANUAL_DISTRICT_OVERRIDES = {
+    "thiru vi ka nagar": "Chennai",
+    "chepauk thiruvalliken": "Chennai",
+    "shozhinganallur": "Chennai",
+    "thalli": "Krishnagiri",
+    "palacodu": "Dharmapuri",
+    "viluppuram": "Villupuram",
+    "paramathi velur": "Namakkal",
+    "colachel": "Kanyakumari",
+}
 
 
 def _pick(record: Dict, keys: List[str], default=None):
@@ -41,6 +97,74 @@ class CandidateSyncEngine:
         self.dist_dir = os.path.join(base_dir, "dist")
         self.curated_filename = "constituencies_curated.json"
         self.default_filename = "constituencies.json"
+        self._district_lookup = self._build_constituency_district_lookup()
+
+    def _build_constituency_district_lookup(self) -> Dict[str, str]:
+        lookup: Dict[str, str] = {}
+        candidate_sources = [
+            os.path.join(self.base_dir, "data", "external", "github_myneta_candidates.csv"),
+            os.path.join(self.public_dir, "tn_candidates_2026.csv"),
+        ]
+        for source in candidate_sources:
+            if not os.path.exists(source):
+                continue
+            try:
+                with open(source, encoding="utf-8") as handle:
+                    reader = csv.DictReader(handle)
+                    for row in reader:
+                        constituency = (
+                            row.get("Constituency")
+                            or row.get("constituency")
+                            or row.get("ac_name")
+                            or row.get("ac_name")
+                            or ""
+                        ).strip()
+                        district = (
+                            row.get("District")
+                            or row.get("district")
+                            or row.get("district_name")
+                            or ""
+                        ).strip()
+                        if not constituency or not district:
+                            continue
+                        key = _normalize_constituency(constituency)
+                        if key and key not in lookup:
+                            lookup[key] = district
+            except Exception:
+                continue
+        return lookup
+
+    def _lookup_district(self, constituency_name: str) -> Optional[str]:
+        if not constituency_name:
+            return None
+        key = _normalize_constituency(constituency_name)
+        if key in MANUAL_DISTRICT_OVERRIDES:
+            return MANUAL_DISTRICT_OVERRIDES[key]
+        if key in self._district_lookup:
+            return self._district_lookup[key]
+
+        for candidate_key, district in self._district_lookup.items():
+            if (key.startswith(candidate_key) or candidate_key.startswith(key)) and abs(len(candidate_key) - len(key)) <= 5:
+                return district
+
+        best_key = None
+        best_score = 0.0
+        key_tokens = set(key.split())
+        best_overlap = 0
+        for candidate_key in self._district_lookup.keys():
+            score = difflib.SequenceMatcher(a=key, b=candidate_key).ratio()
+            overlap = len(key_tokens.intersection(set(candidate_key.split())))
+            if score > best_score and overlap >= 1:
+                best_key = candidate_key
+                best_score = score
+                best_overlap = overlap
+            elif score > best_score and len(key_tokens) == 1:
+                best_key = candidate_key
+                best_score = score
+                best_overlap = overlap
+        if best_key and (best_score >= 0.9 and best_overlap >= 1 or best_score >= 0.94):
+            return self._district_lookup[best_key]
+        return None
 
     def load_master(self) -> Tuple[List[Dict], str]:
         curated = os.path.join(self.public_dir, self.curated_filename)
@@ -82,11 +206,16 @@ class CandidateSyncEngine:
             geo = geo_index.get(ac_no)
             if geo:
                 current_name = str(out.get("name", ""))
-                if current_name.startswith("Constituency #") or not current_name.strip():
-                    out["name"] = geo.get("ac_name") or current_name
-                out.setdefault("mapName", geo.get("ac_name"))
+                geo_name = str(geo.get("ac_name") or "").strip()
+                if geo_name:
+                    if current_name.startswith("Constituency #") or not current_name.strip() or _normalize_constituency(current_name) != _normalize_constituency(geo_name):
+                        out["name"] = geo_name
+                    out["mapName"] = geo_name
                 pc_name = str(geo.get("pc_name") or "").split("(")[0].strip().title()
-                if pc_name and (not out.get("district") or str(out.get("district")).startswith("District #")):
+                mapped_district = self._lookup_district(str(out.get("name", ""))) or self._lookup_district(current_name)
+                if mapped_district:
+                    out["district"] = mapped_district
+                elif pc_name and (not out.get("district") or str(out.get("district")).startswith("District #") or str(out.get("district")).strip().lower() in {"tn", "tamil nadu", "state"}):
                     out["district"] = pc_name
             aligned.append(out)
         return aligned
@@ -123,43 +252,60 @@ class CandidateSyncEngine:
         return []
 
     def normalize_candidate_record(self, record: Dict) -> Dict:
+        normalized = {}
+        for key, value in record.items():
+            normalized[str(key).strip().lower().replace(" ", "_")] = value
+
+        def pick(keys: List[str], default=None):
+            for key in keys:
+                value = normalized.get(key)
+                if value not in (None, ""):
+                    return value
+            return default
+
         return {
-            "ac_no": int(_pick(record, ["ac_no", "acNo", "constituency_no", "assembly_constituency_no"], 0) or 0),
-            "constituency_name": _pick(record, ["constituency", "constituency_name", "ac_name", "seat_name"], ""),
-            "district": _normalize_state(_pick(record, ["district", "pc_name", "parliamentary_constituency"], "")),
-            "state": _normalize_state(_pick(record, ["state", "st_name", "state_name"], "Tamil Nadu")),
-            "candidate_name": _pick(record, ["candidate_name", "name", "candidate"], ""),
-            "party": _pick(record, ["party", "party_name", "abbr"], "IND"),
-            "alliance": _pick(record, ["alliance", "front", "coalition"], "OTHERS"),
-            "education": _pick(record, ["education", "edu"], "NA"),
-            "assets": _pick(record, ["assets", "declared_assets"], "NA"),
-            "liabilities": _pick(record, ["liabilities", "declared_liabilities"], "NA"),
-            "cases": int(_pick(record, ["cases", "criminal_cases"], 0) or 0),
-            "is_incumbent": _to_bool(_pick(record, ["is_incumbent", "incumbent"], False)),
-            "literacy": float(_pick(record, ["literacy", "literacy_score"], 0) or 0),
-            "age": int(_pick(record, ["age"], 0) or 0),
-            "gender": _pick(record, ["gender", "sex"], "NA"),
-            "profession": _pick(record, ["profession", "occupation"], "NA"),
-            "community": _pick(record, ["community", "caste_group"], "NA"),
-            "eci_approved": _to_bool(_pick(record, ["eci_approved", "eci_verified", "approved_by_eci"], False)),
-            "party_approved": _to_bool(_pick(record, ["party_approved", "approved_by_party"], False)),
-            "nomination_status": _pick(record, ["nomination_status", "status"], "unknown"),
-            "nomination_date": _pick(record, ["nomination_date", "date_of_nomination"], ""),
-            "affidavit_url": _pick(record, ["affidavit_url", "eci_affidavit_url", "candidate_affidavit"], ""),
-            "eci_candidate_id": _pick(record, ["eci_candidate_id", "candidate_id"], ""),
-            "contact": _pick(record, ["contact", "phone", "mobile"], ""),
-            "website": _pick(record, ["website", "official_website"], ""),
-            "x_handle": _pick(record, ["x_handle", "twitter", "twitter_handle"], ""),
-            "is_rerunner": _to_bool(_pick(record, ["is_rerunner", "rerunner"], False)),
-            "is_celebrity": _to_bool(_pick(record, ["is_celebrity", "celebrity"], False)),
-            "validation_reports": _pick(record, ["validation_reports", "report_links", "source_links"], []),
-            "source": _pick(record, ["source", "provider"], "external"),
+            "ac_no": _to_int(pick(["ac_no", "acno", "constituency_no", "assembly_constituency_no", "constituency_id"], 0), 0),
+            "constituency_name": pick(["constituency", "constituency_name", "ac_name", "seat_name"], ""),
+            "district": _normalize_state(str(pick(["district", "pc_name", "parliamentary_constituency"], ""))),
+            "state": _normalize_state(str(pick(["state", "st_name", "state_name"], "Tamil Nadu"))),
+            "candidate_name": pick(["candidate_name", "name", "candidate"], ""),
+            "party": pick(["party", "party_name", "abbr"], "IND"),
+            "alliance": pick(["alliance", "front", "coalition"], "OTHERS"),
+            "education": pick(["education", "edu"], "NA"),
+            "assets": pick(["assets", "declared_assets", "total_assets"], "NA"),
+            "liabilities": pick(["liabilities", "declared_liabilities"], "NA"),
+            "cases": _to_int(pick(["cases", "criminal_cases", "criminal_cases"], 0), 0),
+            "is_incumbent": _to_bool(pick(["is_incumbent", "incumbent"], False)),
+            "literacy": _to_float(pick(["literacy", "literacy_score"], 0), 0),
+            "age": _to_int(pick(["age"], 0), 0),
+            "gender": pick(["gender", "sex"], "NA"),
+            "profession": pick(["profession", "occupation"], "NA"),
+            "community": pick(["community", "caste_group"], "NA"),
+            "eci_approved": _to_bool(pick(["eci_approved", "eci_verified", "approved_by_eci"], False)),
+            "party_approved": _to_bool(pick(["party_approved", "approved_by_party"], False)),
+            "nomination_status": pick(["nomination_status", "status"], "unknown"),
+            "nomination_date": pick(["nomination_date", "date_of_nomination"], ""),
+            "affidavit_url": pick(["affidavit_url", "eci_affidavit_url", "candidate_affidavit"], ""),
+            "eci_candidate_id": pick(["eci_candidate_id", "candidate_id", "pk"], ""),
+            "contact": pick(["contact", "phone", "mobile"], ""),
+            "website": pick(["website", "official_website"], ""),
+            "x_handle": pick(["x_handle", "twitter", "twitter_handle"], ""),
+            "is_rerunner": _to_bool(pick(["is_rerunner", "rerunner"], False)),
+            "is_celebrity": _to_bool(pick(["is_celebrity", "celebrity"], False)),
+            "validation_reports": pick(["validation_reports", "report_links", "source_links"], []),
+            "source": pick(["source", "provider"], "external"),
         }
 
     def merge_candidates(self, rows: List[Dict], candidate_rows: List[Dict]) -> List[Dict]:
         ac_index = {int(r.get("acNo", 0)): i for i, r in enumerate(rows)}
-        name_index = {_normalize_name(str(r.get("name", ""))): i for i, r in enumerate(rows)}
-        grouped: Dict[int, List[Dict]] = {}
+        name_index: Dict[str, int] = {}
+        canonical_names: List[str] = []
+        for i, row in enumerate(rows):
+            canonical = _normalize_constituency(str(row.get("name", "")))
+            canonical_names.append(canonical)
+            for alias in _constituency_aliases(str(row.get("name", ""))):
+                name_index.setdefault(alias, i)
+        grouped: Dict[int, Dict] = {}
 
         for raw in candidate_rows:
             norm = self.normalize_candidate_record(raw)
@@ -167,10 +313,21 @@ class CandidateSyncEngine:
             if norm["ac_no"] and norm["ac_no"] in ac_index:
                 target_idx = ac_index[norm["ac_no"]]
             elif norm["constituency_name"]:
-                target_idx = name_index.get(_normalize_name(norm["constituency_name"]))
+                constituency_key = _normalize_constituency(norm["constituency_name"])
+                target_idx = name_index.get(constituency_key)
+                if target_idx is None:
+                    for alias in _constituency_aliases(norm["constituency_name"]):
+                        if alias in name_index:
+                            target_idx = name_index[alias]
+                            break
+                if target_idx is None and canonical_names:
+                    best = difflib.get_close_matches(constituency_key, canonical_names, n=1, cutoff=0.88)
+                    if best:
+                        target_idx = name_index.get(best[0])
             if target_idx is None:
                 continue
-            grouped.setdefault(target_idx, []).append(
+            bucket = grouped.setdefault(target_idx, {"candidates": [], "district_counts": {}})
+            bucket["candidates"].append(
                 {
                     "name": norm["candidate_name"],
                     "party": norm["party"],
@@ -200,12 +357,20 @@ class CandidateSyncEngine:
                     "source": norm["source"],
                 }
             )
+            district_name = str(norm.get("district", "")).strip()
+            if district_name and district_name.lower() not in {"tamil nadu", "tn", "state"}:
+                counts = bucket["district_counts"]
+                counts[district_name] = counts.get(district_name, 0) + 1
 
         updated = []
         for idx, row in enumerate(rows):
             out = dict(row)
-            if idx in grouped and grouped[idx]:
-                out["candidates2026"] = grouped[idx][:8]
+            if idx in grouped and grouped[idx]["candidates"]:
+                out["candidates2026"] = grouped[idx]["candidates"][:8]
+                district_counts = grouped[idx].get("district_counts", {})
+                if district_counts:
+                    resolved_district = max(district_counts.items(), key=lambda item: item[1])[0]
+                    out["district"] = resolved_district
             updated.append(out)
         return updated
 
