@@ -119,9 +119,31 @@ type CandidateModelSummary = {
   rows: CandidateModelSummaryRow[];
 };
 
+type ForecastTrendRow = {
+  timestamp: string;
+  date: string;
+  reason: string;
+  spa_seats: number;
+  nda_seats: number;
+  tvk_seats: number;
+  ntk_seats: number;
+  others_seats: number;
+  tossups: number;
+  lean_seats: number;
+  magic_number: number;
+};
+
+type ForecastTrendPayload = {
+  count: number;
+  days: number;
+  latest?: ForecastTrendRow | null;
+  rows: ForecastTrendRow[];
+};
+
 export const StatisticsPage = () => {
   const [seatDynamics, setSeatDynamics] = useState<SeatDynamicsPayload | null>(null);
   const [candidateSummary, setCandidateSummary] = useState<CandidateModelSummary | null>(null);
+  const [forecastTrend, setForecastTrend] = useState<ForecastTrendPayload | null>(null);
   const avgTurnout =
     Math.round((HISTORICAL_RESULTS.reduce((sum, row) => sum + row.turnout, 0) / HISTORICAL_RESULTS.length) * 10) / 10;
   const avgWinnerSeats =
@@ -154,6 +176,10 @@ export const StatisticsPage = () => {
       .then((res) => res.json())
       .then((json) => setCandidateSummary(json))
       .catch(() => setCandidateSummary(null));
+    fetch('/api/forecasts/trend?days=45')
+      .then((res) => res.json())
+      .then((json) => setForecastTrend(json))
+      .catch(() => setForecastTrend(null));
   }, []);
 
   const partyPower = (candidateSummary?.rows ?? [])
@@ -188,6 +214,8 @@ export const StatisticsPage = () => {
     }
     return bins;
   })();
+  const trendRows = forecastTrend?.rows ?? [];
+  const latestTrendRows = trendRows.slice(-10).reverse();
 
   return (
     <main className="flex-1 container mx-auto px-4 md:px-8 py-8 h-full">
@@ -324,6 +352,54 @@ export const StatisticsPage = () => {
           </div>
         </ChartPanel>
       </div>
+
+      {trendRows.length > 0 && (
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-6">
+          <ChartPanel title="Daily Forecast Drift (Seat Projection Trend)">
+            <div className="h-[280px] sm:h-[320px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={trendRows}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis domain={[0, 234]} />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="spa_seats" name="SPA Seats" stroke="#d72828" strokeWidth={3} dot={false} />
+                  <Line type="monotone" dataKey="nda_seats" name="NDA Seats" stroke="#1e7b1e" strokeWidth={3} dot={false} />
+                  <Line type="monotone" dataKey="tossups" name="Tossups" stroke="#f59e0b" strokeWidth={2} strokeDasharray="4 3" dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </ChartPanel>
+
+          <ChartPanel title="Daily Forecast Log (Latest 10 Snapshots)">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[520px] text-xs">
+                <thead>
+                  <tr className="text-left border-b border-border/40">
+                    <th className="py-2 pr-3">Date</th>
+                    <th className="py-2 pr-3">Reason</th>
+                    <th className="py-2 pr-3">SPA</th>
+                    <th className="py-2 pr-3">NDA</th>
+                    <th className="py-2 pr-3">Tossups</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {latestTrendRows.map((row) => (
+                    <tr key={row.timestamp} className="border-b border-border/20">
+                      <td className="py-2 pr-3 font-semibold">{row.date}</td>
+                      <td className="py-2 pr-3">{row.reason}</td>
+                      <td className="py-2 pr-3">{row.spa_seats}</td>
+                      <td className="py-2 pr-3">{row.nda_seats}</td>
+                      <td className="py-2 pr-3">{row.tossups}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ChartPanel>
+        </div>
+      )}
 
       {candidateSummary && (
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-6">

@@ -83,6 +83,17 @@ MANUAL_DISTRICT_OVERRIDES = {
 }
 
 
+def _is_placeholder_candidate_name(value: str) -> bool:
+    text = _normalize_name(value)
+    if not text:
+        return True
+    if "nominee" in text:
+        return True
+    if text in {"party nominee", "candidate tba", "tba", "to be announced"}:
+        return True
+    return False
+
+
 def _pick(record: Dict, keys: List[str], default=None):
     for key in keys:
         if key in record and record[key] not in (None, ""):
@@ -296,6 +307,66 @@ class CandidateSyncEngine:
             "source": pick(["source", "provider"], "external"),
         }
 
+    def _candidate_key(self, candidate: Dict) -> str:
+        party_key = _normalize_name(str(candidate.get("party", "")))
+        if party_key:
+            return f"party:{party_key}"
+        name_key = _normalize_name(str(candidate.get("name", "")))
+        if name_key:
+            return f"name:{name_key}"
+        return "unknown"
+
+    def _candidate_score(self, candidate: Dict) -> int:
+        name = str(candidate.get("name", "")).strip()
+        party = str(candidate.get("party", "")).strip().upper()
+        nomination_status = str(candidate.get("nominationStatus", "")).strip().lower()
+        source = str(candidate.get("source", "")).strip().lower()
+
+        score = 0
+        if _is_placeholder_candidate_name(name):
+            score -= 120
+        else:
+            score += 120
+
+        if party and party not in {"IND", "INDEPENDENT"}:
+            score += 20
+        if candidate.get("eciApproved"):
+            score += 25
+        if candidate.get("partyApproved"):
+            score += 15
+        if candidate.get("affidavitUrl"):
+            score += 10
+        if nomination_status in {"accepted", "confirmed", "valid", "filed"}:
+            score += 12
+        if source in {"eci", "eci_html", "github_myneta", "myneta", "adr"}:
+            score += 10
+        if source == "generated":
+            score -= 30
+        return score
+
+    def _merge_candidate_lists(self, existing: List[Dict], incoming: List[Dict], limit: int = 8) -> List[Dict]:
+        best: Dict[str, Tuple[int, int, Dict]] = {}
+        order = 0
+
+        for candidate in (existing or []) + (incoming or []):
+            if not isinstance(candidate, dict):
+                continue
+            key = self._candidate_key(candidate)
+            score = self._candidate_score(candidate)
+            previous = best.get(key)
+            if previous is None or score > previous[0]:
+                best[key] = (score, order, candidate)
+            order += 1
+
+        ranked = sorted(best.values(), key=lambda item: (-item[0], item[1]))
+        merged = [item[2] for item in ranked]
+
+        # Prefer informative records; only keep placeholders if there are not enough real names.
+        real = [row for row in merged if not _is_placeholder_candidate_name(str(row.get("name", "")))]
+        placeholders = [row for row in merged if _is_placeholder_candidate_name(str(row.get("name", "")))]
+        final_rows = (real + placeholders)[:limit]
+        return final_rows
+
     def merge_candidates(self, rows: List[Dict], candidate_rows: List[Dict]) -> List[Dict]:
         ac_index = {int(r.get("acNo", 0)): i for i, r in enumerate(rows)}
         name_index: Dict[str, int] = {}
@@ -366,7 +437,12 @@ class CandidateSyncEngine:
         for idx, row in enumerate(rows):
             out = dict(row)
             if idx in grouped and grouped[idx]["candidates"]:
-                out["candidates2026"] = grouped[idx]["candidates"][:8]
+                existing_candidates = out.get("candidates2026") if isinstance(out.get("candidates2026"), list) else []
+                out["candidates2026"] = self._merge_candidate_lists(
+                    existing_candidates,
+                    grouped[idx]["candidates"],
+                    limit=8,
+                )
                 district_counts = grouped[idx].get("district_counts", {})
                 if district_counts:
                     resolved_district = max(district_counts.items(), key=lambda item: item[1])[0]
@@ -411,12 +487,35 @@ class CandidateSyncEngine:
 
         write_result = self.write_curated(merged_rows)
         primary_output = write_result["written_files"][0]
+        seats_with_any = 0
+        seats_with_real = 0
+        seats_placeholder_only = 0
+        for row in merged_rows:
+            candidates = row.get("candidates2026") if isinstance(row.get("candidates2026"), list) else []
+            if not candidates:
+                continue
+            seats_with_any += 1
+            has_real = any(
+                not _is_placeholder_candidate_name(str((candidate or {}).get("name", "")))
+                for candidate in candidates
+                if isinstance(candidate, dict)
+            )
+            if has_real:
+                seats_with_real += 1
+            else:
+                seats_placeholder_only += 1
+
         return {
             "status": "ok",
             "timestamp": datetime.utcnow().isoformat() + "Z",
             "source_file": source_file,
             "rows": len(merged_rows),
             "imported_records": imported,
+            "coverage": {
+                "seats_with_any_candidates": seats_with_any,
+                "seats_with_real_names": seats_with_real,
+                "seats_placeholder_only": seats_placeholder_only,
+            },
             "providers": provider_stats,
             "output_file": primary_output,
             "output_files": write_result["written_files"],

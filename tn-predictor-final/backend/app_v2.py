@@ -3,6 +3,7 @@ import json
 import os
 import io
 import csv
+import time
 import threading
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
@@ -87,6 +88,10 @@ extract_worker_status = {
     "last_result": None,
     "mode": "disabled",
 }
+_startup_worker_lock = threading.Lock()
+_startup_worker_initialized = False
+PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
+FORECAST_HISTORY_PATH = os.path.join(PROCESSED_DIR, "forecast_history.jsonl")
 
 
 class UpdateTriggerRequest(BaseModel):
@@ -171,18 +176,93 @@ def find_file(filename: str) -> Optional[str]:
     return None
 
 
+def _append_forecast_snapshot(reason: str, extra: Optional[Dict[str, Any]] = None):
+    try:
+        os.makedirs(PROCESSED_DIR, exist_ok=True)
+        summary = bayesian.get_summary()
+        timestamp = datetime.utcnow().isoformat() + "Z"
+        row = {
+            "timestamp": timestamp,
+            "date": timestamp[:10],
+            "reason": reason,
+            "spa_seats": int(summary.get("spa_seats", 0)),
+            "nda_seats": int(summary.get("nda_seats", 0)),
+            "tvk_seats": int(summary.get("tvk_seats", 0)),
+            "ntk_seats": int(summary.get("ntk_seats", 0)),
+            "others_seats": int(summary.get("others_seats", 0)),
+            "tossups": int(summary.get("tossups", 0)),
+            "lean_seats": int(summary.get("lean_seats", 0)),
+            "magic_number": int(summary.get("magic_number", 118)),
+        }
+        if extra:
+            row["meta"] = extra
+        with open(FORECAST_HISTORY_PATH, "a", encoding="utf-8") as handle:
+            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"forecast snapshot write error: {exc}")
+
+
+def _read_forecast_history(days: int = 30) -> List[Dict[str, Any]]:
+    if not os.path.exists(FORECAST_HISTORY_PATH):
+        return []
+
+    rows: List[Dict[str, Any]] = []
+    with open(FORECAST_HISTORY_PATH, encoding="utf-8") as handle:
+        for line in handle:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                payload = json.loads(line)
+                if isinstance(payload, dict):
+                    rows.append(payload)
+            except Exception:
+                continue
+
+    # Keep latest snapshot per date for clean daily trend visualization.
+    latest_by_date: Dict[str, Dict[str, Any]] = {}
+    for row in rows:
+        date_key = str(row.get("date") or str(row.get("timestamp", ""))[:10])
+        if not date_key:
+            continue
+        prev = latest_by_date.get(date_key)
+        if prev is None or str(row.get("timestamp", "")) > str(prev.get("timestamp", "")):
+            latest_by_date[date_key] = row
+
+    ordered = sorted(latest_by_date.values(), key=lambda item: str(item.get("date", "")))
+    bounded_days = max(7, min(int(days or 30), 365))
+    return ordered[-bounded_days:]
+
+
 refresh_bayesian_model()
 apply_model_selection()
 
 
 @app.on_event("startup")
 async def maybe_start_extract_daemon():
-    enabled = os.getenv("ENABLE_EXTRACT_WORKER", "false").strip().lower() in {"1", "true", "yes", "y"}
-    if not enabled or extract_worker_status["running"]:
-        return
-    interval = int(os.getenv("EXTRACT_INTERVAL_MINUTES", "180"))
-    thread = threading.Thread(target=_extract_daemon, args=(interval,), daemon=True)
-    thread.start()
+    global _startup_worker_initialized
+    with _startup_worker_lock:
+        if _startup_worker_initialized:
+            return
+        _startup_worker_initialized = True
+
+    run_baseline = os.getenv("RUN_BASELINE_ON_STARTUP", "true").strip().lower() in {"1", "true", "yes", "y"}
+    if run_baseline:
+        try:
+            result = extract_checkin_worker.run_once()
+            extract_worker_status["last_result"] = result
+            extract_worker_status["last_run"] = datetime.now().isoformat()
+            extract_worker_status["mode"] = "startup_baseline"
+            _append_forecast_snapshot("startup_baseline")
+            print("startup baseline extract completed")
+        except Exception as exc:
+            print(f"startup baseline extract failed: {exc}")
+
+    enabled = os.getenv("ENABLE_EXTRACT_WORKER", "true").strip().lower() in {"1", "true", "yes", "y"}
+    if enabled and not extract_worker_status["running"]:
+        interval = int(os.getenv("EXTRACT_INTERVAL_MINUTES", "180"))
+        thread = threading.Thread(target=_extract_daemon, args=(interval,), daemon=True)
+        thread.start()
 
 
 def load_constituencies() -> List[Dict]:
@@ -346,6 +426,21 @@ async def get_predictions_summary():
     result = bayesian.get_summary()
     set_cache("summary", result)
     return result
+
+
+@app.get("/api/forecasts/trend")
+async def get_forecast_trend(days: int = 30):
+    rows = _read_forecast_history(days=days)
+    if not rows:
+        _append_forecast_snapshot("on_demand_seed")
+        rows = _read_forecast_history(days=days)
+    latest = rows[-1] if rows else None
+    return {
+        "count": len(rows),
+        "days": max(7, min(int(days or 30), 365)),
+        "latest": latest,
+        "rows": rows,
+    }
 
 
 @app.get("/api/predictions/{ac_no}")
@@ -652,6 +747,7 @@ async def trigger_candidate_sync(req: CandidateSyncRequest, admin: None = Depend
             return JSONResponse(result, status_code=500)
 
         refresh_bayesian_model()
+        _append_forecast_snapshot("candidate_sync", {"providers": len(result.get("providers", []))})
         candidate_sync_status["last_result"] = result
         candidate_sync_status["last_run"] = datetime.now().isoformat()
 
@@ -701,8 +797,18 @@ async def run_dataset_bootstrap(admin: None = Depends(require_admin_access)):
 def _extract_daemon(interval_minutes: int):
     extract_worker_status["running"] = True
     extract_worker_status["mode"] = "daemon"
+    seconds = max(300, int(interval_minutes or 180) * 60)
     try:
-        extract_checkin_worker.run_forever(interval_minutes=interval_minutes)
+        while True:
+            try:
+                result = extract_checkin_worker.run_once()
+                extract_worker_status["last_result"] = result
+                extract_worker_status["last_run"] = datetime.now().isoformat()
+                _append_forecast_snapshot("extract_daemon_cycle")
+            except Exception as exc:
+                extract_worker_status["last_result"] = {"status": "error", "message": str(exc)}
+                extract_worker_status["last_run"] = datetime.now().isoformat()
+            time.sleep(seconds)
     finally:
         extract_worker_status["running"] = False
 
@@ -727,6 +833,7 @@ async def run_extract_worker_once(admin: None = Depends(require_admin_access)):
     extract_worker_status["last_result"] = result
     extract_worker_status["last_run"] = datetime.now().isoformat()
     extract_worker_status["mode"] = "manual_once"
+    _append_forecast_snapshot("extract_worker_once")
     return result
 
 
@@ -737,12 +844,13 @@ async def start_extract_worker_daemon(req: ExtractWorkerRequest, admin: None = D
             {"status": "already_running", "message": "Extract worker daemon already running"},
             status_code=409,
         )
-    thread = threading.Thread(target=_extract_daemon, args=(req.interval_minutes,), daemon=True)
+    interval = max(5, int(req.interval_minutes or 180))
+    thread = threading.Thread(target=_extract_daemon, args=(interval,), daemon=True)
     thread.start()
     return {
         "status": "started",
         "mode": "daemon",
-        "interval_minutes": max(5, req.interval_minutes),
+        "interval_minutes": interval,
         "message": "Background extraction daemon started. Admin should review /api/admin/extract-checkin/latest.",
     }
 
@@ -781,6 +889,7 @@ async def trigger_results_sync(req: ElectionResultsSyncRequest, admin: None = De
             results_sync_status["last_run"] = datetime.now().isoformat()
             return JSONResponse(result, status_code=500)
 
+        _append_forecast_snapshot("results_sync", {"providers": len(result.get("providers", []))})
         results_sync_status["last_result"] = result
         results_sync_status["last_run"] = datetime.now().isoformat()
         return result
@@ -878,6 +987,7 @@ async def run_update_job(target_constituencies: Optional[List[str]], force: bool
         elapsed = (datetime.now() - start).total_seconds()
         update_status["last_run"] = datetime.now().isoformat()
         update_status["last_run_duration"] = f"{elapsed:.1f}s"
+        _append_forecast_snapshot("update_job", {"updated_constituencies": total})
         log_update(f"=== UPDATE COMPLETE in {elapsed:.1f}s ===")
     except Exception as exc:
         log_update(f"FATAL ERROR: {exc}")
