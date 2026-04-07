@@ -23,6 +23,7 @@ from backend.seat_dynamics import build_seat_dynamics
 from backend.election_results_sync import ElectionResultsSyncEngine
 from backend.dataset_bootstrap import DatasetBootstrapEngine
 from backend.extract_checkin_worker import ExtractCheckinWorker
+from backend.model_registry import ModelRegistry
 
 app = FastAPI(title="TN Election Predictor 2026 API", version="2.1.0")
 
@@ -44,6 +45,7 @@ candidate_sync_engine = CandidateSyncEngine(BASE_DIR)
 results_sync_engine = ElectionResultsSyncEngine(BASE_DIR)
 dataset_bootstrap_engine = DatasetBootstrapEngine(BASE_DIR)
 extract_checkin_worker = ExtractCheckinWorker(BASE_DIR)
+model_registry = ModelRegistry(BASE_DIR)
 bayesian = BayesianPredictor(data_path=os.path.join(PUBLIC_PATH, "constituencies.json"))
 
 cache: Dict[str, Dict] = {}
@@ -103,6 +105,11 @@ class ExtractWorkerRequest(BaseModel):
     interval_minutes: int = 180
 
 
+class ModelSelectionRequest(BaseModel):
+    sentiment_model_id: Optional[str] = None
+    forecast_profile_id: Optional[str] = None
+
+
 def log_update(message: str):
     stamp = datetime.now().strftime("%H:%M:%S")
     update_status["log"].append(f"[{stamp}] {message}")
@@ -128,6 +135,14 @@ def refresh_bayesian_model():
     curated_path = find_file("constituencies_curated.json")
     source_path = curated_path or os.path.join(PUBLIC_PATH, "constituencies.json")
     bayesian = BayesianPredictor(data_path=source_path)
+    current = model_registry.load()
+    bayesian.set_signal_multiplier(model_registry.get_forecast_multiplier(current.get("forecast_profile_id", "balanced")))
+
+
+def apply_model_selection():
+    current = model_registry.load()
+    sentiment_engine.remote_client.set_model(current.get("sentiment_hf_model", sentiment_engine.remote_client.model))
+    bayesian.set_signal_multiplier(model_registry.get_forecast_multiplier(current.get("forecast_profile_id", "balanced")))
 
 
 def find_file(filename: str) -> Optional[str]:
@@ -139,6 +154,7 @@ def find_file(filename: str) -> Optional[str]:
 
 
 refresh_bayesian_model()
+apply_model_selection()
 
 
 @app.on_event("startup")
@@ -270,6 +286,7 @@ def build_news_result(
 
 @app.get("/api/health")
 async def health_check():
+    selected = model_registry.load()
     return {
         "status": "ok",
         "version": "2.1.0",
@@ -277,6 +294,8 @@ async def health_check():
         "model": "Bayesian + Hybrid HF/VADER Sentiment",
         "sentiment_model": sentiment_engine.remote_client.model,
         "remote_sentiment_enabled": sentiment_engine.remote_client.enabled,
+        "forecast_profile": selected.get("forecast_profile_id", "balanced"),
+        "signal_multiplier": model_registry.get_forecast_multiplier(selected.get("forecast_profile_id", "balanced")),
         "constituencies": 234,
     }
 
@@ -438,6 +457,32 @@ async def export_candidates_csv(
 @app.get("/api/simulations/types")
 async def get_simulation_types():
     return {"types": insights_engine.get_simulation_types()}
+
+
+@app.get("/api/admin/models")
+async def get_model_selection():
+    current = model_registry.load()
+    return {
+        "current": current,
+        "catalog": model_registry.get_catalog(),
+    }
+
+
+@app.post("/api/admin/models/select")
+async def set_model_selection(req: ModelSelectionRequest):
+    current = model_registry.load()
+    if req.sentiment_model_id:
+        current["sentiment_model_id"] = req.sentiment_model_id
+        current["sentiment_hf_model"] = model_registry.get_sentiment_model(req.sentiment_model_id)
+    if req.forecast_profile_id:
+        current["forecast_profile_id"] = req.forecast_profile_id
+    current["updated_at"] = datetime.now().isoformat()
+    model_registry.save(current)
+    apply_model_selection()
+    return {
+        "status": "ok",
+        "current": model_registry.load(),
+    }
 
 
 @app.get("/api/system/methodology")
@@ -735,6 +780,12 @@ async def run_update_job(target_constituencies: Optional[List[str]], force: bool
         log_update(
             f"Processing {total} constituencies with "
             f"{'Hugging Face' if prefer_remote else 'heuristic'} sentiment mode..."
+        )
+        selected = model_registry.load()
+        log_update(
+            "Active models => "
+            f"sentiment: {selected.get('sentiment_hf_model', sentiment_engine.remote_client.model)} | "
+            f"forecast_profile: {selected.get('forecast_profile_id', 'balanced')}"
         )
 
         for idx, constituency in enumerate(targets):

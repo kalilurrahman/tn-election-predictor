@@ -77,7 +77,11 @@ class BayesianPredictor:
     def __init__(self, data_path: Optional[str] = None):
         self._seats: Dict[int, BayesianSeatState] = {}
         self._name_to_ac: Dict[str, int] = {}
+        self._signal_multiplier: float = 1.0
         self._load_from_dataset(data_path)
+
+    def set_signal_multiplier(self, value: float):
+        self._signal_multiplier = _clamp(float(value), 0.5, 1.5)
 
     def _load_from_dataset(self, data_path: Optional[str]):
         if data_path and os.path.exists(data_path):
@@ -175,7 +179,7 @@ class BayesianPredictor:
             + signal_strength * 0.18
             + confidence * 0.08
         ) * volatility
-        seat.apply_signal(sentiment, _clamp(weight, 0.08, 0.85))
+        seat.apply_signal(sentiment, _clamp(weight * self._signal_multiplier, 0.08, 0.95))
 
     def get_constituency_prediction(self, ac_no: int) -> Optional[dict]:
         seat = self._seats.get(ac_no)

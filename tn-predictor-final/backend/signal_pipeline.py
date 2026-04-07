@@ -28,6 +28,12 @@ class HuggingFaceSentimentClient:
         self.enabled = os.getenv("HF_ENABLE_REMOTE_SENTIMENT", "true").lower() != "false"
         self.endpoint = f"https://api-inference.huggingface.co/models/{self.model}"
 
+    def set_model(self, model_name: str):
+        if not model_name:
+            return
+        self.model = model_name.strip()
+        self.endpoint = f"https://api-inference.huggingface.co/models/{self.model}"
+
     def classify(self, text: str) -> Optional[SentimentResult]:
         if not self.enabled or not text:
             return None
