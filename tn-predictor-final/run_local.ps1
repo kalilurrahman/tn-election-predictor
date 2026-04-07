@@ -9,9 +9,24 @@ if (-not (Test-Path "dist")) {
     npm run build
 }
 
-# 2. Check if dependencies are met
+# 2. Check backend dependencies without forcing network installs
 Write-Host "Checking backend dependencies..." -ForegroundColor Gray
-python -m pip install -r backend/requirements.txt --quiet
+$dependencyCheck = @'
+import importlib.util, sys
+required = ["fastapi", "uvicorn", "pydantic", "requests"]
+missing = [name for name in required if importlib.util.find_spec(name) is None]
+if missing:
+    print("MISSING:" + ",".join(missing))
+    raise SystemExit(1)
+print("OK")
+'@
+
+$dependencyCheck | python -
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Backend dependencies are missing in this environment." -ForegroundColor Red
+    Write-Host "Run: python -m pip install -r backend/requirements.txt" -ForegroundColor Yellow
+    exit 1
+}
 
 # 3. Start the server
 Write-Host "Starting production server on http://localhost:7860" -ForegroundColor Green
