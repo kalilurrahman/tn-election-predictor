@@ -8,12 +8,13 @@ import { StrategyLabPage } from './components/strategy/StrategyLabPage'
 import { OpinionPollsPage } from './components/polls/OpinionPollsPage'
 import { StatisticsPage } from './components/stats/StatisticsPage'
 import { MethodologyPage } from './components/docs/MethodologyPage'
+import { AdminConsolePage } from './components/admin/AdminConsolePage'
 import { DEFAULT_PARAMS } from './data/constituencies2026'
 import type { SimulationParams } from './data/constituencies2026'
 
 function App() {
   const [params, setParams] = useState<SimulationParams>(DEFAULT_PARAMS);
-  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats' | 'methodology'>('dashboard');
+  const [view, setView] = useState<'dashboard' | 'strategy' | 'polls' | 'candidates' | 'stats' | 'methodology' | 'admin'>('dashboard');
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-foreground flex flex-col font-sans relative overflow-x-hidden">
@@ -58,6 +59,12 @@ function App() {
           >
             Methodology
           </button>
+          <button
+            onClick={() => setView('admin')}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest ${view === 'admin' ? 'bg-primary text-white' : 'text-muted-foreground hover:text-foreground'}`}
+          >
+            Admin
+          </button>
         </div>
         </div>
       </div>
@@ -98,6 +105,8 @@ function App() {
         <StatisticsPage />
       ) : view === 'methodology' ? (
         <MethodologyPage />
+      ) : view === 'admin' ? (
+        <AdminConsolePage />
       ) : (
         <CandidateRegistryPage />
       )}
