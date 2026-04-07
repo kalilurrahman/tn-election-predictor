@@ -16,6 +16,10 @@ def _safe_num(value, default: float = 0.0) -> float:
         return default
 
 
+def _clamp(value: float, low: float, high: float) -> float:
+    return max(low, min(high, value))
+
+
 def _renormalize(probabilities: Dict[str, float]) -> Dict[str, float]:
     clipped = {k: max(0.1, v) for k, v in probabilities.items()}
     total = sum(clipped.values()) or 1.0
