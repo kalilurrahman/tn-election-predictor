@@ -1,11 +1,3 @@
-# ─────────────────────────────────────────────────────────────
-# docker-compose.yml — Local development & testing
-# Usage:
-#   docker compose up --build      # First run
-#   docker compose up              # Subsequent runs (uses cache)
-#   docker compose down            # Stop
-# ─────────────────────────────────────────────────────────────
-
 version: "3.9"
 
 services:
@@ -17,19 +9,9 @@ services:
     ports:
       - "7860:7860"
     volumes:
-      # Mount data dir so JSON files persist between container restarts
       - ./data:/app/data
     environment:
-      - GRADIO_SERVER_PORT=7860
-      - GRADIO_SERVER_NAME=0.0.0.0
-      # Disable HF telemetry in dev
-      - TRANSFORMERS_NO_ADVISORY_WARNINGS=1
-      - HF_HUB_DISABLE_TELEMETRY=1
-      # Cache transformer models in a named volume (avoids re-download)
-      - TRANSFORMERS_CACHE=/root/.cache/huggingface
+      - PORT=7860
+      - PYTHONPATH=/app
+      - HF_ENABLE_REMOTE_SENTIMENT=false
     restart: unless-stopped
-
-volumes:
-  # Shared HuggingFace model cache across rebuilds
-  hf_cache:
-    driver: local
