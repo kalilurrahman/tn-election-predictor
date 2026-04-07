@@ -18,7 +18,11 @@ from backend.predictor import BayesianPredictor
 from backend.signal_pipeline import SentimentEngine
 from backend.insights import ConstituencyInsightsEngine
 from backend.candidate_sync import CandidateSyncEngine
-from backend.source_registry import get_candidate_sync_presets
+from backend.source_registry import (
+    default_candidate_source_urls,
+    default_election_results_source_urls,
+    get_candidate_sync_presets,
+)
 from backend.seat_dynamics import build_seat_dynamics
 from backend.election_results_sync import ElectionResultsSyncEngine
 from backend.dataset_bootstrap import DatasetBootstrapEngine
@@ -110,33 +114,6 @@ class ExtractWorkerRequest(BaseModel):
 class ModelSelectionRequest(BaseModel):
     sentiment_model_id: Optional[str] = None
     forecast_profile_id: Optional[str] = None
-
-
-def _default_candidate_source_urls() -> List[str]:
-    payload = get_candidate_sync_presets()
-    presets = payload.get("presets", []) if isinstance(payload, dict) else []
-    preferred_ids = {"tn_public_candidates_bootstrap", "tn_repo_curated_candidates"}
-    collected: List[str] = []
-
-    for preset in presets:
-        if not isinstance(preset, dict):
-            continue
-        preset_id = str(preset.get("id", ""))
-        if preset_id not in preferred_ids:
-            continue
-        for url in preset.get("urls", []) or []:
-            value = str(url).strip()
-            if value and value not in collected:
-                collected.append(value)
-
-    if not collected and presets:
-        first = presets[0] if isinstance(presets[0], dict) else {}
-        for url in first.get("urls", []) or []:
-            value = str(url).strip()
-            if value and value not in collected:
-                collected.append(value)
-
-    return collected
 
 
 def require_admin_access(x_admin_key: Optional[str] = Header(default=None, alias="X-Admin-Key")):
@@ -652,7 +629,7 @@ async def trigger_candidate_sync(req: CandidateSyncRequest, admin: None = Depend
     try:
         env_urls = os.getenv("CANDIDATE_SOURCE_URLS", "")
         fallback_urls = [u.strip() for u in env_urls.split(",") if u.strip()]
-        source_urls = req.source_urls or fallback_urls or _default_candidate_source_urls()
+        source_urls = req.source_urls or fallback_urls or default_candidate_source_urls()
         if not source_urls:
             return JSONResponse(
                 {
@@ -782,7 +759,7 @@ async def trigger_results_sync(req: ElectionResultsSyncRequest, admin: None = De
     try:
         env_urls = os.getenv("ELECTION_RESULTS_SOURCE_URLS", "")
         fallback_urls = [u.strip() for u in env_urls.split(",") if u.strip()]
-        source_urls = req.source_urls or fallback_urls
+        source_urls = req.source_urls or fallback_urls or default_election_results_source_urls()
         if not source_urls:
             return JSONResponse(
                 {

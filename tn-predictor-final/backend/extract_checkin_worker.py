@@ -7,6 +7,7 @@ from typing import Dict, List
 
 from backend.candidate_sync import CandidateSyncEngine
 from backend.election_results_sync import ElectionResultsSyncEngine
+from backend.source_registry import default_candidate_source_urls, default_election_results_source_urls
 
 
 def _split_urls(value: str) -> List[str]:
@@ -24,8 +25,10 @@ class ExtractCheckinWorker:
         self.history_file = self.checkin_dir / "extract_checkin_history.jsonl"
 
     def run_once(self) -> Dict:
-        candidate_urls = _split_urls(os.getenv("CANDIDATE_SOURCE_URLS", ""))
-        results_urls = _split_urls(os.getenv("ELECTION_RESULTS_SOURCE_URLS", ""))
+        env_candidate_urls = _split_urls(os.getenv("CANDIDATE_SOURCE_URLS", ""))
+        env_results_urls = _split_urls(os.getenv("ELECTION_RESULTS_SOURCE_URLS", ""))
+        candidate_urls = env_candidate_urls or default_candidate_source_urls()
+        results_urls = env_results_urls or default_election_results_source_urls()
 
         payload = {
             "timestamp": datetime.utcnow().isoformat() + "Z",
@@ -46,6 +49,9 @@ class ExtractCheckinWorker:
         else:
             payload["notes"].append("CANDIDATE_SOURCE_URLS not configured.")
 
+        if not env_candidate_urls and candidate_urls:
+            payload["notes"].append("CANDIDATE_SOURCE_URLS not configured; using default preset sources.")
+
         if results_urls:
             try:
                 payload["election_results_sync"] = self.results_engine.run_sync(results_urls)
@@ -55,6 +61,9 @@ class ExtractCheckinWorker:
                 payload["notes"].append("Election-result sync failed; admin should verify source availability.")
         else:
             payload["notes"].append("ELECTION_RESULTS_SOURCE_URLS not configured.")
+
+        if not env_results_urls and results_urls:
+            payload["notes"].append("ELECTION_RESULTS_SOURCE_URLS not configured; using default preset sources.")
 
         self.latest_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         with self.history_file.open("a", encoding="utf-8") as handle:

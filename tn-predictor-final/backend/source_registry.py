@@ -142,3 +142,45 @@ def get_candidate_sync_presets() -> dict:
             for source in TN_SOURCE_REGISTRY
         ],
     }
+
+
+def default_candidate_source_urls() -> list[str]:
+    payload = get_candidate_sync_presets()
+    presets = payload.get("presets", []) if isinstance(payload, dict) else []
+    preferred_ids = {"tn_public_candidates_bootstrap", "tn_repo_curated_candidates"}
+    urls: list[str] = []
+
+    for preset in presets:
+        if not isinstance(preset, dict):
+            continue
+        if str(preset.get("id", "")) not in preferred_ids:
+            continue
+        for raw_url in preset.get("urls", []) or []:
+            url = str(raw_url).strip()
+            if url and url not in urls:
+                urls.append(url)
+
+    if not urls and presets:
+        first = presets[0] if isinstance(presets[0], dict) else {}
+        for raw_url in first.get("urls", []) or []:
+            url = str(raw_url).strip()
+            if url and url not in urls:
+                urls.append(url)
+
+    return urls
+
+
+def default_election_results_source_urls() -> list[str]:
+    payload = get_candidate_sync_presets()
+    presets = payload.get("election_results_presets", []) if isinstance(payload, dict) else []
+    urls: list[str] = []
+
+    for preset in presets:
+        if not isinstance(preset, dict):
+            continue
+        for raw_url in preset.get("urls", []) or []:
+            url = str(raw_url).strip()
+            if url and url not in urls:
+                urls.append(url)
+
+    return urls
