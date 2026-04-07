@@ -1,0 +1,189 @@
+{
+  "state": "Tamil Nadu",
+  "scope_note": "Post-independence elected state assemblies (from 1952) plus Chief Minister tenure timeline.",
+  "source_note": "Compiled from public election summaries and Election Commission reporting references. Historical turnout numbers are curated and should be treated as reference-level values.",
+  "election_records": [
+    {
+      "assembly_no": 1,
+      "year": 1952,
+      "state_name": "Madras State",
+      "seats_total": 375,
+      "winner": "Indian National Congress",
+      "cm_at_start": "C. Rajagopalachari",
+      "turnout_percent": 57.89
+    },
+    {
+      "assembly_no": 2,
+      "year": 1957,
+      "state_name": "Madras State",
+      "seats_total": 205,
+      "winner": "Indian National Congress",
+      "cm_at_start": "K. Kamaraj",
+      "turnout_percent": 47.74
+    },
+    {
+      "assembly_no": 3,
+      "year": 1962,
+      "state_name": "Madras State",
+      "seats_total": 206,
+      "winner": "Indian National Congress",
+      "cm_at_start": "K. Kamaraj",
+      "turnout_percent": 70.65
+    },
+    {
+      "assembly_no": 4,
+      "year": 1967,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK",
+      "cm_at_start": "C. N. Annadurai",
+      "turnout_percent": 76.59
+    },
+    {
+      "assembly_no": 5,
+      "year": 1971,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK Alliance",
+      "cm_at_start": "M. Karunanidhi",
+      "turnout_percent": 71.84
+    },
+    {
+      "assembly_no": 6,
+      "year": 1977,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK",
+      "cm_at_start": "M. G. Ramachandran",
+      "turnout_percent": 66.58
+    },
+    {
+      "assembly_no": 7,
+      "year": 1980,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK Alliance",
+      "cm_at_start": "M. G. Ramachandran",
+      "turnout_percent": 65.42
+    },
+    {
+      "assembly_no": 8,
+      "year": 1984,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK Alliance",
+      "cm_at_start": "M. G. Ramachandran",
+      "turnout_percent": 73.47
+    },
+    {
+      "assembly_no": 9,
+      "year": 1989,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK Alliance",
+      "cm_at_start": "M. Karunanidhi",
+      "turnout_percent": 69.69
+    },
+    {
+      "assembly_no": 10,
+      "year": 1991,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK-Congress Alliance",
+      "cm_at_start": "J. Jayalalithaa",
+      "turnout_percent": 63.84
+    },
+    {
+      "assembly_no": 11,
+      "year": 1996,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK Alliance",
+      "cm_at_start": "M. Karunanidhi",
+      "turnout_percent": 66.95
+    },
+    {
+      "assembly_no": 12,
+      "year": 2001,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK Alliance",
+      "cm_at_start": "J. Jayalalithaa",
+      "turnout_percent": 59.07
+    },
+    {
+      "assembly_no": 13,
+      "year": 2006,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK Alliance",
+      "cm_at_start": "M. Karunanidhi",
+      "turnout_percent": 70.82
+    },
+    {
+      "assembly_no": 14,
+      "year": 2011,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK Alliance",
+      "cm_at_start": "J. Jayalalithaa",
+      "turnout_percent": 78.0
+    },
+    {
+      "assembly_no": 15,
+      "year": 2016,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "AIADMK Alliance",
+      "cm_at_start": "J. Jayalalithaa",
+      "turnout_percent": 74.24
+    },
+    {
+      "assembly_no": 16,
+      "year": 2021,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "DMK Alliance",
+      "cm_at_start": "M. K. Stalin",
+      "turnout_percent": 73.83
+    },
+    {
+      "assembly_no": 17,
+      "year": 2026,
+      "state_name": "Tamil Nadu",
+      "seats_total": 234,
+      "winner": "TBD",
+      "cm_at_start": "TBD",
+      "turnout_percent": null
+    }
+  ],
+  "cm_terms": [
+    { "name": "C. Rajagopalachari", "party": "INC", "start_date": "1952-04-10", "end_date": "1954-04-13", "is_acting": false },
+    { "name": "K. Kamaraj", "party": "INC", "start_date": "1954-04-13", "end_date": "1963-10-02", "is_acting": false },
+    { "name": "M. Bhaktavatsalam", "party": "INC", "start_date": "1963-10-02", "end_date": "1967-03-06", "is_acting": false },
+    { "name": "C. N. Annadurai", "party": "DMK", "start_date": "1967-03-06", "end_date": "1969-02-03", "is_acting": false },
+    { "name": "V. R. Nedunchezhiyan", "party": "DMK", "start_date": "1969-02-03", "end_date": "1969-02-10", "is_acting": true },
+    { "name": "M. Karunanidhi", "party": "DMK", "start_date": "1969-02-10", "end_date": "1976-01-31", "is_acting": false },
+    { "name": "President's Rule", "party": "N/A", "start_date": "1976-01-31", "end_date": "1977-06-30", "is_acting": false },
+    { "name": "M. G. Ramachandran", "party": "AIADMK", "start_date": "1977-06-30", "end_date": "1980-02-17", "is_acting": false },
+    { "name": "President's Rule", "party": "N/A", "start_date": "1980-02-17", "end_date": "1980-06-09", "is_acting": false },
+    { "name": "M. G. Ramachandran", "party": "AIADMK", "start_date": "1980-06-09", "end_date": "1987-12-24", "is_acting": false },
+    { "name": "V. R. Nedunchezhiyan", "party": "AIADMK", "start_date": "1987-12-24", "end_date": "1988-01-07", "is_acting": true },
+    { "name": "V. N. Janaki Ramachandran", "party": "AIADMK", "start_date": "1988-01-07", "end_date": "1988-01-30", "is_acting": false },
+    { "name": "President's Rule", "party": "N/A", "start_date": "1988-01-30", "end_date": "1989-01-27", "is_acting": false },
+    { "name": "M. Karunanidhi", "party": "DMK", "start_date": "1989-01-27", "end_date": "1991-01-30", "is_acting": false },
+    { "name": "President's Rule", "party": "N/A", "start_date": "1991-01-30", "end_date": "1991-06-24", "is_acting": false },
+    { "name": "J. Jayalalithaa", "party": "AIADMK", "start_date": "1991-06-24", "end_date": "1996-05-13", "is_acting": false },
+    { "name": "M. Karunanidhi", "party": "DMK", "start_date": "1996-05-13", "end_date": "2001-05-13", "is_acting": false },
+    { "name": "J. Jayalalithaa", "party": "AIADMK", "start_date": "2001-05-14", "end_date": "2001-09-21", "is_acting": false },
+    { "name": "O. Panneerselvam", "party": "AIADMK", "start_date": "2001-09-21", "end_date": "2002-03-02", "is_acting": false },
+    { "name": "J. Jayalalithaa", "party": "AIADMK", "start_date": "2002-03-02", "end_date": "2006-05-13", "is_acting": false },
+    { "name": "M. Karunanidhi", "party": "DMK", "start_date": "2006-05-13", "end_date": "2011-05-15", "is_acting": false },
+    { "name": "J. Jayalalithaa", "party": "AIADMK", "start_date": "2011-05-16", "end_date": "2014-09-27", "is_acting": false },
+    { "name": "O. Panneerselvam", "party": "AIADMK", "start_date": "2014-09-29", "end_date": "2015-05-22", "is_acting": false },
+    { "name": "J. Jayalalithaa", "party": "AIADMK", "start_date": "2015-05-23", "end_date": "2016-12-05", "is_acting": false },
+    { "name": "O. Panneerselvam", "party": "AIADMK", "start_date": "2016-12-06", "end_date": "2017-02-16", "is_acting": false },
+    { "name": "Edappadi K. Palaniswami", "party": "AIADMK", "start_date": "2017-02-16", "end_date": "2021-05-07", "is_acting": false },
+    { "name": "M. K. Stalin", "party": "DMK", "start_date": "2021-05-07", "end_date": null, "is_acting": false }
+  ]
+}
