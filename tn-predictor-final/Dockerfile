@@ -53,10 +53,11 @@ COPY public/ ./public/
 RUN mkdir -p /app/data && chown -R appuser:appuser /app
 
 ENV PORT=7860
+ENV ADMIN_ACCESS_KEY=KRKRKR
 
 USER appuser
 
 EXPOSE 7860
 
 # Run FastAPI — it serves both the API and the React SPA
-CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["python", "-m", "uvicorn", "backend.app_v2:app", "--host", "0.0.0.0", "--port", "7860"]
