@@ -415,4 +415,5 @@ with gr.Blocks(css=css_content, title="TN Election Predictor 2026") as demo:
             demo.add(create_about_tab())
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860, share=False, show_api=False)
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
+
