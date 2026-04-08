@@ -1,42 +1,62 @@
 # ─────────────────────────────────────────────────────────────
-# TN Election Predictor — Hugging Face Spaces Dockerfile
-# SDK: Docker  |  Hardware: CPU (free tier compatible)
+# TN Election Predictor 2026 — Hugging Face Spaces Dockerfile
+# Stack: React 19 (Vite) + FastAPI + Uvicorn
+# Port:  7860 (HF Spaces requirement)
 # ─────────────────────────────────────────────────────────────
 
-FROM python:3.10-slim
+# ── Stage 1: Build the React frontend ────────────────────────
+FROM node:20-slim AS frontend-builder
 
-# HF Spaces runs as a non-root user; create one
+WORKDIR /build
+
+# Copy package files first for layer caching
+COPY package.json package-lock.json ./
+RUN npm ci --prefer-offline
+
+# Copy all source and config files
+COPY index.html vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json ./
+COPY postcss.config.js tailwind.config.js eslint.config.js ./
+COPY src/ ./src/
+COPY public/ ./public/
+
+# Build production bundle → /build/dist
+RUN npm run build
+
+# ── Stage 2: Python runtime ───────────────────────────────────
+FROM python:3.11-slim
+
+# HF Spaces non-root user requirement
 RUN useradd -m -u 1000 appuser
 
 WORKDIR /app
 
-# ── System deps ──────────────────────────────────────────────
+# System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
-        git \
     && rm -rf /var/lib/apt/lists/*
 
-# ── Python deps (cached layer) ───────────────────────────────
-COPY requirements.txt .
+# Install Python dependencies
+COPY backend/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# ── App source ───────────────────────────────────────────────
-COPY --chown=appuser:appuser . .
+# Copy backend source
+COPY backend/ ./backend/
 
-# Create writable data dir for JSON persistence
-RUN mkdir -p /app/data && chown -R appuser:appuser /app/data
+# Copy built React frontend from stage 1
+COPY --from=frontend-builder /build/dist ./dist/
 
-# HF Spaces expects the app to listen on port 7860
-ENV GRADIO_SERVER_PORT=7860
-ENV GRADIO_SERVER_NAME=0.0.0.0
+# Copy public data files (GeoJSON, CSVs, JSONs used by the API)
+COPY public/ ./public/
 
-# NOTE: Models are downloaded lazily at first run to avoid build timeouts.
-# The cardiffnlp/twitter-roberta-base-sentiment-latest and facebook/bart-large-mnli
-# models will be cached in ~/.cache/huggingface after first use.
+# Create writable data dir
+RUN mkdir -p /app/data && chown -R appuser:appuser /app
+
+ENV PORT=7860
 
 USER appuser
 
 EXPOSE 7860
 
-CMD ["python", "app.py"]
+# Run FastAPI — it serves both the API and the React SPA
+CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]
