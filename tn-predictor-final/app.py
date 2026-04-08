@@ -529,4 +529,4 @@ if __name__ == "__main__":
     print("Data managers initialized.")
 
     print("Starting Gradio interface...")
-    demo.launch(css="static/styles.css") # Pass CSS to launch() method
+    demo.launch(server_name="0.0.0.0", server_port=7860, css="static/styles.css")

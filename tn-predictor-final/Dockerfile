@@ -1,47 +1,42 @@
-FROM node:20-slim AS frontend-build
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
-COPY tsconfig*.json ./
-COPY vite.config.ts ./
-COPY index.html ./
-COPY postcss.config.js ./
-COPY tailwind.config.js ./
-COPY eslint.config.js ./
-COPY src ./src
-COPY public ./public
-
-RUN npm run build
+# ─────────────────────────────────────────────────────────────
+# TN Election Predictor — Hugging Face Spaces Dockerfile
+# SDK: Docker  |  Hardware: CPU (free tier compatible)
+# ─────────────────────────────────────────────────────────────
 
 FROM python:3.10-slim
 
+# HF Spaces runs as a non-root user; create one
 RUN useradd -m -u 1000 appuser
 
 WORKDIR /app
 
+# ── System deps ──────────────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         git \
     && rm -rf /var/lib/apt/lists/*
 
+# ── Python deps (cached layer) ───────────────────────────────
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+# ── App source ───────────────────────────────────────────────
 COPY --chown=appuser:appuser . .
-COPY --from=frontend-build --chown=appuser:appuser /app/dist ./dist
 
-RUN mkdir -p /app/data /app/data/processed && chown -R appuser:appuser /app/data
+# Create writable data dir for JSON persistence
+RUN mkdir -p /app/data && chown -R appuser:appuser /app/data
 
-ENV PORT=7860
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app
+# HF Spaces expects the app to listen on port 7860
+ENV GRADIO_SERVER_PORT=7860
+ENV GRADIO_SERVER_NAME=0.0.0.0
+
+# NOTE: Models are downloaded lazily at first run to avoid build timeouts.
+# The cardiffnlp/twitter-roberta-base-sentiment-latest and facebook/bart-large-mnli
+# models will be cached in ~/.cache/huggingface after first use.
 
 USER appuser
 
 EXPOSE 7860
 
-CMD ["python", "-m", "uvicorn", "backend.app_v2:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["python", "app.py"]
