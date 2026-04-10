@@ -18,17 +18,23 @@ Live app:
 
 ## Screenshots
 
+### App Demo
+![App Demo](docs/screenshots/demo.gif)
+
 ### Dashboard
-![Dashboard](docs/screenshots/dashboard.svg)
+![Dashboard](docs/screenshots/dashboard.png)
 
 ### Candidate Registry
-![Candidate Registry](docs/screenshots/candidate-dossier.svg)
+![Candidate Registry](docs/screenshots/candidate-registry.png)
 
 ### Strategy Lab
-![Strategy Lab](docs/screenshots/strategy-lab.svg)
+![Strategy Lab](docs/screenshots/strategy-lab.png)
+
+### Opinion Polls
+![Opinion Polls](docs/screenshots/polls.png)
 
 ### Statistics & Visualization
-![Statistics](docs/screenshots/statistics.svg)
+![Statistics](docs/screenshots/statistics.png)
 
 ## Product Summary
 
